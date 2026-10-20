@@ -1,0 +1,7 @@
+dist
+node_modules
+pnpm-lock.yaml
+db/migrations
+data
+playwright-report
+test-results

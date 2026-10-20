@@ -1,0 +1,19 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
+    "lib": ["ES2023", "DOM"],
+    "types": ["node"]
+  },
+  "include": [
+    "api",
+    "db",
+    "shared",
+    "tests",
+    "vite.config.ts",
+    "vite-plugin-api.ts",
+    "drizzle.config.ts",
+    "playwright.config.ts",
+    "vitest.config.ts"
+  ]
+}
