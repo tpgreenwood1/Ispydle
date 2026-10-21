@@ -69,40 +69,61 @@ describe("evaluateGuesses: reveals", () => {
     expect(evaluate(["sandal"]).category).toBe(CATEGORY);
   });
 
-  it("unlocks the clue after guess 4, only when revealed", () => {
-    const three = ["spoon", "sofa", "salad"];
-    expect(evaluate(three, true)).toMatchObject({ clueAvailable: false, clue: null });
+  const SIX_MISSES = ["spoon", "sofa", "salad", "sandy", "sand", "sane"];
 
-    const four = [...three, "sandy"];
-    expect(evaluate(four)).toMatchObject({ clueAvailable: true, clue: null });
-    expect(evaluate(four, true)).toMatchObject({ clueAvailable: true, clue: CLUE });
+  it("never offers the clue before the last regular guess misses", () => {
+    const five = SIX_MISSES.slice(0, 5);
+    expect(evaluate(five, true)).toMatchObject({ clueAvailable: false, clue: null });
   });
 
-  it("reveals the clue independently of the category", () => {
-    const four = ["spoon", "sofa", "salad", "sandy"];
-    const state = evaluateGuesses(ANSWER, { category: CATEGORY, clue: CLUE }, four, { clue: true });
-    expect(state).toMatchObject({ category: null, clue: CLUE });
+  it("offers the last chance after 6 misses, without the clue or answer", () => {
+    expect(evaluate(SIX_MISSES)).toMatchObject({
+      status: "playing",
+      clueAvailable: true,
+      clue: null,
+      answer: null,
+    });
+  });
+
+  it("shows the clue when the last chance is taken, independently of the category", () => {
+    const state = evaluateGuesses(ANSWER, { category: CATEGORY, clue: CLUE }, SIX_MISSES, {
+      clue: true,
+    });
+    expect(state).toMatchObject({ status: "playing", category: null, clue: CLUE, answer: null });
+  });
+
+  it("wins on the last-chance guess", () => {
+    const state = evaluate([...SIX_MISSES, "sandal"], true);
+    expect(state).toMatchObject({ status: "won", guessesUsed: 7, answer: "sandal" });
+  });
+
+  it("loses when the last-chance guess misses", () => {
+    const state = evaluate([...SIX_MISSES, "sauce"], true);
+    expect(state).toMatchObject({ status: "lost", guessesUsed: 7, answer: "sandal" });
+  });
+
+  it("loses after 6 misses when the player gives up", () => {
+    const state = evaluateGuesses(ANSWER, { category: CATEGORY, clue: CLUE }, SIX_MISSES, {
+      giveUp: true,
+    });
+    expect(state).toMatchObject({ status: "lost", guessesUsed: 6, answer: "sandal", clue: CLUE });
+  });
+
+  it("loses after 6 misses when the puzzle has no clue", () => {
+    expect(evaluate(SIX_MISSES, true, null)).toMatchObject({
+      status: "lost",
+      clueAvailable: false,
+      clue: null,
+    });
   });
 
   it("always includes the clue once the game has ended", () => {
     expect(evaluate(["sandal"]).clue).toBe(CLUE);
   });
 
-  it("never offers a clue the puzzle doesn't have", () => {
-    const four = ["spoon", "sofa", "salad", "sandy"];
-    expect(evaluate(four, true, null)).toMatchObject({ clueAvailable: false, clue: null });
-  });
-
   it("never includes the answer while playing", () => {
     const state = evaluate(["spoon", "sofa", "salad", "sandy", "sand"], true);
     expect(state.status).toBe("playing");
     expect(state.answer).toBeNull();
-  });
-
-  it("loses after 6 guesses without the answer", () => {
-    const state = evaluate(["spoon", "sofa", "salad", "sandy", "sand", "sane"]);
-    expect(state.status).toBe("lost");
-    expect(state.answer).toBe("sandal");
-    expect(state.guessesUsed).toBe(6);
   });
 });

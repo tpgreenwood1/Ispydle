@@ -1,14 +1,9 @@
 import { useEffect, useState, type CSSProperties } from "react";
 import { useParams } from "react-router-dom";
-import { MAX_GUESSES, MAX_WORD_LEN } from "../../shared/config";
-import {
-  buildShareText,
-  shareImageAlt,
-  shareImagePath,
-  type ShareResult,
-} from "../../shared/share";
+import { LAST_CHANCE_GUESSES, MAX_GUESSES, MAX_WORD_LEN } from "../../shared/config";
+import { buildShareText, shareImageAlt, shareImagePath, shareResultFor } from "../../shared/share";
 import { GuessHistory, LengthCaption, PrefixRow } from "../components/Board";
-import { Counter, GuessInput, HintStrips } from "../components/Controls";
+import { Counter, GuessInput, HintStrips, LastChanceOffer } from "../components/Controls";
 import { ResultSheet } from "../components/Sheets";
 import { useToast } from "../components/toastContext";
 import { useGame, type Hint } from "../hooks/useGame";
@@ -28,16 +23,19 @@ export function PuzzlePage() {
 }
 
 function Game({ puzzleNo }: { puzzleNo: number }) {
-  const { phase, loadError, puzzle, state, busy, submit, revealHint, retry } = useGame(puzzleNo);
+  const { phase, loadError, puzzle, state, busy, submit, revealHint, giveUp, retry } =
+    useGame(puzzleNo);
   const toast = useToast();
   const playAnother = usePlayAnother();
   const [announcement, setAnnouncement] = useState("");
   const [resultOpen, setResultOpen] = useState(false);
   const ended = state.status !== "playing";
+  // During play the clue is only shown once the last chance is taken.
+  const lastChanceOffered = !ended && state.clueAvailable && !state.clue;
+  const lastChanceTaken = state.guessesUsed > MAX_GUESSES || (!ended && state.clue !== null);
 
-  let result: ShareResult | null = null;
-  if (state.status === "won") result = { status: "won", guessesUsed: state.guessesUsed };
-  if (state.status === "lost") result = { status: "lost" };
+  const result =
+    state.status === "playing" ? null : shareResultFor(state.status, state.guessesUsed);
   const image =
     puzzle && result
       ? {
@@ -90,6 +88,11 @@ function Game({ puzzleNo }: { puzzleNo: number }) {
     if (failure) toast(failure);
   }
 
+  async function handleGiveUp() {
+    const failure = await giveUp();
+    if (failure) toast(failure);
+  }
+
   async function handleShare() {
     if (!puzzle || state.status === "playing") return;
     countShareClick();
@@ -123,10 +126,18 @@ function Game({ puzzleNo }: { puzzleNo: number }) {
         {state.wordLength !== null && `, ${state.wordLength} letters`}.
       </p>
       <hr className="divider" />
-      <GuessHistory rows={state.rows} wordLength={state.wordLength} />
+      <GuessHistory
+        rows={state.rows}
+        wordLength={state.wordLength}
+        slots={lastChanceTaken ? LAST_CHANCE_GUESSES : MAX_GUESSES}
+      />
 
       <div className="bottom">
-        <Counter guessesUsed={state.guessesUsed} puzzleNo={puzzleNo} />
+        <Counter
+          guessesUsed={state.guessesUsed}
+          puzzleNo={puzzleNo}
+          lastChance={!ended && state.clueAvailable}
+        />
         <HintStrips state={state} onReveal={handleReveal} />
         {ended ? (
           <div className="actions">
@@ -137,6 +148,8 @@ function Game({ puzzleNo }: { puzzleNo: number }) {
               Play another word
             </button>
           </div>
+        ) : lastChanceOffered ? (
+          <LastChanceOffer onTake={() => handleReveal("clue")} onGiveUp={handleGiveUp} />
         ) : (
           <GuessInput firstLetter={puzzle.firstLetter} busy={busy} onSubmit={handleGuess} />
         )}

@@ -46,6 +46,10 @@ export function describeGuess(prev: GameState, next: GameState, firstLetter: str
   if (next.status === "won") return `${row.word}: spotted it in ${next.guessesUsed} guesses!`;
   if (next.status === "lost") return `${row.word}: out of guesses. It was ${next.answer ?? ""}.`;
 
+  if (next.guessesUsed >= MAX_GUESSES) {
+    return `${row.word}: out of guesses. Take a last chance with the clue, or give up.`;
+  }
+
   const left = MAX_GUESSES - next.guessesUsed;
   const parts = [
     `${row.word}: ${spell(row.word.slice(0, row.matched))} confirmed`,
@@ -56,6 +60,5 @@ export function describeGuess(prev: GameState, next: GameState, firstLetter: str
     parts.push(`the word has ${next.wordLength} letters`);
   }
   if (!prev.categoryAvailable && next.categoryAvailable) parts.push("category hint unlocked");
-  if (!prev.clueAvailable && next.clueAvailable) parts.push("clue unlocked");
   return parts.join(", ");
 }

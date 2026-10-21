@@ -30,6 +30,7 @@ export interface GuessRequest {
   guesses: string[];
   revealCategory?: boolean;
   revealClue?: boolean;
+  giveUp?: boolean;
 }
 
 export type GuessResponse = { valid: true; state: GameState } | { valid: false; error: GuessError };

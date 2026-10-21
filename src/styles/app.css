@@ -280,6 +280,12 @@ button.hint-strip {
   color: var(--ink);
 }
 
+.last-chance {
+  margin: 0;
+  text-align: center;
+  font-weight: 700;
+}
+
 .input-row {
   display: flex;
   gap: 10px;

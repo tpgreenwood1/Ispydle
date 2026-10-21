@@ -1,4 +1,4 @@
-import { MAX_GUESSES } from "../../../shared/config.js";
+import { LAST_CHANCE_GUESSES, MAX_GUESSES } from "../../../shared/config.js";
 import { evaluateGuesses } from "../../../shared/evaluate.js";
 import type { GuessResponse } from "../../../shared/types.js";
 import { isWellFormed, validateGuess } from "../../../shared/validateGuess.js";
@@ -16,6 +16,7 @@ interface Body {
   guesses: string[];
   revealCategory: boolean;
   revealClue: boolean;
+  giveUp: boolean;
 }
 
 function parseBody(text: string): Body | null {
@@ -26,15 +27,17 @@ function parseBody(text: string): Body | null {
     return null;
   }
   if (typeof body !== "object" || body === null) return null;
-  const { guesses, revealCategory, revealClue } = body as Record<string, unknown>;
+  const { guesses, revealCategory, revealClue, giveUp } = body as Record<string, unknown>;
   if (!Array.isArray(guesses) || !guesses.every((g) => typeof g === "string")) return null;
   if (revealCategory !== undefined && typeof revealCategory !== "boolean") return null;
   if (revealClue !== undefined && typeof revealClue !== "boolean") return null;
+  if (giveUp !== undefined && typeof giveUp !== "boolean") return null;
   // Guesses are case-insensitive: "Spoon" and "spoon" are the same guess.
   return {
     guesses: guesses.map((g: string) => g.trim().toLowerCase()),
     revealCategory: revealCategory ?? false,
     revealClue: revealClue ?? false,
+    giveUp: giveUp ?? false,
   };
 }
 
@@ -51,11 +54,13 @@ export const POST = withErrors(async (req) => {
   if (!body) {
     return error(
       400,
-      "Body must be { guesses: string[], revealCategory?: boolean, revealClue?: boolean }",
+      "Body must be { guesses: string[], revealCategory?: boolean, revealClue?: boolean, giveUp?: boolean }",
     );
   }
-  const { guesses, revealCategory, revealClue } = body;
-  if (guesses.length > MAX_GUESSES) return error(400, `At most ${MAX_GUESSES} guesses`);
+  const { guesses, revealCategory, revealClue, giveUp } = body;
+  if (guesses.length > LAST_CHANCE_GUESSES) {
+    return error(400, `At most ${LAST_CHANCE_GUESSES} guesses`);
+  }
 
   const [puzzle, known] = await Promise.all([
     getPuzzle(puzzleNo),
@@ -66,6 +71,10 @@ export const POST = withErrors(async (req) => {
   // A guess after the winning guess means the client is out of sync.
   const winAt = guesses.indexOf(puzzle.word);
   if (winAt !== -1 && winAt < guesses.length - 1) return error(400, "Game already won");
+  // The last-chance guess needs the clue taken (so the puzzle must have one) and not given up.
+  if (guesses.length > MAX_GUESSES && (!revealClue || giveUp || puzzle.clue === null)) {
+    return error(400, "No last chance taken");
+  }
 
   const firstLetter = puzzle.word.charAt(0);
   for (const [i, guess] of guesses.entries()) {
@@ -78,6 +87,7 @@ export const POST = withErrors(async (req) => {
   const state = evaluateGuesses(puzzle.word, puzzle, guesses, {
     category: revealCategory,
     clue: revealClue,
+    giveUp,
   });
   return json({ valid: true, state } satisfies GuessResponse);
 });

@@ -36,7 +36,6 @@ cp .env.example .env   # then fill in DATABASE_URL
 | `ENABLED_TIERS`       | Comma-separated difficulty tiers to serve, e.g. `1` or `1,2` (default `1`)                       |
 | `LENGTH_REVEAL_AFTER` | Word length is shown once this many guesses are used (default `2`)                               |
 | `CATEGORY_HINT_AFTER` | Category hint unlocks once this many guesses are used (default `3`)                              |
-| `CLUE_HINT_AFTER`     | Clue unlocks once this many guesses are used (default `4`)                                       |
 | `MAX_WORD_LEN`        | Longest answer served; longer words stay in the database but are skipped (default `6`)           |
 | `SHARE_STYLE`         | Share image graphic when the URL has no `style` param: `lens`, `tiles` or `eye` (default `lens`) |
 

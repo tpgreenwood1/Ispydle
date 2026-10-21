@@ -228,21 +228,35 @@ function hero(style: Style, fmt: Format, letter: string, c: Colors, lost: boolea
   return lens(width, letter, c);
 }
 
+/** The last-chance marker drawn before the 7th pip. */
+const bulb = (size: number, c: Colors) =>
+  svg(
+    size,
+    "0 0 24 24",
+    size,
+    h("path", { d: "M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2Z", fill: c.accent }),
+    h("rect", { x: 9, y: 18.5, width: 6, height: 3, rx: 1.2, fill: c.ink }),
+  );
+
 function pips(size: number, result: ShareResult | null, c: Colors) {
   const filled = result?.status === "won" ? result.guessesUsed : result ? MAX_GUESSES : 0;
+  const lastChance =
+    result?.status === "won" ? result.guessesUsed > MAX_GUESSES : (result?.tookClue ?? false);
+  const pip = (i: number) => {
+    let fill: string | undefined;
+    if (result?.status === "lost") fill = c.noHelp;
+    else if (i === filled - 1) fill = c.confirmed;
+    else if (i < filled) fill = c.ink;
+    // The renderer rejects undefined style values, so set one property or the other.
+    const paint = fill
+      ? { backgroundColor: fill }
+      : { border: `${Math.round(size * 0.12)}px solid ${c.unknownDashed}` };
+    return h("div", { style: { width: size, height: size, borderRadius: size, ...paint } });
+  };
   return row(
     { gap: size * 0.4 },
-    ...Array.from({ length: MAX_GUESSES }, (_, i) => {
-      let fill: string | undefined;
-      if (result?.status === "lost") fill = c.noHelp;
-      else if (i === filled - 1) fill = c.confirmed;
-      else if (i < filled) fill = c.ink;
-      // The renderer rejects undefined style values, so set one property or the other.
-      const paint = fill
-        ? { backgroundColor: fill }
-        : { border: `${Math.round(size * 0.12)}px solid ${c.unknownDashed}` };
-      return h("div", { style: { width: size, height: size, borderRadius: size, ...paint } });
-    }),
+    ...Array.from({ length: MAX_GUESSES }, (_, i) => pip(i)),
+    ...(lastChance ? [bulb(size, c), pip(MAX_GUESSES)] : []),
   );
 }
 

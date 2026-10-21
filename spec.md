@@ -17,7 +17,6 @@ This spec is the source of truth. Visual reference: the Light and Dark mockups (
 | `MIN_WORD_LEN`        | 3     | Shortest answer                                                  |
 | `LENGTH_REVEAL_AFTER` | 2     | Word length is shown once this many guesses are used (env var)   |
 | `CATEGORY_HINT_AFTER` | 3     | Category hint unlocks once this many guesses are used (env var)  |
-| `CLUE_HINT_AFTER`     | 4     | Clue unlocks once this many guesses are used (env var)           |
 | `MIN_GUESS_LEN`       | 2     | Shortest accepted guess                                          |
 | `MAX_GUESS_LEN`       | 12    | Longest accepted guess                                           |
 | `ENABLED_TIERS`       | `[1]` | Word difficulty tiers served (env var, comma separated)          |
@@ -37,10 +36,10 @@ This spec is the source of truth. Visual reference: the Light and Dark mockups (
    - Letters at positions `< matched` are **confirmed** (green). All other letters in that row are **no help** (grey).
    - The **known prefix** is the largest `matched` seen so far in the game. It is shown in the top tile row.
    - Example: answer `sandwich`; guess `sandy` gives `matched = 4`, so the known prefix becomes `SAND`.
-5. **Win:** the guess equals the answer. **Loss:** `MAX_GUESSES` used without a win.
+5. **Win:** the guess equals the answer. **Loss:** `MAX_GUESSES` used without a win and the last chance declined, or the last-chance guess missed.
 6. **Length reveal:** once `LENGTH_REVEAL_AFTER` guesses are used (or the game ends), the top row shows dashed empty tiles up to the word's full length, with a small animation, plus a "N letters" caption. Before that, the top row is the known prefix followed by one dashed tile and no length caption.
 7. **Category hint:** a strip below the counter reads "Category hint unlocks after guess 3". After `CATEGORY_HINT_AFTER` guesses it becomes a tappable "Show category" button that reveals the category (for example "Clothing") inline.
-8. **Clue:** once the category unlocks, a second strip appears below it reading "Clue unlocks after guess 4". After `CLUE_HINT_AFTER` guesses it becomes a "Show clue" button that reveals a one-line clue (for example "Open shoe with straps for summer"). The clue can be revealed without the category.
+8. **Last chance (clue):** the clue is hidden during the normal game. After `MAX_GUESSES` misses the input is replaced by "Out of guesses! Take a last chance with the clue?" with **Give up** and **Show clue**. Show clue reveals a one-line clue (for example "Open shoe with straps for summer") and allows one more guess (7 in total); Give up ends the game as a loss. A puzzle without a clue is lost after `MAX_GUESSES` as before.
 9. On win or loss, a result sheet opens (see section 5).
 
 ### Worked examples (must be unit tests)
@@ -155,10 +154,10 @@ Success (`200`):
 
 - `wordLength` is a number once `guessesUsed >= LENGTH_REVEAL_AFTER` or the game has ended, else `null`.
 - `categoryAvailable` becomes true at `CATEGORY_HINT_AFTER`; `category` is included once the player has tapped to reveal it. The client requests it by adding `"revealCategory": true` to the body (also always included when the game has ended).
-- `clueAvailable` becomes true at `CLUE_HINT_AFTER` (and only if the puzzle has a clue); `clue` works the same way, requested with `"revealClue": true`.
+- `clueAvailable` becomes true once `MAX_GUESSES` guesses miss (and only if the puzzle has a clue): the last chance is on offer and `status` stays `playing`. `"revealClue": true` takes it (returns `clue` and allows one more guess); `"giveUp": true` declines it (`status` becomes `lost`).
 - `answer` is only set when `status` is `won` or `lost`.
 
-Invalid last guess (`200`, so the client treats it as a normal response): `{ "valid": false, "error": "NOT_IN_DICTIONARY" | "WRONG_FIRST_LETTER" | "ALREADY_GUESSED" | "BAD_FORMAT" }`. Bad request shapes return `400`. More than `MAX_GUESSES` guesses returns `400`.
+Invalid last guess (`200`, so the client treats it as a normal response): `{ "valid": false, "error": "NOT_IN_DICTIONARY" | "WRONG_FIRST_LETTER" | "ALREADY_GUESSED" | "BAD_FORMAT" }`. Bad request shapes return `400`. More than `MAX_GUESSES` + 1 guesses, or a last-chance guess without `revealClue` (or with `giveUp`, or on a puzzle with no clue), returns `400`.
 
 ### Abuse handling (v1)
 
@@ -181,7 +180,7 @@ Cap request body size, cap guesses per request, and add basic IP rate limiting (
 4. **Length caption:** magnifier icon + "6 letters" (only after the reveal).
 5. **Divider**, then the **guess history**: the same 7-column grid so letter columns line up with the prefix row. Each row shows the guess letters; confirmed tiles green, others grey. After the length reveal, show faint dashed placeholder rows for the remaining guesses at the exact word length. Before the reveal, show no placeholder rows; reserve the vertical space so the layout doesn't jump.
 6. **Counter row:** six pips (filled = used) plus "N guesses left" on the left; "Word #4821" on the right.
-7. **Category hint strip:** dashed bordered pill with a lock icon, "Category hint unlocks after guess 3". Turns into a "Show category" button, then shows the category text. Once the category unlocks, a matching clue strip appears below it ("Clue unlocks after guess 4", then "Show clue", then the clue text).
+7. **Category hint strip:** dashed bordered pill with a lock icon, "Category hint unlocks after guess 3". Turns into a "Show category" button, then shows the category text. Once the last chance is taken, the clue text appears in a matching strip below it, and the counter reads "Last chance".
 8. **Input row** (bottom, above the keyboard): a text input (flex 1) and the "Guess" button (104px wide).
 
 Layout rules: the app column is max 420px wide and centred on larger screens, full height with `100dvh`, and respects `env(safe-area-inset-*)`. Use the **native** keyboard: `autoCapitalize="off"`, `autoCorrect="off"`, `autoComplete="off"`, `spellCheck={false}`, `enterKeyHint="go"`, `maxLength={12}`. Enter submits. When the keyboard opens, the history area scrolls so the input and the prefix row stay visible. For widths below 360px, tiles scale down via the grid (`aspect-ratio: 1`) rather than overflowing.
@@ -215,7 +214,7 @@ Theme: follow `prefers-color-scheme` by default; the user can override (System /
 ### Sheets and states
 
 - **How to play** (shown on first visit, reopenable): three short steps with a tiny worked example (guess `sandy` for a hidden `sandal` makes `SAND` appear). Keep it to two or three lines of text.
-- **Result sheet** (win or loss): win shows "Spotted it! 4/6"; loss shows "It was SANDAL". Both show the category and clue, a primary **Share** button, and **Play another word**. Do not auto-dismiss.
+- **Result sheet** (win or loss): win shows "Spotted it! 4/6" (or "Spotted it with the clue!" on the last chance); loss shows "It was SANDAL". Both show the category and clue, a primary **Share** button, and **Play another word**. Do not auto-dismiss.
 - **Stats sheet:** games played, win percentage, and a bar distribution of wins by guess count (1 to 6). No streaks in v1 (unlimited play).
 - **Toasts:** short, top-centre, for validation errors and "Copied".
 

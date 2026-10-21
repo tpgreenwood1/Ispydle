@@ -52,6 +52,10 @@ describe("GET /api/share-image", () => {
     }
   });
 
+  it.each(["w7", "l7"])("renders the last-chance result %s", async (r) => {
+    expect((await image(`l=s&n=4821&r=${r}`)).status).toBe(200);
+  });
+
   it("is identical for the same params", async () => {
     const a = await pngSize(await image("l=q&n=7&r=w1&style=eye"));
     const b = await pngSize(await image("l=q&n=7&r=w1&style=eye"));
@@ -64,7 +68,7 @@ describe("GET /api/share-image", () => {
     ["an uppercase letter", "l=S&n=4821"],
     ["two letters", "l=sa&n=4821"],
     ["a non-numeric number", "l=s&n=48a"],
-    ["a bad result", "l=s&n=4821&r=w7"],
+    ["a bad result", "l=s&n=4821&r=w8"],
     ["an empty result", "l=s&n=4821&r="],
     ["an unknown style", "l=s&n=4821&style=wordle"],
     ["an unknown theme", "l=s&n=4821&theme=sepia"],

@@ -1,5 +1,4 @@
 import { useEffect, useRef } from "react";
-import { MAX_GUESSES } from "../../shared/config";
 import type { Row } from "../../shared/types";
 import { MagnifierIcon } from "./Icons";
 
@@ -76,10 +75,12 @@ export function LengthCaption({ wordLength }: { wordLength: number | null }) {
 interface GuessHistoryProps {
   rows: Row[];
   wordLength: number | null;
+  /** Number of guess rows: MAX_GUESSES, plus one once the last chance is taken. */
+  slots: number;
 }
 
 /** One row per guess slot. Unused slots are dashed after the length reveal, invisible before. */
-export function GuessHistory({ rows, wordLength }: GuessHistoryProps) {
+export function GuessHistory({ rows, wordLength, slots }: GuessHistoryProps) {
   const lastRow = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -88,7 +89,7 @@ export function GuessHistory({ rows, wordLength }: GuessHistoryProps) {
 
   return (
     <div className="history" aria-hidden="true">
-      {Array.from({ length: MAX_GUESSES }, (_, i) => {
+      {Array.from({ length: slots }, (_, i) => {
         const row = rows[i];
         if (row) {
           return (

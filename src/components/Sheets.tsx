@@ -1,9 +1,4 @@
-import {
-  CATEGORY_HINT_AFTER,
-  CLUE_HINT_AFTER,
-  LENGTH_REVEAL_AFTER,
-  MAX_GUESSES,
-} from "../../shared/config";
+import { CATEGORY_HINT_AFTER, LENGTH_REVEAL_AFTER, MAX_GUESSES } from "../../shared/config";
 import type { GameState } from "../../shared/types";
 import { loadStats, type ThemePreference } from "../lib/storage";
 import { Sheet } from "./Sheet";
@@ -22,9 +17,10 @@ export function HowToPlaySheet({ open, onClose }: SheetBaseProps) {
           Guess any word starting with that letter. Letters that match from the start turn green.
         </li>
         <li>
-          The length appears after guess {LENGTH_REVEAL_AFTER}; a category hint unlocks after guess{" "}
-          {CATEGORY_HINT_AFTER} and a clue after guess {CLUE_HINT_AFTER}.
+          The length appears after guess {LENGTH_REVEAL_AFTER} and a category hint unlocks after
+          guess {CATEGORY_HINT_AFTER}.
         </li>
+        <li>Out of guesses? Take a last chance: one more guess, with a clue.</li>
       </ol>
       <div className="example" aria-hidden="true">
         <span className="example-label">Hidden word SANDAL, you guess SANDY:</span>
@@ -63,10 +59,13 @@ export function ResultSheet({
   onShare,
   onPlayAnother,
 }: ResultSheetProps) {
-  const title =
-    state.status === "won"
-      ? `Spotted it! ${state.guessesUsed}/${MAX_GUESSES}`
-      : `It was ${(state.answer ?? "").toUpperCase()}`;
+  let title = `It was ${(state.answer ?? "").toUpperCase()}`;
+  if (state.status === "won") {
+    title =
+      state.guessesUsed > MAX_GUESSES
+        ? "Spotted it with the clue!"
+        : `Spotted it! ${state.guessesUsed}/${MAX_GUESSES}`;
+  }
   return (
     <Sheet open={open} onClose={onClose} title={title}>
       {state.category && <p className="muted">Category: {state.category}</p>}
@@ -137,13 +136,14 @@ export function StatsSheet({ open, onClose, theme, onThemeChange }: StatsSheetPr
       <ol className="bars">
         {stats.wins.map((count, i) => (
           <li key={i} className="bar-row">
-            <span className="bar-label">{i + 1}</span>
+            <span className="bar-label">{i < MAX_GUESSES ? i + 1 : "💡"}</span>
             <span
               className={`bar ${count ? "has-wins" : ""}`}
               style={{ width: `${(count / maxWins) * 100}%` }}
             >
               <span className="sr-only">
-                {i + 1} {i === 0 ? "guess" : "guesses"}:{" "}
+                {i < MAX_GUESSES ? `${i + 1} ${i === 0 ? "guess" : "guesses"}` : "With the clue"}
+                :{" "}
               </span>
               {count}
             </span>

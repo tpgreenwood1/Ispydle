@@ -1,16 +1,18 @@
 import { useState, type FormEvent } from "react";
-import {
-  CATEGORY_HINT_AFTER,
-  CLUE_HINT_AFTER,
-  MAX_GUESSES,
-  MAX_GUESS_LEN,
-} from "../../shared/config";
+import { CATEGORY_HINT_AFTER, MAX_GUESSES, MAX_GUESS_LEN } from "../../shared/config";
 import type { GameState } from "../../shared/types";
 import type { Hint } from "../hooks/useGame";
 import { LockIcon } from "./Icons";
 
-export function Counter({ guessesUsed, puzzleNo }: { guessesUsed: number; puzzleNo: number }) {
-  const left = MAX_GUESSES - guessesUsed;
+interface CounterProps {
+  guessesUsed: number;
+  puzzleNo: number;
+  /** The last-chance guess is on offer or being played. */
+  lastChance: boolean;
+}
+
+export function Counter({ guessesUsed, puzzleNo, lastChance }: CounterProps) {
+  const left = Math.max(0, MAX_GUESSES - guessesUsed);
   return (
     <div className="counter">
       <div className="pips">
@@ -18,7 +20,7 @@ export function Counter({ guessesUsed, puzzleNo }: { guessesUsed: number; puzzle
           <span key={i} className={`pip ${i < guessesUsed ? "used" : ""}`} aria-hidden="true" />
         ))}
         <span className="pips-label">
-          {left} {left === 1 ? "guess" : "guesses"} left
+          {lastChance ? "Last chance" : `${left} ${left === 1 ? "guess" : "guesses"} left`}
         </span>
       </div>
       <span>Word #{puzzleNo}</span>
@@ -31,7 +33,7 @@ interface HintStripsProps {
   onReveal: (hint: Hint) => void;
 }
 
-/** The category hint, then (once the category unlocks) the clue below it. */
+/** The category hint, then the clue once the last chance is taken (or the game ends). */
 export function HintStrips({ state, onReveal }: HintStripsProps) {
   return (
     <>
@@ -42,15 +44,29 @@ export function HintStrips({ state, onReveal }: HintStripsProps) {
         lockedLabel={`Category hint unlocks after guess ${CATEGORY_HINT_AFTER}`}
         onReveal={() => onReveal("category")}
       />
-      {(state.categoryAvailable || state.clue) && (
-        <HintStrip
-          text={state.clue && `Clue: ${state.clue}`}
-          available={state.clueAvailable}
-          revealLabel="Show clue"
-          lockedLabel={`Clue unlocks after guess ${CLUE_HINT_AFTER}`}
-          onReveal={() => onReveal("clue")}
-        />
-      )}
+      {state.clue && <div className="hint-strip revealed">Clue: {state.clue}</div>}
+    </>
+  );
+}
+
+interface LastChanceOfferProps {
+  onTake: () => void;
+  onGiveUp: () => void;
+}
+
+/** Shown in place of the input after the last regular guess misses. */
+export function LastChanceOffer({ onTake, onGiveUp }: LastChanceOfferProps) {
+  return (
+    <>
+      <p className="last-chance">Out of guesses! Take a last chance with the clue?</p>
+      <div className="actions">
+        <button type="button" className="button" onClick={onGiveUp}>
+          Give up
+        </button>
+        <button type="button" className="button primary" onClick={onTake}>
+          Show clue
+        </button>
+      </div>
     </>
   );
 }

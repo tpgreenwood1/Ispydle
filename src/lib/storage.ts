@@ -1,4 +1,4 @@
-import { MAX_GUESSES } from "../../shared/config";
+import { LAST_CHANCE_GUESSES } from "../../shared/config";
 import type { GameStatus } from "../../shared/types";
 
 const KEYS = {
@@ -68,12 +68,18 @@ export const playedPuzzleNos = (): number[] => Object.keys(loadGames()).map(Numb
 
 export interface Stats {
   played: number;
-  /** wins[i] = games won in i + 1 guesses */
+  /** wins[i] = games won in i + 1 guesses (the last one with the clue) */
   wins: number[];
 }
 
-export const loadStats = (): Stats =>
-  read<Stats>(KEYS.stats, { played: 0, wins: Array<number>(MAX_GUESSES).fill(0) });
+export function loadStats(): Stats {
+  const stats = read<Stats>(KEYS.stats, { played: 0, wins: [] });
+  // Stats saved before the last chance existed have no bucket for it.
+  return {
+    ...stats,
+    wins: Array.from({ length: LAST_CHANCE_GUESSES }, (_, i) => stats.wins[i] ?? 0),
+  };
+}
 
 export function recordResult(status: GameStatus, guessesUsed: number) {
   const stats = loadStats();

@@ -1,6 +1,6 @@
 import {
   CATEGORY_HINT_AFTER,
-  CLUE_HINT_AFTER,
+  LAST_CHANCE_GUESSES,
   LENGTH_REVEAL_AFTER,
   MAX_GUESSES,
 } from "./config.js";
@@ -21,7 +21,10 @@ export interface Hints {
 /** Which unlocked hints the player has asked to see. */
 export interface Reveal {
   category?: boolean;
+  /** Takes the last chance: shows the clue and allows one more guess. */
   clue?: boolean;
+  /** Declines the last chance, ending the game. */
+  giveUp?: boolean;
 }
 
 /**
@@ -38,13 +41,16 @@ export function evaluateGuesses(
   const knownPrefixLen = rows.reduce((max, r) => Math.max(max, r.matched), 0);
   const guessesUsed = rows.length;
 
+  // After MAX_GUESSES misses the last chance (the clue plus one more guess) is on offer,
+  // unless the puzzle has no clue or the player gives up.
+  const lastChance = hints.clue !== null && !reveal.giveUp;
   let status: GameStatus = "playing";
   if (guesses.includes(answer)) status = "won";
-  else if (guessesUsed >= MAX_GUESSES) status = "lost";
+  else if (guessesUsed >= (lastChance ? LAST_CHANCE_GUESSES : MAX_GUESSES)) status = "lost";
   const ended = status !== "playing";
 
   const categoryAvailable = guessesUsed >= CATEGORY_HINT_AFTER;
-  const clueAvailable = hints.clue !== null && guessesUsed >= CLUE_HINT_AFTER;
+  const clueAvailable = hints.clue !== null && guessesUsed >= MAX_GUESSES;
 
   return {
     rows,

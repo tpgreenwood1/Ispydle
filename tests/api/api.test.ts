@@ -12,7 +12,25 @@ const PUZZLES: (Puzzle & { tier: number })[] = [
   { puzzleNo: 1234, word: "acorn", category: "Nature", clue: null, tier: 1 },
   { puzzleNo: 5555, word: "yacht", category: "Vehicles", clue: null, tier: 2 },
 ];
-const DICTIONARY = new Set(["spoon", "sofa", "salad", "sandy", "sand", "sane", "sandal", "acorn"]);
+const DICTIONARY = new Set([
+  "spoon",
+  "sofa",
+  "salad",
+  "sandy",
+  "sand",
+  "sane",
+  "sauce",
+  "sandal",
+  "acorn",
+  "apple",
+  "ample",
+  "angle",
+  "ankle",
+  "arrow",
+  "atlas",
+  "amber",
+]);
+const SIX_MISSES = ["spoon", "sofa", "salad", "sandy", "sand", "sane"];
 
 vi.mock("../../api/_lib/queries", () => ({
   getPuzzle: vi.fn(async (no: number) => PUZZLES.find((p) => p.puzzleNo === no) ?? null),
@@ -118,22 +136,45 @@ describe("POST /api/puzzles/:puzzleNo/guess", () => {
     expect(shown.state.answer).toBeNull();
   });
 
-  it("returns the clue only when asked after guess 4", async () => {
-    const four = ["spoon", "sofa", "salad", "sandy"];
-    const hidden = await (await guess({ guesses: four })).json();
-    expect(hidden.state).toMatchObject({ clueAvailable: true, clue: null });
-    const early = await (await guess({ guesses: four.slice(0, 3), revealClue: true })).json();
-    expect(early.state.clue).toBeNull();
-    const shown = await (await guess({ guesses: four, revealClue: true })).json();
-    expect(shown.state).toMatchObject({ clue: "Open shoe with straps for summer", answer: null });
+  it("offers the last chance after 6 misses and shows the clue only when taken", async () => {
+    const early = await (await guess({ guesses: SIX_MISSES.slice(0, 5), revealClue: true })).json();
+    expect(early.state).toMatchObject({ clueAvailable: false, clue: null });
+    const offered = await (await guess({ guesses: SIX_MISSES })).json();
+    expect(offered.state).toMatchObject({ status: "playing", clueAvailable: true, clue: null });
+    const taken = await (await guess({ guesses: SIX_MISSES, revealClue: true })).json();
+    expect(taken.state).toMatchObject({
+      status: "playing",
+      clue: "Open shoe with straps for summer",
+      answer: null,
+    });
+  });
+
+  it("plays the last-chance guess once the clue is taken", async () => {
+    const won = await (
+      await guess({ guesses: [...SIX_MISSES, "sandal"], revealClue: true })
+    ).json();
+    expect(won.state).toMatchObject({ status: "won", guessesUsed: 7, answer: "sandal" });
+    const lost = await (
+      await guess({ guesses: [...SIX_MISSES, "sauce"], revealClue: true })
+    ).json();
+    expect(lost.state).toMatchObject({ status: "lost", guessesUsed: 7, answer: "sandal" });
+  });
+
+  it("ends the game when the player gives up", async () => {
+    const res = await (await guess({ guesses: SIX_MISSES, giveUp: true })).json();
+    expect(res.state).toMatchObject({ status: "lost", answer: "sandal" });
+  });
+
+  it("loses after 6 misses when the puzzle has no clue", async () => {
+    const misses = ["apple", "ample", "angle", "ankle", "arrow", "atlas"];
+    const res = await (await guess({ guesses: misses }, 1234)).json();
+    expect(res.state).toMatchObject({ status: "lost", clueAvailable: false, answer: "acorn" });
   });
 
   it("returns the answer and category on a win or loss", async () => {
     const won = await (await guess({ guesses: ["salad", "sandal"] })).json();
     expect(won.state).toMatchObject({ status: "won", answer: "sandal", category: "Clothing" });
-    const lost = await (
-      await guess({ guesses: ["spoon", "sofa", "salad", "sandy", "sand", "sane"] })
-    ).json();
+    const lost = await (await guess({ guesses: SIX_MISSES, giveUp: true })).json();
     expect(lost.state).toMatchObject({ status: "lost", answer: "sandal", wordLength: 6 });
   });
 
@@ -153,15 +194,29 @@ describe("POST /api/puzzles/:puzzleNo/guess", () => {
   it.each([
     ["an invalid earlier guess", { guesses: ["sxyz", "spoon"] }],
     ["a duplicate earlier guess", { guesses: ["spoon", "spoon", "sofa"] }],
-    ["more than 6 guesses", { guesses: ["a", "b", "c", "d", "e", "f", "g"] }],
+    ["more than 7 guesses", { guesses: ["a", "b", "c", "d", "e", "f", "g", "h"] }],
+    ["a 7th guess without the clue", { guesses: [...SIX_MISSES, "sandal"] }],
+    [
+      "a 7th guess after giving up",
+      { guesses: [...SIX_MISSES, "sandal"], revealClue: true, giveUp: true },
+    ],
+    [
+      "a 7th guess on a puzzle with no clue",
+      {
+        guesses: ["apple", "ample", "angle", "ankle", "arrow", "atlas", "amber"],
+        revealClue: true,
+      },
+      1234,
+    ],
     ["a guess after the win", { guesses: ["sandal", "spoon"] }],
     ["non-string guesses", { guesses: [1] }],
     ["a missing guesses field", {}],
     ["a non-boolean revealCategory", { guesses: [], revealCategory: "yes" }],
     ["a non-boolean revealClue", { guesses: [], revealClue: 1 }],
+    ["a non-boolean giveUp", { guesses: [], giveUp: "yes" }],
     ["malformed JSON", "{"],
-  ])("returns 400 for %s", async (_, body) => {
-    expect((await guess(body)).status).toBe(400);
+  ])("returns 400 for %s", async (_, body, puzzleNo?: number) => {
+    expect((await guess(body, puzzleNo)).status).toBe(400);
   });
 
   it("accepts guesses in any case", async () => {

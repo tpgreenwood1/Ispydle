@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
+import { MAX_GUESSES } from "../../shared/config";
 import type { GameState, PuzzleInfo } from "../../shared/types";
 import { HttpError, failureMessage, fetchPuzzle, postGuesses } from "../lib/api";
 import { EMPTY_STATE, errorMessage } from "../lib/game";
@@ -17,6 +18,8 @@ export type Hint = "category" | "clue";
 const storedReveal = (stored: StoredGame | undefined) => ({
   revealCategory: stored?.categoryRevealed ?? false,
   revealClue: stored?.clueRevealed ?? false,
+  // Lost after MAX_GUESSES means the last chance was declined (or the game predates it).
+  giveUp: stored?.status === "lost" && stored.guesses.length === MAX_GUESSES,
 });
 
 /**
@@ -139,5 +142,24 @@ export function useGame(puzzleNo: number) {
     [puzzleNo, state.rows],
   );
 
-  return { phase, loadError, puzzle, state, busy, submit, revealHint, retry };
+  /** Declines the last chance. Returns an error message, or null on success. */
+  const giveUp = useCallback(async (): Promise<string | null> => {
+    const stored = loadGame(puzzleNo);
+    try {
+      const res = await postGuesses(
+        puzzleNo,
+        state.rows.map((r) => r.word),
+        { ...storedReveal(stored), giveUp: true },
+      );
+      if (!res.valid) return failureMessage(null);
+      if (stored) saveGame(puzzleNo, { ...stored, status: res.state.status });
+      recordResult(res.state.status, res.state.guessesUsed);
+      setState(res.state);
+      return null;
+    } catch (err) {
+      return failureMessage(err);
+    }
+  }, [puzzleNo, state.rows]);
+
+  return { phase, loadError, puzzle, state, busy, submit, revealHint, giveUp, retry };
 }

@@ -41,9 +41,12 @@ Rules:
 | Won in 1 or 2    | Eagle eyes     | 🦅    |
 | Won in 3, 4 or 5 | Sharp eyes     | 👁️    |
 | Won in 6         | Just in time   | 😅    |
+| Won in 7 (clue)  | Needed a clue  | 💡    |
 | Lost             | Needed glasses | 🤓    |
+| Lost with clue   | Even the clue didn't help | 🙈 |
 
-- Pips: six emoji. Won in n: n − 1 `⚫`, then `🟢`, then `⚪` for the rest. Lost: six `⚫`.
+- Pips: six emoji. Won in n: n − 1 `⚫`, then `🟢`, then `⚪` for the rest. Lost: six `⚫`. The last chance adds `💡` and its pip: `⚫⚫⚫⚫⚫⚫💡🟢` (won in 7), `⚫⚫⚫⚫⚫⚫💡⚫` (lost with clue).
+- Phrase for a win in 7: `spied it on the last chance`. A loss with the clue is just the title: `🙈 Even the clue didn't help. Can you spot it?`
 - Phrase for a win: `spied it in {n}/{max}`. Phrase for a loss: `couldn't spot it in {max}`.
 - Implement as a pure function `buildShareText({ puzzleNo, firstLetter, status, guessesUsed, maxGuesses, baseUrl, withResultParam })` in `/shared`.
 
@@ -57,7 +60,7 @@ A PNG generated on the server by `GET /api/share-image` using `@vercel/og` (`Ima
 | ------- | ----------------------------------- | ------------------------------------------------------------------- |
 | `l`     | a to z                              | first letter (required)                                             |
 | `n`     | integer                             | puzzle number, shown in the footer (required)                       |
-| `r`     | `w1` to `w6`, or `l`                | result; omit for the neutral "challenge" card used by link previews |
+| `r`     | `w1` to `w7`, `l` or `l7`           | result (`w7`/`l7`: last chance taken); omit for the neutral "challenge" card used by link previews |
 | `style` | `lens`, `tiles`, `eye`              | graphic style, default from `SHARE_STYLE` env var                   |
 | `theme` | `light`, `dark`                     | default `light`                                                     |
 | `fmt`   | `card` (1080×1350), `og` (1200×630) | default `card`                                                      |
@@ -72,7 +75,7 @@ Top to bottom, centred, using the theme tokens:
 2. **Hero graphic:** one of the three styles below.
 3. **Headline:** "I spy something beginning with {L}…" in Nunito 700, large.
 4. **Result line:** rating title plus "spied it in 5/6" (win) or "couldn't spot it" (loss). Omitted on the neutral card, where this line becomes "Can you spot it?".
-5. **Pips:** six circles. Won in n: n filled in ink, the last one green, the rest outlined. Lost: all six filled in the muted tile colour. Neutral card: all outlined.
+5. **Pips:** six circles. Won in n: n filled in ink, the last one green, the rest outlined. Lost: all six filled in the muted tile colour. Neutral card: all outlined. After the last chance a bulb icon and a seventh pip follow (green for a win, muted for a loss).
 6. **Footer:** "Can you beat me?" (neutral: "Play now") and `ispydle.app · #{n}` in the muted text colour.
 
 Never use emoji inside the image (font rendering is unreliable in the renderer); draw every icon as inline SVG. Bundle Fredoka and Nunito font files with the function; don't fetch them at runtime.

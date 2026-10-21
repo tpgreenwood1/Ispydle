@@ -41,6 +41,28 @@ describe("buildShareText", () => {
     expect(share("lost", 6, true).split("\n")[3]).toBe(`${BASE}/p/4821?r=l`);
   });
 
+  it("builds a win on the last chance", () => {
+    expect(share("won", 7, true)).toBe(
+      [
+        "I spy something beginning with S…",
+        "💡 Needed a clue: spied it on the last chance. Can you beat me?",
+        "⚫⚫⚫⚫⚫⚫💡🟢",
+        `${BASE}/p/4821?r=w7`,
+      ].join("\n"),
+    );
+  });
+
+  it("builds a loss on the last chance", () => {
+    expect(share("lost", 7, true)).toBe(
+      [
+        "I spy something beginning with S…",
+        "🙈 Even the clue didn't help. Can you spot it?",
+        "⚫⚫⚫⚫⚫⚫💡⚫",
+        `${BASE}/p/4821?r=l7`,
+      ].join("\n"),
+    );
+  });
+
   it("uppercases the first letter", () => {
     expect(share("won", 2, false, "q").split("\n")[0]).toBe("I spy something beginning with Q…");
   });
@@ -48,8 +70,8 @@ describe("buildShareText", () => {
 
 describe("no leaks", () => {
   const answers = (words as { word: string }[]).map((w) => w.word).slice(0, 200);
-  const results: ["won" | "lost", number][] = [1, 2, 3, 4, 5, 6].map((n) => ["won", n]);
-  results.push(["lost", 6]);
+  const results: ["won" | "lost", number][] = [1, 2, 3, 4, 5, 6, 7].map((n) => ["won", n]);
+  results.push(["lost", 6], ["lost", 7]);
 
   it("uses 200 sample answers", () => expect(answers).toHaveLength(200));
 
@@ -72,9 +94,12 @@ describe("parseResultParam", () => {
   it.each([
     ["w1", { status: "won", guessesUsed: 1 }],
     ["w6", { status: "won", guessesUsed: 6 }],
-    ["l", { status: "lost" }],
+    ["w7", { status: "won", guessesUsed: 7 }],
+    ["l", { status: "lost", tookClue: false }],
+    ["l7", { status: "lost", tookClue: true }],
     ["w0", null],
-    ["w7", null],
+    ["w8", null],
+    ["l6", null],
     ["W3", null],
     ["", null],
     [null, null],
@@ -87,6 +112,12 @@ describe("shareImageAlt", () => {
   it("describes the result without the answer", () => {
     expect(shareImageAlt(4821, "s", { status: "won", guessesUsed: 5 })).toBe(
       "I spydle puzzle 4821: something beginning with S. Sharp eyes: spied it in 5/6.",
+    );
+    expect(shareImageAlt(4821, "s", { status: "won", guessesUsed: 7 })).toBe(
+      "I spydle puzzle 4821: something beginning with S. Needed a clue: spied it on the last chance.",
+    );
+    expect(shareImageAlt(4821, "s", { status: "lost", tookClue: true })).toBe(
+      "I spydle puzzle 4821: something beginning with S. Even the clue didn't help.",
     );
     expect(shareImageAlt(4821, "s", null)).toBe(
       "I spydle puzzle 4821: something beginning with S. Can you spot it?",
