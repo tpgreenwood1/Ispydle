@@ -2,8 +2,6 @@ import "dotenv/config";
 import { neon } from "@neondatabase/serverless";
 import { expect, test, type Page } from "@playwright/test";
 import { MAX_WORD_LEN } from "../../shared/config";
-import { evaluateGuesses } from "../../shared/evaluate";
-import { buildShareText } from "../../shared/share";
 
 interface Fixture {
   puzzleNo: number;
@@ -98,16 +96,12 @@ test("plays a puzzle from first letter to shared result", async ({ page, baseURL
   await expect(page.locator(".toast")).toHaveText("Copied");
   const shared = await page.evaluate(() => (window as unknown as { shared: string }).shared);
 
-  const state = evaluateGuesses(fx.word, { category: fx.category, clue: null }, [
-    ...fx.guesses,
-    fx.word,
-  ]);
-  expect(shared).toBe(buildShareText(fx.puzzleNo, state.rows, "won", baseURL ?? ""));
-  const [headline, squares, link] = shared.split("\n");
-  expect(headline).toBe(`I spydle #${fx.puzzleNo} 🔍 4/6`);
-  expect(squares).toMatch(/^[⬜🟩]{3}🟨$/u);
-  expect(link).toBe(`${baseURL}/p/${fx.puzzleNo}`);
-  expect(shared).not.toContain(fx.word);
-  expect(shared).not.toContain(fx.category);
-  expect(shared).not.toContain(`${fx.word.length} letters`);
+  // Fixed copy plus the first letter: nothing else about the answer can appear.
+  expect(shared).toBe(
+    [
+      `I spy something beginning with ${firstLetter.toUpperCase()}…`,
+      "👁️ Sharp eyes: spied it in 4/6. Can you beat me?",
+      `${baseURL}/p/${fx.puzzleNo}?r=w4`,
+    ].join("\n"),
+  );
 });

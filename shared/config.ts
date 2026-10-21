@@ -15,3 +15,11 @@ export const CLUE_HINT_AFTER = envInt(process.env.CLUE_HINT_AFTER, 4);
 export const MIN_GUESS_LEN = 2;
 export const MAX_GUESS_LEN = 12;
 export const DEFAULT_ENABLED_TIERS = [1];
+
+// Share rating titles (share-spec §2). A win takes the first row whose `upTo` covers its guess count.
+export const SHARE_WIN_RATINGS = [
+  { upTo: 2, title: "Eagle eyes", emoji: "🦅" },
+  { upTo: 5, title: "Sharp eyes", emoji: "👁️" },
+  { upTo: 6, title: "Just in time", emoji: "😅" },
+];
+export const SHARE_LOSS_RATING = { title: "Needed glasses", emoji: "🤓" };

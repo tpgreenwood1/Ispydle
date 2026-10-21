@@ -7,11 +7,13 @@ A Wordle-style take on "I spy". You get the first letter of a hidden word and si
 ## How it fits together
 
 - The browser never receives the answer until the game ends. The API is stateless: every guess request sends the full guess history, and the server re-evaluates it against the stored answer.
-- Game rules live once, in `shared/` (`evaluateGuesses`, `validateGuess`, the share text). The API imports them; the client only imports types, constants and the share builder.
+- Game rules live once, in `shared/` (`evaluateGuesses`, `validateGuess`, the share text). The API imports them; the client only imports types, constants and the share builders.
+- Sharing (see `share-spec.md`) sends an "I spy" text plus a PNG from `/api/share-image`, which never touches the database. `/p/:puzzleNo` is rewritten to `/api/page`, which serves `index.html` with Open Graph tags so link previews show the card. Only the first letter of the answer is ever used.
 - Progress is kept in `localStorage` (`ispydle:v1:*`) as the list of guesses, and rebuilt from the API on load, so a refresh never loses a game.
 
 ```
-api/      Vercel Functions: puzzles/random, puzzles/[puzzleNo], puzzles/[puzzleNo]/guess
+api/      Vercel Functions: puzzles/random, puzzles/[puzzleNo], puzzles/[puzzleNo]/guess,
+          share-image, page (link previews), share-clicked (counter)
 shared/   config constants, game logic, share text, types
 src/      React app
 db/       Drizzle schema, migrations, seed script and validators
@@ -28,14 +30,15 @@ pnpm install
 cp .env.example .env   # then fill in DATABASE_URL
 ```
 
-| Variable              | Description                                                                            |
-| --------------------- | -------------------------------------------------------------------------------------- |
-| `DATABASE_URL`        | Neon **pooled** connection string                                                      |
-| `ENABLED_TIERS`       | Comma-separated difficulty tiers to serve, e.g. `1` or `1,2` (default `1`)             |
-| `LENGTH_REVEAL_AFTER` | Word length is shown once this many guesses are used (default `2`)                     |
-| `CATEGORY_HINT_AFTER` | Category hint unlocks once this many guesses are used (default `3`)                    |
-| `CLUE_HINT_AFTER`     | Clue unlocks once this many guesses are used (default `4`)                             |
-| `MAX_WORD_LEN`        | Longest answer served; longer words stay in the database but are skipped (default `6`) |
+| Variable              | Description                                                                                      |
+| --------------------- | ------------------------------------------------------------------------------------------------ |
+| `DATABASE_URL`        | Neon **pooled** connection string                                                                |
+| `ENABLED_TIERS`       | Comma-separated difficulty tiers to serve, e.g. `1` or `1,2` (default `1`)                       |
+| `LENGTH_REVEAL_AFTER` | Word length is shown once this many guesses are used (default `2`)                               |
+| `CATEGORY_HINT_AFTER` | Category hint unlocks once this many guesses are used (default `3`)                              |
+| `CLUE_HINT_AFTER`     | Clue unlocks once this many guesses are used (default `4`)                                       |
+| `MAX_WORD_LEN`        | Longest answer served; longer words stay in the database but are skipped (default `6`)           |
+| `SHARE_STYLE`         | Share image graphic when the URL has no `style` param: `lens`, `tiles` or `eye` (default `lens`) |
 
 ## Database
 
@@ -79,7 +82,9 @@ The first e2e run needs a browser: `pnpm exec playwright install chromium`. The 
 2. Set `DATABASE_URL` and `ENABLED_TIERS` for Production (and Preview, ideally pointing at a Neon branch).
 3. Run `pnpm db:migrate` and `pnpm seed` against the production database.
 
-`vercel.json` rewrites every non-`/api` path to `index.html` so routes like `/p/4821` work.
+`vercel.json` rewrites `/p/:puzzleNo` to `/api/page` (the SPA with per-puzzle Open Graph tags) and every other non-`/api` path to `index.html`. It also bundles `dist/index.html` with `api/page.ts` and the fonts in `api/_fonts` with `api/share-image.ts`.
+
+Share taps are counted in the `counters` table (`share_clicked`), nothing else is recorded.
 
 ## Abuse handling
 

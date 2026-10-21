@@ -461,6 +461,27 @@ button.hint-strip {
   margin-top: 16px;
 }
 
+.sheet .actions + .actions {
+  margin-top: 10px;
+}
+
+a.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.share-preview {
+  display: block;
+  width: auto;
+  height: min(34dvh, 300px);
+  margin: 12px auto 0;
+  border: 1px solid var(--divider);
+  border-radius: 12px;
+}
+
 .stats-row {
   display: flex;
   gap: 24px;

@@ -1,4 +1,11 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "rewrites": [{ "source": "/((?!api/).*)", "destination": "/index.html" }]
+  "rewrites": [
+    { "source": "/p/:puzzleNo(\d{1,9})", "destination": "/api/page?no=:puzzleNo" },
+    { "source": "/((?!api/).*)", "destination": "/index.html" }
+  ],
+  "functions": {
+    "api/page.ts": { "includeFiles": "dist/index.html" },
+    "api/share-image.ts": { "includeFiles": "api/_fonts/**" }
+  }
 }

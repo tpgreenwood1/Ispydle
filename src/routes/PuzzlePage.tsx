@@ -1,7 +1,12 @@
-import { useEffect, useState, type CSSProperties } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { useParams } from "react-router-dom";
-import { MAX_WORD_LEN } from "../../shared/config";
-import { buildShareText } from "../../shared/share";
+import { MAX_GUESSES, MAX_WORD_LEN } from "../../shared/config";
+import {
+  buildShareText,
+  shareImageAlt,
+  shareImagePath,
+  type ShareResult,
+} from "../../shared/share";
 import { GuessHistory, LengthCaption, PrefixRow } from "../components/Board";
 import { Counter, GuessInput, HintStrips } from "../components/Controls";
 import { ResultSheet } from "../components/Sheets";
@@ -9,7 +14,8 @@ import { useToast } from "../components/toastContext";
 import { useGame, type Hint } from "../hooks/useGame";
 import { usePlayAnother } from "../hooks/usePlayAnother";
 import { describeGuess, knownLetters } from "../lib/game";
-import { shareText } from "../lib/share";
+import { countShareClick, fetchShareImage, shareResult } from "../lib/share";
+import { resolvedTheme } from "../lib/theme";
 import { ErrorMessage, LoadingMessage, NotFoundMessage } from "./Messages";
 
 const RESULT_DELAY_MS = 700;
@@ -28,6 +34,26 @@ function Game({ puzzleNo }: { puzzleNo: number }) {
   const [announcement, setAnnouncement] = useState("");
   const [resultOpen, setResultOpen] = useState(false);
   const ended = state.status !== "playing";
+  const shareImage = useRef<File | null>(null);
+
+  let result: ShareResult | null = null;
+  if (state.status === "won") result = { status: "won", guessesUsed: state.guessesUsed };
+  if (state.status === "lost") result = { status: "lost" };
+  const image =
+    puzzle && result
+      ? {
+          path: shareImagePath({
+            puzzleNo,
+            firstLetter: puzzle.firstLetter,
+            result,
+            fmt: "card",
+            theme: resolvedTheme(),
+          }),
+          alt: shareImageAlt(puzzleNo, puzzle.firstLetter, result),
+          fileName: `ispydle-${puzzleNo}.png`,
+        }
+      : null;
+  const imagePath = image?.path;
 
   // Open the result once the game ends (or loads already finished), after the tiles settle.
   useEffect(() => {
@@ -36,6 +62,19 @@ function Game({ puzzleNo }: { puzzleNo: number }) {
     const timer = setTimeout(() => setResultOpen(true), reduced ? 0 : RESULT_DELAY_MS);
     return () => clearTimeout(timer);
   }, [phase, ended]);
+
+  // Prefetch the image when the result opens, so the Share tap doesn't wait on the network.
+  useEffect(() => {
+    shareImage.current = null;
+    if (!resultOpen || !imagePath) return;
+    let current = true;
+    void fetchShareImage(imagePath, `ispydle-${puzzleNo}.png`).then((file) => {
+      if (current) shareImage.current = file;
+    });
+    return () => {
+      current = false;
+    };
+  }, [resultOpen, imagePath, puzzleNo]);
 
   if (phase === "loading") return <LoadingMessage />;
   if (phase === "notFound") return <NotFoundMessage puzzleNo={String(puzzleNo)} />;
@@ -67,8 +106,18 @@ function Game({ puzzleNo }: { puzzleNo: number }) {
   }
 
   async function handleShare() {
-    const text = buildShareText(puzzleNo, state.rows, state.status, window.location.origin);
-    const outcome = await shareText(text);
+    if (!puzzle || state.status === "playing") return;
+    countShareClick();
+    const text = buildShareText({
+      puzzleNo,
+      firstLetter: puzzle.firstLetter,
+      status: state.status,
+      guessesUsed: state.guessesUsed,
+      maxGuesses: MAX_GUESSES,
+      baseUrl: window.location.origin,
+      withResultParam: true,
+    });
+    const outcome = await shareResult(text, shareImage.current);
     if (outcome === "copied") toast("Copied");
     if (outcome === "failed") toast("Couldn't share");
   }
@@ -115,6 +164,7 @@ function Game({ puzzleNo }: { puzzleNo: number }) {
         open={resultOpen}
         onClose={() => setResultOpen(false)}
         state={state}
+        image={image}
         onShare={handleShare}
         onPlayAnother={playAnother}
       />

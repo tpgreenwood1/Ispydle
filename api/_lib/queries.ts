@@ -1,7 +1,7 @@
 import { and, eq, inArray, lte, notInArray, sql } from "drizzle-orm";
 import { MAX_WORD_LEN } from "../../shared/config.js";
 import { createDb, type Db } from "../../db/client.js";
-import { dictionary, puzzles } from "../../db/schema.js";
+import { counters, dictionary, puzzles } from "../../db/schema.js";
 
 let db: Db | undefined;
 const getDb = () => (db ??= createDb());
@@ -60,4 +60,11 @@ export async function dictionaryHas(words: string[]): Promise<Set<string>> {
     .from(dictionary)
     .where(inArray(dictionary.word, words));
   return new Set(rows.map((r) => r.word));
+}
+
+export async function incrementCounter(name: string): Promise<void> {
+  await getDb()
+    .insert(counters)
+    .values({ name, count: 1 })
+    .onConflictDoUpdate({ target: counters.name, set: { count: sql`${counters.count} + 1` } });
 }

@@ -50,11 +50,19 @@ export function HowToPlaySheet({ open, onClose }: SheetBaseProps) {
 
 interface ResultSheetProps extends SheetBaseProps {
   state: GameState;
+  image: { path: string; alt: string; fileName: string } | null;
   onShare: () => void;
   onPlayAnother: () => void;
 }
 
-export function ResultSheet({ open, onClose, state, onShare, onPlayAnother }: ResultSheetProps) {
+export function ResultSheet({
+  open,
+  onClose,
+  state,
+  image,
+  onShare,
+  onPlayAnother,
+}: ResultSheetProps) {
   const title =
     state.status === "won"
       ? `Spotted it! ${state.guessesUsed}/${MAX_GUESSES}`
@@ -63,10 +71,30 @@ export function ResultSheet({ open, onClose, state, onShare, onPlayAnother }: Re
     <Sheet open={open} onClose={onClose} title={title}>
       {state.category && <p className="muted">Category: {state.category}</p>}
       {state.clue && <p className="muted">Clue: {state.clue}</p>}
+      {open && image && (
+        <img
+          key={image.path}
+          className="share-preview"
+          src={image.path}
+          alt={image.alt}
+          width={1080}
+          height={1350}
+          onError={(e) => {
+            e.currentTarget.style.display = "none"; // offline or endpoint down: share still works
+          }}
+        />
+      )}
       <div className="actions">
         <button type="button" className="button primary" onClick={onShare}>
           Share
         </button>
+        {image && (
+          <a className="button" href={image.path} download={image.fileName}>
+            Save image
+          </a>
+        )}
+      </div>
+      <div className="actions">
         <button type="button" className="button" onClick={onPlayAnother}>
           Play another word
         </button>

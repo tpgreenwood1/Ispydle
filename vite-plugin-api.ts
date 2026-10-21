@@ -6,6 +6,9 @@ const routes: [pattern: RegExp, module: string][] = [
   [/^\/api\/puzzles\/random$/, "/api/puzzles/random.ts"],
   [/^\/api\/puzzles\/\d+\/guess$/, "/api/puzzles/[puzzleNo]/guess.ts"],
   [/^\/api\/puzzles\/\d+$/, "/api/puzzles/[puzzleNo].ts"],
+  [/^\/api\/share-image$/, "/api/share-image.ts"],
+  [/^\/api\/share-clicked$/, "/api/share-clicked.ts"],
+  [/^\/api\/page$/, "/api/page.ts"],
 ];
 
 type Handler = (req: Request) => Promise<Response>;

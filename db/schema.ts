@@ -26,3 +26,9 @@ export const puzzles = pgTable("puzzles", {
 export const dictionary = pgTable("dictionary", {
   word: varchar("word", { length: 12 }).primaryKey(),
 });
+
+// Anonymous totals only, e.g. share_clicked (share-spec §4).
+export const counters = pgTable("counters", {
+  name: text("name").primaryKey(),
+  count: integer("count").notNull().default(0),
+});

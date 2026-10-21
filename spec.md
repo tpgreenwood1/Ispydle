@@ -57,22 +57,9 @@ Answer `sandal`, first letter `s`:
 
 A later guess with a shorter match never shrinks the known prefix (`salad` after `sandy` leaves it at SAND).
 
-### Share result (spoiler-free)
+### Share result
 
-One square per guess, then a link:
-
-```
-I spydle #4821 🔍 4/6
-🟩⬜🟩🟨
-https://<domain>/p/4821
-```
-
-- ⬜ = the guess revealed no new letters (the known prefix starts at 0, so guess 1 is always 🟩 or 🟨)
-- 🟩 = the guess extended the known prefix (`matched` > the known prefix before that guess)
-- 🟨 = solved
-- Loss shows `X/6` and no 🟨.
-- Never include the word, its length, letters, or the category.
-- Use the Web Share API where available, else copy to the clipboard and show a "Copied" toast.
+Sharing is specified in the share v2 spec (`share-spec.md`): an "I spy" challenge text, a generated image, and a link whose preview matches.
 
 ---
 
@@ -286,7 +273,7 @@ README.md     setup, env vars, seeding, deploy
 - A network inspection of any request before game end never shows the answer.
 - Invalid guesses never consume a guess; refreshing mid-game restores the board exactly.
 - The length appears after guess 2 and not before; the category unlocks after guess 3.
-- The share text contains no letters of the answer and no length.
+- The share text and image contain only the first letter of the answer; they contain no other letters, no length and no category.
 - Light and dark modes match the tokens; Lighthouse accessibility score is at least 95 on the game screen.
 - Works on iOS Safari and Android Chrome with the native keyboard, with no layout jump when the keyboard opens.
 
