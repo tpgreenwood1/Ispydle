@@ -10,13 +10,14 @@ Replaces the emoji-grid share (section 1 "Share result" of `spec.md`) with an "I
 
 ## 2. Share text
 
-Always generated, and always used as the fallback when images can't be shared.
+The only thing shared: the image is never attached (users preferred the text alone). Line 3 is the image's pip row in emoji.
 
 Win:
 
 ```
 I spy something beginning with S…
 👁️ Sharp eyes: spied it in 5/6. Can you beat me?
+⚫⚫⚫⚫🟢⚪
 https://<domain>/p/4821
 ```
 
@@ -25,6 +26,7 @@ Loss:
 ```
 I spy something beginning with S…
 🤓 Needed glasses: couldn't spot it in 6. Can you?
+⚫⚫⚫⚫⚫⚫
 https://<domain>/p/4821
 ```
 
@@ -41,6 +43,7 @@ Rules:
 | Won in 6         | Just in time   | 😅    |
 | Lost             | Needed glasses | 🤓    |
 
+- Pips: six emoji. Won in n: n − 1 `⚫`, then `🟢`, then `⚪` for the rest. Lost: six `⚫`.
 - Phrase for a win: `spied it in {n}/{max}`. Phrase for a loss: `couldn't spot it in {max}`.
 - Implement as a pure function `buildShareText({ puzzleNo, firstLetter, status, guessesUsed, maxGuesses, baseUrl, withResultParam })` in `/shared`.
 
@@ -88,13 +91,9 @@ Never use emoji inside the image (font rendering is unreliable in the renderer);
 
 - The result sheet shows the card as a preview (`fmt=card`, the user's current theme and the default style) above the buttons.
 - **Share** (primary):
-  1. fetch the image blob;
-  2. if `navigator.canShare({ files })` is true, call `navigator.share({ files: [png], text, url })`;
-  3. else if `navigator.share` exists, share `{ text, url }` only;
-  4. else copy the text to the clipboard and show a "Copied" toast.
+  1. if `navigator.share` exists, share `{ text }` only (never the image file);
+  2. else copy the text to the clipboard and show a "Copied" toast.
 - **Save image** (secondary): downloads the PNG as `ispydle-{n}.png`.
-- If the image fetch fails or takes more than 3 seconds, silently fall back to the text-only path. Sharing must never fail because of the image.
-- Keep the user gesture valid: start the image fetch when the result sheet opens (prefetch), so the Share tap doesn't await a network call.
 - Track the action only as a counter (`share_clicked`), nothing else.
 
 ## 5. Link previews (Open Graph)
@@ -120,11 +119,11 @@ Delete the emoji-grid builder and its tests, and remove the section from `spec.m
 - No-leak test: over a list of 200 sample answers, assert the text contains no character of the answer other than its first letter appearing in the "beginning with" slot, and no digits other than the guess counts and puzzle number.
 - `/api/share-image`: returns `image/png` at the right dimensions for `card` and `og`; returns `400` for bad params; sets the immutable cache header; response is identical for the same params (no timestamps).
 - `/api/page`: injected tags contain the right letter and an absolute image URL; no answer text appears anywhere in the HTML.
-- Playwright: finish a game, tap Share with `navigator.share` stubbed, and assert the text and image file are passed; repeat with `canShare` false and check the clipboard fallback.
+- Playwright: finish a game, tap Share with `navigator.share` stubbed, and assert only the text is passed (no files, even when `canShare` accepts them); check the clipboard fallback.
 
 ## 8. Acceptance criteria
 
-- Pasting the text into WhatsApp, iMessage and Slack shows a link preview with the neutral or result card; sharing from the sheet on iOS and Android attaches the image.
+- Pasting the text into WhatsApp, iMessage and Slack shows a link preview with the neutral or result card; sharing from the sheet on iOS and Android sends text only.
 - A person who has never seen the game can tell, from the share alone, which letter the word started with and how well the sender did.
 - Nothing in the text, image or preview reveals the word, its length or its category.
 - All three styles render correctly in light and dark; one is chosen and the other two deleted before launch.

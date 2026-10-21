@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type CSSProperties } from "react";
+import { useEffect, useState, type CSSProperties } from "react";
 import { useParams } from "react-router-dom";
 import { MAX_GUESSES, MAX_WORD_LEN } from "../../shared/config";
 import {
@@ -14,7 +14,7 @@ import { useToast } from "../components/toastContext";
 import { useGame, type Hint } from "../hooks/useGame";
 import { usePlayAnother } from "../hooks/usePlayAnother";
 import { describeGuess, knownLetters } from "../lib/game";
-import { countShareClick, fetchShareImage, shareResult } from "../lib/share";
+import { countShareClick, shareResult } from "../lib/share";
 import { resolvedTheme } from "../lib/theme";
 import { ErrorMessage, LoadingMessage, NotFoundMessage } from "./Messages";
 
@@ -34,7 +34,6 @@ function Game({ puzzleNo }: { puzzleNo: number }) {
   const [announcement, setAnnouncement] = useState("");
   const [resultOpen, setResultOpen] = useState(false);
   const ended = state.status !== "playing";
-  const shareImage = useRef<File | null>(null);
 
   let result: ShareResult | null = null;
   if (state.status === "won") result = { status: "won", guessesUsed: state.guessesUsed };
@@ -53,7 +52,6 @@ function Game({ puzzleNo }: { puzzleNo: number }) {
           fileName: `ispydle-${puzzleNo}.png`,
         }
       : null;
-  const imagePath = image?.path;
 
   // Open the result once the game ends (or loads already finished), after the tiles settle.
   useEffect(() => {
@@ -62,19 +60,6 @@ function Game({ puzzleNo }: { puzzleNo: number }) {
     const timer = setTimeout(() => setResultOpen(true), reduced ? 0 : RESULT_DELAY_MS);
     return () => clearTimeout(timer);
   }, [phase, ended]);
-
-  // Prefetch the image when the result opens, so the Share tap doesn't wait on the network.
-  useEffect(() => {
-    shareImage.current = null;
-    if (!resultOpen || !imagePath) return;
-    let current = true;
-    void fetchShareImage(imagePath, `ispydle-${puzzleNo}.png`).then((file) => {
-      if (current) shareImage.current = file;
-    });
-    return () => {
-      current = false;
-    };
-  }, [resultOpen, imagePath, puzzleNo]);
 
   if (phase === "loading") return <LoadingMessage />;
   if (phase === "notFound") return <NotFoundMessage puzzleNo={String(puzzleNo)} />;
@@ -117,7 +102,7 @@ function Game({ puzzleNo }: { puzzleNo: number }) {
       baseUrl: window.location.origin,
       withResultParam: true,
     });
-    const outcome = await shareResult(text, shareImage.current);
+    const outcome = await shareResult(text);
     if (outcome === "copied") toast("Copied");
     if (outcome === "failed") toast("Couldn't share");
   }

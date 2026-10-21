@@ -23,6 +23,15 @@ export function parseResultParam(r: string | null): ShareResult | null {
   return match ? { status: "won", guessesUsed: Number(match[1]) } : null;
 }
 
+/** The image's pip row as emoji: won in 3 is ⚫⚫🟢⚪⚪⚪, a loss is all ⚫. */
+export function pipsLine(result: ShareResult): string {
+  const used = result.status === "won" ? result.guessesUsed : MAX_GUESSES;
+  return Array.from({ length: MAX_GUESSES }, (_, i) => {
+    if (i >= used) return "⚪";
+    return result.status === "won" && i === used - 1 ? "🟢" : "⚫";
+  }).join("");
+}
+
 export const headline = (firstLetter: string) =>
   `I spy something beginning with ${firstLetter.toUpperCase()}…`;
 
@@ -52,7 +61,7 @@ export function buildShareText({
       ? `${emoji} ${title}: spied it in ${guessesUsed}/${maxGuesses}. Can you beat me?`
       : `${emoji} ${title}: couldn't spot it in ${maxGuesses}. Can you?`;
   const query = withResultParam ? `?r=${resultParam(result)}` : "";
-  return [headline(firstLetter), line, `${baseUrl}/p/${puzzleNo}${query}`].join("\n");
+  return [headline(firstLetter), line, pipsLine(result), `${baseUrl}/p/${puzzleNo}${query}`].join("\n");
 }
 
 /** The result line drawn on the share image; null result means the neutral challenge card. */

@@ -18,15 +18,15 @@ function share(status: "won" | "lost", guessesUsed: number, withResultParam = fa
 
 describe("buildShareText", () => {
   it.each([
-    [1, "🦅 Eagle eyes: spied it in 1/6. Can you beat me?"],
-    [3, "👁️ Sharp eyes: spied it in 3/6. Can you beat me?"],
-    [5, "👁️ Sharp eyes: spied it in 5/6. Can you beat me?"],
-    [6, "😅 Just in time: spied it in 6/6. Can you beat me?"],
-  ])("builds a win in %i with the matching rating title", (n, line) => {
+    [1, "🦅 Eagle eyes: spied it in 1/6. Can you beat me?", "🟢⚪⚪⚪⚪⚪"],
+    [3, "👁️ Sharp eyes: spied it in 3/6. Can you beat me?", "⚫⚫🟢⚪⚪⚪"],
+    [5, "👁️ Sharp eyes: spied it in 5/6. Can you beat me?", "⚫⚫⚫⚫🟢⚪"],
+    [6, "😅 Just in time: spied it in 6/6. Can you beat me?", "⚫⚫⚫⚫⚫🟢"],
+  ])("builds a win in %i with the matching rating title and pips", (n, line, pips) => {
     expect(share("won", n)).toBe(
-      ["I spy something beginning with S…", line, `${BASE}/p/4821`].join("\n"),
+      ["I spy something beginning with S…", line, pips, `${BASE}/p/4821`].join("\n"),
     );
-    expect(share("won", n, true).split("\n")[2]).toBe(`${BASE}/p/4821?r=w${n}`);
+    expect(share("won", n, true).split("\n")[3]).toBe(`${BASE}/p/4821?r=w${n}`);
   });
 
   it("builds a loss", () => {
@@ -34,10 +34,11 @@ describe("buildShareText", () => {
       [
         "I spy something beginning with S…",
         "🤓 Needed glasses: couldn't spot it in 6. Can you?",
+        "⚫⚫⚫⚫⚫⚫",
         `${BASE}/p/4821`,
       ].join("\n"),
     );
-    expect(share("lost", 6, true).split("\n")[2]).toBe(`${BASE}/p/4821?r=l`);
+    expect(share("lost", 6, true).split("\n")[3]).toBe(`${BASE}/p/4821?r=l`);
   });
 
   it("uppercases the first letter", () => {

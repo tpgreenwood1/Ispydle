@@ -72,18 +72,17 @@ const TEXT = (baseURL: string | undefined) =>
   [
     "I spy something beginning with S…",
     "🦅 Eagle eyes: spied it in 1/6. Can you beat me?",
+    "🟢⚪⚪⚪⚪⚪",
     `${baseURL}/p/4821?r=w1`,
   ].join("\n");
 
 const shared = (page: Page) =>
   page.evaluate(() => (window as unknown as { shared?: Shared }).shared);
 
-test("shares the text and the image file", async ({ page, baseURL }) => {
-  // Warm the dev server's renderer: a cold first render can pass the 3 s limit (then text-only).
-  await page.request.get("/api/share-image?l=s&n=1");
-  const prefetch = page.waitForResponse(
-    (r) => r.url().includes("/api/share-image") && r.request().resourceType() === "fetch",
-  );
+test("shares the text without attaching the image, even when files are supported", async ({
+  page,
+  baseURL,
+}) => {
   const { result, counted } = await winGame(page, "files");
 
   const preview = result.getByRole("img", { name: /I spydle puzzle 4821/ });
@@ -93,34 +92,11 @@ test("shares the text and the image file", async ({ page, baseURL }) => {
     "download",
     "ispydle-4821.png",
   );
-  await (await prefetch).body(); // the prefetch has landed
 
   await result.getByRole("button", { name: "Share" }).click();
   await expect.poll(() => shared(page)).toBeDefined();
-  const data = await shared(page);
-  expect(data?.text).toBe(TEXT(baseURL));
-  expect(data?.files).toEqual([
-    { name: "ispydle-4821.png", type: "image/png", size: expect.any(Number) },
-  ]);
-  expect(data?.files?.[0]?.size).toBeGreaterThan(1000);
+  expect(await shared(page)).toEqual({ text: TEXT(baseURL) });
   expect(counted).toEqual(["POST"]);
-});
-
-test("shares text only when the platform can't take files", async ({ page, baseURL }) => {
-  const { result } = await winGame(page, "text-only");
-  await page.waitForLoadState("networkidle");
-  await result.getByRole("button", { name: "Share" }).click();
-  await expect.poll(() => shared(page)).toBeDefined();
-  expect(await shared(page)).toEqual({ text: TEXT(baseURL) });
-});
-
-test("shares text only when the image endpoint fails", async ({ page, baseURL }) => {
-  await page.route("**/api/share-image*", (route) => route.fulfill({ status: 500 }));
-  const { result } = await winGame(page, "files");
-  await expect(result.getByRole("img")).toBeHidden();
-  await result.getByRole("button", { name: "Share" }).click();
-  await expect.poll(() => shared(page)).toBeDefined();
-  expect(await shared(page)).toEqual({ text: TEXT(baseURL) });
 });
 
 test("copies the text when Web Share is unavailable", async ({ page, baseURL }) => {
