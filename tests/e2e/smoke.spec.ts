@@ -1,6 +1,7 @@
 import "dotenv/config";
 import { neon } from "@neondatabase/serverless";
 import { expect, test, type Page } from "@playwright/test";
+import { MAX_WORD_LEN } from "../../shared/config";
 import { evaluateGuesses } from "../../shared/evaluate";
 import { buildShareText } from "../../shared/share";
 
@@ -15,7 +16,8 @@ interface Fixture {
 async function loadFixture(): Promise<Fixture> {
   const sql = neon(process.env.DATABASE_URL ?? "");
   const [puzzle] = await sql`
-    select puzzle_no, word, category from puzzles where active order by puzzle_no limit 1`;
+    select puzzle_no, word, category from puzzles
+    where active and length(word) <= ${MAX_WORD_LEN} order by puzzle_no limit 1`;
   if (!puzzle) throw new Error("No active puzzles: run pnpm seed");
   const word = puzzle.word as string;
   const rows = await sql`
@@ -77,8 +79,8 @@ test("plays a puzzle from first letter to shared result", async ({ page, baseURL
   for (const [i, word] of fx.guesses.entries()) {
     await guess(page, word);
     await expect(page.getByText(`${5 - i} guesses left`, { exact: true })).toBeVisible();
-    // The length appears after guess 3 and not before.
-    if (i < 2) await expect(caption).toHaveCount(0);
+    // The length appears after guess 2 and not before.
+    if (i < 1) await expect(caption).toHaveCount(0);
   }
   await expect(caption).toHaveText(`${fx.word.length} letters`);
 

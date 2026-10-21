@@ -10,16 +10,16 @@ This spec is the source of truth. Visual reference: the Light and Dark mockups (
 
 ### Constants (single config file, easy to change)
 
-| Name                  | Value | Meaning                                                 |
-| --------------------- | ----- | ------------------------------------------------------- |
-| `MAX_GUESSES`         | 6     | Guesses per game                                        |
-| `MAX_WORD_LEN`        | 7     | Longest answer                                          |
-| `MIN_WORD_LEN`        | 3     | Shortest answer                                         |
-| `LENGTH_REVEAL_AFTER` | 3     | Word length is shown once this many guesses are used    |
-| `CATEGORY_HINT_AFTER` | 5     | Category hint unlocks once this many guesses are used   |
-| `MIN_GUESS_LEN`       | 2     | Shortest accepted guess                                 |
-| `MAX_GUESS_LEN`       | 12    | Longest accepted guess                                  |
-| `ENABLED_TIERS`       | `[1]` | Word difficulty tiers served (env var, comma separated) |
+| Name                  | Value | Meaning                                                          |
+| --------------------- | ----- | ---------------------------------------------------------------- |
+| `MAX_GUESSES`         | 6     | Guesses per game                                                 |
+| `MAX_WORD_LEN`        | 6     | Longest answer served (env var); longer seeded words are skipped |
+| `MIN_WORD_LEN`        | 3     | Shortest answer                                                  |
+| `LENGTH_REVEAL_AFTER` | 2     | Word length is shown once this many guesses are used (env var)   |
+| `CATEGORY_HINT_AFTER` | 3     | Category hint unlocks once this many guesses are used (env var)  |
+| `MIN_GUESS_LEN`       | 2     | Shortest accepted guess                                          |
+| `MAX_GUESS_LEN`       | 12    | Longest accepted guess                                           |
+| `ENABLED_TIERS`       | `[1]` | Word difficulty tiers served (env var, comma separated)          |
 
 ### Flow
 
@@ -38,7 +38,7 @@ This spec is the source of truth. Visual reference: the Light and Dark mockups (
    - Example: answer `sandwich`; guess `sandy` gives `matched = 4`, so the known prefix becomes `SAND`.
 5. **Win:** the guess equals the answer. **Loss:** `MAX_GUESSES` used without a win.
 6. **Length reveal:** once `LENGTH_REVEAL_AFTER` guesses are used (or the game ends), the top row shows dashed empty tiles up to the word's full length, with a small animation, plus a "N letters" caption. Before that, the top row is the known prefix followed by one dashed tile and no length caption.
-7. **Category hint:** a strip below the counter reads "Category hint unlocks after guess 5". After `CATEGORY_HINT_AFTER` guesses it becomes a tappable "Show category" button that reveals the category (for example "Clothing") inline.
+7. **Category hint:** a strip below the counter reads "Category hint unlocks after guess 3". After `CATEGORY_HINT_AFTER` guesses it becomes a tappable "Show category" button that reveals the category (for example "Clothing") inline.
 8. On win or loss, a result sheet opens (see section 5).
 
 ### Worked examples (must be unit tests)
@@ -111,7 +111,7 @@ dictionary: {
 
 - Reads `data/words.json`: `[{ "word": "sandal", "category": "Clothing", "tier": 1 }]`. Extra fields (such as `neighbours`) are ignored.
 - Reads `data/dictionary.txt`: one lowercase word per line. Use a permissive or public-domain source (for example ENABLE or a SCOWL export). **Filter out profanity, slurs and adult terms**: this is a family game. Keep the filter list in the repo.
-- Validation (fail the seed loudly): every answer is lowercase a-z, 3 to 7 letters, unique, present in the dictionary, has a category, and has a tier of 1 to 3. Print a summary: counts by length, by first letter, by category and by tier.
+- Validation (fail the seed loudly): every answer is lowercase a-z, 3 to 12 letters (answers over `MAX_WORD_LEN` are seeded but not served), unique, present in the dictionary, has a category, and has a tier of 1 to 3. Print a summary: counts by length, by first letter, by category and by tier.
 - Idempotent: upsert by word, never reassign an existing `puzzleNo`.
 
 ---
@@ -188,7 +188,7 @@ Cap request body size, cap guesses per request, and add basic IP rate limiting (
 4. **Length caption:** magnifier icon + "6 letters" (only after the reveal).
 5. **Divider**, then the **guess history**: the same 7-column grid so letter columns line up with the prefix row. Each row shows the guess letters; confirmed tiles green, others grey. After the length reveal, show faint dashed placeholder rows for the remaining guesses at the exact word length. Before the reveal, show no placeholder rows; reserve the vertical space so the layout doesn't jump.
 6. **Counter row:** six pips (filled = used) plus "N guesses left" on the left; "Word #4821" on the right.
-7. **Category hint strip:** dashed bordered pill with a lock icon, "Category hint unlocks after guess 5". Turns into a "Show category" button, then shows the category text.
+7. **Category hint strip:** dashed bordered pill with a lock icon, "Category hint unlocks after guess 3". Turns into a "Show category" button, then shows the category text.
 8. **Input row** (bottom, above the keyboard): a text input (flex 1) and the "Guess" button (104px wide).
 
 Layout rules: the app column is max 420px wide and centred on larger screens, full height with `100dvh`, and respects `env(safe-area-inset-*)`. Use the **native** keyboard: `autoCapitalize="off"`, `autoCorrect="off"`, `autoComplete="off"`, `spellCheck={false}`, `enterKeyHint="go"`, `maxLength={12}`. Enter submits. When the keyboard opens, the history area scrolls so the input and the prefix row stay visible. For widths below 360px, tiles scale down via the grid (`aspect-ratio: 1`) rather than overflowing.
@@ -279,7 +279,7 @@ README.md     setup, env vars, seeding, deploy
 - All worked examples pass as unit tests; the evaluation logic is only implemented once, in `/shared`.
 - A network inspection of any request before game end never shows the answer.
 - Invalid guesses never consume a guess; refreshing mid-game restores the board exactly.
-- The length appears after guess 3 and not before; the category unlocks after guess 5.
+- The length appears after guess 2 and not before; the category unlocks after guess 3.
 - The share text contains no letters of the answer and no length.
 - Light and dark modes match the tokens; Lighthouse accessibility score is at least 95 on the game screen.
 - Works on iOS Safari and Android Chrome with the native keyboard, with no layout jump when the keyboard opens.

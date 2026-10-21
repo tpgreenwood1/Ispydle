@@ -1,4 +1,5 @@
-import { and, eq, inArray, notInArray, sql } from "drizzle-orm";
+import { and, eq, inArray, lte, notInArray, sql } from "drizzle-orm";
+import { MAX_WORD_LEN } from "../../shared/config.js";
 import { createDb, type Db } from "../../db/client.js";
 import { dictionary, puzzles } from "../../db/schema.js";
 
@@ -13,11 +14,14 @@ export interface Puzzle {
 
 const columns = { puzzleNo: puzzles.puzzleNo, word: puzzles.word, category: puzzles.category };
 
+// Puzzles longer than MAX_WORD_LEN stay in the database but are not served.
+const withinMaxLen = lte(sql`length(${puzzles.word})`, MAX_WORD_LEN);
+
 export async function getPuzzle(puzzleNo: number): Promise<Puzzle | null> {
   const [row] = await getDb()
     .select(columns)
     .from(puzzles)
-    .where(and(eq(puzzles.puzzleNo, puzzleNo), eq(puzzles.active, true)));
+    .where(and(eq(puzzles.puzzleNo, puzzleNo), eq(puzzles.active, true), withinMaxLen));
   return row ?? null;
 }
 
@@ -30,6 +34,7 @@ export async function randomPuzzle(tiers: number[], exclude: number[]): Promise<
       .where(
         and(
           eq(puzzles.active, true),
+          withinMaxLen,
           inArray(puzzles.tier, tiers),
           skip.length ? notInArray(puzzles.puzzleNo, skip) : undefined,
         ),

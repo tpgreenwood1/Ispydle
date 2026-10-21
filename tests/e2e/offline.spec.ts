@@ -1,11 +1,12 @@
 import "dotenv/config";
 import { neon } from "@neondatabase/serverless";
 import { expect, test } from "@playwright/test";
+import { MAX_WORD_LEN } from "../../shared/config";
 
 test("losing the connection mid-game is recoverable", async ({ page, context }) => {
   const sql = neon(process.env.DATABASE_URL ?? "");
   const [puzzle] =
-    await sql`select puzzle_no, word from puzzles where active order by puzzle_no limit 1`;
+    await sql`select puzzle_no, word from puzzles where active and length(word) <= ${MAX_WORD_LEN} order by puzzle_no limit 1`;
   if (!puzzle) throw new Error("No active puzzles: run pnpm seed");
   const word = puzzle.word as string;
   const [other] = await sql`
@@ -39,7 +40,8 @@ test("losing the connection mid-game is recoverable", async ({ page, context }) 
 
 test("a failed load retries when the connection returns", async ({ page, context }) => {
   const sql = neon(process.env.DATABASE_URL ?? "");
-  const [puzzle] = await sql`select puzzle_no from puzzles where active order by puzzle_no limit 1`;
+  const [puzzle] =
+    await sql`select puzzle_no from puzzles where active and length(word) <= ${MAX_WORD_LEN} order by puzzle_no limit 1`;
 
   await page.goto("/");
   await page.getByRole("button", { name: "Let’s play" }).click();

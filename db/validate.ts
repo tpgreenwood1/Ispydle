@@ -1,4 +1,4 @@
-import { MAX_GUESS_LEN, MAX_WORD_LEN, MIN_GUESS_LEN, MIN_WORD_LEN } from "../shared/config.js";
+import { MAX_GUESS_LEN, MIN_GUESS_LEN, MIN_WORD_LEN } from "../shared/config.js";
 
 export interface WordEntry {
   word: string;
@@ -38,13 +38,14 @@ export function validateWords(entries: unknown, dictionary: Set<string>): string
   if (!Array.isArray(entries)) return ["words.json must be an array"];
   const errors: string[] = [];
   const seen = new Set<string>();
-  const wordPattern = new RegExp(`^[a-z]{${MIN_WORD_LEN},${MAX_WORD_LEN}}$`);
+  // Longer answers are still seeded; MAX_WORD_LEN only limits which are served (api/_lib/queries.ts).
+  const wordPattern = new RegExp(`^[a-z]{${MIN_WORD_LEN},${MAX_GUESS_LEN}}$`);
 
   entries.forEach((entry: unknown, i) => {
     const e = (entry ?? {}) as Partial<Record<keyof WordEntry, unknown>>;
     const label = `#${i} ${JSON.stringify(e.word)}`;
     if (typeof e.word !== "string" || !wordPattern.test(e.word)) {
-      errors.push(`${label}: word must be lowercase a-z, ${MIN_WORD_LEN}-${MAX_WORD_LEN} letters`);
+      errors.push(`${label}: word must be lowercase a-z, ${MIN_WORD_LEN}-${MAX_GUESS_LEN} letters`);
     } else {
       if (seen.has(e.word)) errors.push(`${label}: duplicate word`);
       if (!dictionary.has(e.word)) errors.push(`${label}: not in dictionary`);

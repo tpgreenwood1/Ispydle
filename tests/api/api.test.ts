@@ -73,18 +73,15 @@ describe("GET /api/puzzles/:puzzleNo", () => {
 
 describe("POST /api/puzzles/:puzzleNo/guess", () => {
   it("evaluates a valid history without leaking the answer", async () => {
-    const res = await guess({ guesses: ["spoon", "salad"] });
+    const res = await guess({ guesses: ["spoon"] });
     const text = await res.text();
     expect(JSON.parse(text)).toEqual({
       valid: true,
       state: {
-        rows: [
-          { word: "spoon", matched: 1 },
-          { word: "salad", matched: 2 },
-        ],
-        knownPrefixLen: 2,
+        rows: [{ word: "spoon", matched: 1 }],
+        knownPrefixLen: 1,
         status: "playing",
-        guessesUsed: 2,
+        guessesUsed: 1,
         wordLength: null,
         categoryAvailable: false,
         category: null,
@@ -95,20 +92,20 @@ describe("POST /api/puzzles/:puzzleNo/guess", () => {
     expect(text).not.toContain("Clothing");
   });
 
-  it("reveals the length from guess 3", async () => {
-    const res = await guess({ guesses: ["spoon", "sofa", "salad"] });
+  it("reveals the length from guess 2", async () => {
+    const res = await guess({ guesses: ["spoon", "sofa"] });
     const { state } = await res.json();
     expect(state.wordLength).toBe(6);
     expect(state.answer).toBeNull();
   });
 
-  it("returns the category only when asked after guess 5", async () => {
-    const five = ["spoon", "sofa", "salad", "sandy", "sand"];
-    const hidden = await (await guess({ guesses: five })).json();
+  it("returns the category only when asked after guess 3", async () => {
+    const three = ["spoon", "sofa", "salad"];
+    const hidden = await (await guess({ guesses: three })).json();
     expect(hidden.state).toMatchObject({ categoryAvailable: true, category: null });
-    const early = await (await guess({ guesses: five.slice(0, 4), revealCategory: true })).json();
+    const early = await (await guess({ guesses: three.slice(0, 2), revealCategory: true })).json();
     expect(early.state.category).toBeNull();
-    const shown = await (await guess({ guesses: five, revealCategory: true })).json();
+    const shown = await (await guess({ guesses: three, revealCategory: true })).json();
     expect(shown.state.category).toBe("Clothing");
     expect(shown.state.answer).toBeNull();
   });

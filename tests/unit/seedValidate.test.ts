@@ -35,11 +35,11 @@ describe("validateWords", () => {
     );
     expect(errors).toEqual([
       '#1 "sandal": duplicate word',
-      '#2 "Acorn": word must be lowercase a-z, 3-7 letters',
+      '#2 "Acorn": word must be lowercase a-z, 3-12 letters',
       '#3 "zebra": not in dictionary',
       '#3 "zebra": missing category',
       '#3 "zebra": tier must be 1, 2 or 3',
-      '#4 "ab": word must be lowercase a-z, 3-7 letters',
+      '#4 "ab": word must be lowercase a-z, 3-12 letters',
     ]);
   });
 

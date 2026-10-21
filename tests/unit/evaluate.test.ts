@@ -43,22 +43,22 @@ describe("evaluateGuesses: reveals", () => {
     expect(evaluate([]).knownPrefixLen).toBe(0);
   });
 
-  it("hides the length before guess 3 and shows it from guess 3", () => {
-    expect(evaluate(["spoon", "sofa"]).wordLength).toBeNull();
-    expect(evaluate(["spoon", "sofa", "salad"]).wordLength).toBe(6);
+  it("hides the length before guess 2 and shows it from guess 2", () => {
+    expect(evaluate(["spoon"]).wordLength).toBeNull();
+    expect(evaluate(["spoon", "sofa"]).wordLength).toBe(6);
   });
 
   it("shows the length when the game ends early", () => {
     expect(evaluate(["sandal"]).wordLength).toBe(6);
   });
 
-  it("unlocks the category after guess 5, only when revealed", () => {
-    const four = ["spoon", "sofa", "salad", "sandy"];
-    expect(evaluate(four, true)).toMatchObject({ categoryAvailable: false, category: null });
+  it("unlocks the category after guess 3, only when revealed", () => {
+    const two = ["spoon", "sofa"];
+    expect(evaluate(two, true)).toMatchObject({ categoryAvailable: false, category: null });
 
-    const five = [...four, "sand"];
-    expect(evaluate(five)).toMatchObject({ categoryAvailable: true, category: null });
-    expect(evaluate(five, true)).toMatchObject({ categoryAvailable: true, category: CATEGORY });
+    const three = [...two, "salad"];
+    expect(evaluate(three)).toMatchObject({ categoryAvailable: true, category: null });
+    expect(evaluate(three, true)).toMatchObject({ categoryAvailable: true, category: CATEGORY });
   });
 
   it("always includes the category once the game has ended", () => {
