@@ -1,4 +1,9 @@
-import { CATEGORY_HINT_AFTER, LENGTH_REVEAL_AFTER, MAX_GUESSES } from "../../shared/config";
+import {
+  CATEGORY_HINT_AFTER,
+  CLUE_HINT_AFTER,
+  LENGTH_REVEAL_AFTER,
+  MAX_GUESSES,
+} from "../../shared/config";
 import type { GameState } from "../../shared/types";
 import { loadStats, type ThemePreference } from "../lib/storage";
 import { Sheet } from "./Sheet";
@@ -18,7 +23,7 @@ export function HowToPlaySheet({ open, onClose }: SheetBaseProps) {
         </li>
         <li>
           The length appears after guess {LENGTH_REVEAL_AFTER}; a category hint unlocks after guess{" "}
-          {CATEGORY_HINT_AFTER}.
+          {CATEGORY_HINT_AFTER} and a clue after guess {CLUE_HINT_AFTER}.
         </li>
       </ol>
       <div className="example" aria-hidden="true">
@@ -57,6 +62,7 @@ export function ResultSheet({ open, onClose, state, onShare, onPlayAnother }: Re
   return (
     <Sheet open={open} onClose={onClose} title={title}>
       {state.category && <p className="muted">Category: {state.category}</p>}
+      {state.clue && <p className="muted">Clue: {state.clue}</p>}
       <div className="actions">
         <button type="button" className="button primary" onClick={onShare}>
           Share

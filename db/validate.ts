@@ -3,6 +3,7 @@ import { MAX_GUESS_LEN, MIN_GUESS_LEN, MIN_WORD_LEN } from "../shared/config.js"
 export interface WordEntry {
   word: string;
   category: string;
+  clue: string;
   tier: number;
 }
 
@@ -53,6 +54,11 @@ export function validateWords(entries: unknown, dictionary: Set<string>): string
     }
     if (typeof e.category !== "string" || !e.category.trim()) {
       errors.push(`${label}: missing category`);
+    }
+    if (typeof e.clue !== "string" || !e.clue.trim()) {
+      errors.push(`${label}: missing clue`);
+    } else if (typeof e.word === "string" && e.clue.toLowerCase().includes(e.word)) {
+      errors.push(`${label}: clue gives away the word`);
     }
     if (typeof e.tier !== "number" || ![1, 2, 3].includes(e.tier)) {
       errors.push(`${label}: tier must be 1, 2 or 3`);

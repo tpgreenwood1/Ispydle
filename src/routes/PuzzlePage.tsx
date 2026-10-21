@@ -3,10 +3,10 @@ import { useParams } from "react-router-dom";
 import { MAX_WORD_LEN } from "../../shared/config";
 import { buildShareText } from "../../shared/share";
 import { GuessHistory, LengthCaption, PrefixRow } from "../components/Board";
-import { CategoryStrip, Counter, GuessInput } from "../components/Controls";
+import { Counter, GuessInput, HintStrips } from "../components/Controls";
 import { ResultSheet } from "../components/Sheets";
 import { useToast } from "../components/toastContext";
-import { useGame } from "../hooks/useGame";
+import { useGame, type Hint } from "../hooks/useGame";
 import { usePlayAnother } from "../hooks/usePlayAnother";
 import { describeGuess, knownLetters } from "../lib/game";
 import { shareText } from "../lib/share";
@@ -22,8 +22,7 @@ export function PuzzlePage() {
 }
 
 function Game({ puzzleNo }: { puzzleNo: number }) {
-  const { phase, loadError, puzzle, state, busy, submit, revealCategory, retry } =
-    useGame(puzzleNo);
+  const { phase, loadError, puzzle, state, busy, submit, revealHint, retry } = useGame(puzzleNo);
   const toast = useToast();
   const playAnother = usePlayAnother();
   const [announcement, setAnnouncement] = useState("");
@@ -62,8 +61,8 @@ function Game({ puzzleNo }: { puzzleNo: number }) {
     return true;
   }
 
-  async function handleReveal() {
-    const failure = await revealCategory();
+  async function handleReveal(hint: Hint) {
+    const failure = await revealHint(hint);
     if (failure) toast(failure);
   }
 
@@ -94,7 +93,7 @@ function Game({ puzzleNo }: { puzzleNo: number }) {
 
       <div className="bottom">
         <Counter guessesUsed={state.guessesUsed} puzzleNo={puzzleNo} />
-        <CategoryStrip state={state} onReveal={handleReveal} />
+        <HintStrips state={state} onReveal={handleReveal} />
         {ended ? (
           <div className="actions">
             <button type="button" className="button" onClick={() => setResultOpen(true)}>

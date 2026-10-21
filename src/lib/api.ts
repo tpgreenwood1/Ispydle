@@ -1,4 +1,4 @@
-import type { GuessResponse, PuzzleInfo } from "../../shared/types";
+import type { GuessRequest, GuessResponse, PuzzleInfo } from "../../shared/types";
 
 /** Longer than the server's own retry budget, so the server gets to answer first. */
 const REQUEST_TIMEOUT_MS = 15_000;
@@ -46,9 +46,13 @@ export const fetchRandom = (exclude: number[]) =>
     `/api/puzzles/random${exclude.length ? `?exclude=${exclude.join(",")}` : ""}`,
   );
 
-export const postGuesses = (puzzleNo: number, guesses: string[], revealCategory: boolean) =>
+export const postGuesses = (
+  puzzleNo: number,
+  guesses: string[],
+  reveal: Omit<GuessRequest, "guesses">,
+) =>
   request<GuessResponse>(`/api/puzzles/${puzzleNo}/guess`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ guesses, revealCategory }),
+    body: JSON.stringify({ guesses, ...reveal }),
   });

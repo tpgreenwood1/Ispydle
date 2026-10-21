@@ -16,7 +16,7 @@ describe("parseFilter / parseDictionary", () => {
 
 describe("validateWords", () => {
   const dict = new Set(["sandal", "acorn"]);
-  const valid = { word: "sandal", category: "Clothing", tier: 1 };
+  const valid = { word: "sandal", category: "Clothing", clue: "Open shoe for summer", tier: 1 };
 
   it("accepts valid entries and ignores extra fields", () => {
     expect(validateWords([{ ...valid, neighbours: ["sand"] }], dict)).toEqual([]);
@@ -27,9 +27,10 @@ describe("validateWords", () => {
       [
         valid,
         valid,
-        { word: "Acorn", category: "Nature", tier: 1 },
+        { word: "Acorn", category: "Nature", clue: "Nut", tier: 1 },
         { word: "zebra", category: "", tier: 4 },
-        { word: "ab", category: "X", tier: 1 },
+        { word: "ab", category: "X", clue: "Y", tier: 1 },
+        { ...valid, word: "acorn", clue: "An ACORN falls from an oak" },
       ],
       dict,
     );
@@ -38,8 +39,10 @@ describe("validateWords", () => {
       '#2 "Acorn": word must be lowercase a-z, 3-12 letters',
       '#3 "zebra": not in dictionary',
       '#3 "zebra": missing category',
+      '#3 "zebra": missing clue',
       '#3 "zebra": tier must be 1, 2 or 3',
       '#4 "ab": word must be lowercase a-z, 3-12 letters',
+      '#5 "acorn": clue gives away the word',
     ]);
   });
 

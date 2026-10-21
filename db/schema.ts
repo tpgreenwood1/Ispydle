@@ -16,6 +16,8 @@ export const puzzles = pgTable("puzzles", {
   // Unique so the seed can upsert by word.
   word: varchar("word", { length: 7 }).unique().notNull(),
   category: text("category").notNull(),
+  // Nullable so the column can be added to a populated table; the seed requires one for every word.
+  clue: text("clue"),
   tier: smallint("tier").notNull().default(1),
   active: boolean("active").notNull().default(true),
   createdAt: timestamp("created_at", { withTimezone: true }).defaultNow(),

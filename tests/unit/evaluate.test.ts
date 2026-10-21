@@ -3,8 +3,12 @@ import { evaluateGuesses } from "../../shared/evaluate";
 
 const ANSWER = "sandal";
 const CATEGORY = "Clothing";
-const evaluate = (guesses: string[], reveal = false) =>
-  evaluateGuesses(ANSWER, CATEGORY, guesses, reveal);
+const CLUE = "Open shoe with straps for summer";
+const evaluate = (guesses: string[], reveal = false, clue: string | null = CLUE) =>
+  evaluateGuesses(ANSWER, { category: CATEGORY, clue }, guesses, {
+    category: reveal,
+    clue: reveal,
+  });
 
 describe("evaluateGuesses: worked example (answer sandal)", () => {
   const table: [guess: string, matched: number, knownPrefix: string][] = [
@@ -63,6 +67,30 @@ describe("evaluateGuesses: reveals", () => {
 
   it("always includes the category once the game has ended", () => {
     expect(evaluate(["sandal"]).category).toBe(CATEGORY);
+  });
+
+  it("unlocks the clue after guess 4, only when revealed", () => {
+    const three = ["spoon", "sofa", "salad"];
+    expect(evaluate(three, true)).toMatchObject({ clueAvailable: false, clue: null });
+
+    const four = [...three, "sandy"];
+    expect(evaluate(four)).toMatchObject({ clueAvailable: true, clue: null });
+    expect(evaluate(four, true)).toMatchObject({ clueAvailable: true, clue: CLUE });
+  });
+
+  it("reveals the clue independently of the category", () => {
+    const four = ["spoon", "sofa", "salad", "sandy"];
+    const state = evaluateGuesses(ANSWER, { category: CATEGORY, clue: CLUE }, four, { clue: true });
+    expect(state).toMatchObject({ category: null, clue: CLUE });
+  });
+
+  it("always includes the clue once the game has ended", () => {
+    expect(evaluate(["sandal"]).clue).toBe(CLUE);
+  });
+
+  it("never offers a clue the puzzle doesn't have", () => {
+    const four = ["spoon", "sofa", "salad", "sandy"];
+    expect(evaluate(four, true, null)).toMatchObject({ clueAvailable: false, clue: null });
   });
 
   it("never includes the answer while playing", () => {

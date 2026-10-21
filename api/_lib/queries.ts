@@ -10,9 +10,15 @@ export interface Puzzle {
   puzzleNo: number;
   word: string;
   category: string;
+  clue: string | null;
 }
 
-const columns = { puzzleNo: puzzles.puzzleNo, word: puzzles.word, category: puzzles.category };
+const columns = {
+  puzzleNo: puzzles.puzzleNo,
+  word: puzzles.word,
+  category: puzzles.category,
+  clue: puzzles.clue,
+};
 
 // Puzzles longer than MAX_WORD_LEN stay in the database but are not served.
 const withinMaxLen = lte(sql`length(${puzzles.word})`, MAX_WORD_LEN);

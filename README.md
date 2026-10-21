@@ -34,6 +34,7 @@ cp .env.example .env   # then fill in DATABASE_URL
 | `ENABLED_TIERS`       | Comma-separated difficulty tiers to serve, e.g. `1` or `1,2` (default `1`)             |
 | `LENGTH_REVEAL_AFTER` | Word length is shown once this many guesses are used (default `2`)                     |
 | `CATEGORY_HINT_AFTER` | Category hint unlocks once this many guesses are used (default `3`)                    |
+| `CLUE_HINT_AFTER`     | Clue unlocks once this many guesses are used (default `4`)                             |
 | `MAX_WORD_LEN`        | Longest answer served; longer words stay in the database but are skipped (default `6`) |
 
 ## Database
@@ -46,7 +47,7 @@ pnpm seed         # load the dictionary and puzzles
 The seed is idempotent. It:
 
 - loads `data/dictionary.txt` (the public-domain ENABLE list) as valid guesses, minus the words in `data/profanity-filter.txt` (exact matches; list inflections explicitly);
-- validates `data/words.json` and fails loudly on any problem (lowercase a–z, 3–12 letters, unique, in the dictionary, has a category, tier 1–3);
+- validates `data/words.json` and fails loudly on any problem (lowercase a–z, 3–12 letters, unique, in the dictionary, has a category, has a clue that doesn't contain the word, tier 1–3);
 - upserts puzzles by word and never reassigns an existing `puzzleNo`. New words get numbers from a shuffled 1000–9999 range so numbers don't reveal order or difficulty;
 - prints counts by length, first letter, category and tier.
 

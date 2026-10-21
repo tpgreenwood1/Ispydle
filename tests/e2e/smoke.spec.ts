@@ -98,7 +98,10 @@ test("plays a puzzle from first letter to shared result", async ({ page, baseURL
   await expect(page.locator(".toast")).toHaveText("Copied");
   const shared = await page.evaluate(() => (window as unknown as { shared: string }).shared);
 
-  const state = evaluateGuesses(fx.word, fx.category, [...fx.guesses, fx.word]);
+  const state = evaluateGuesses(fx.word, { category: fx.category, clue: null }, [
+    ...fx.guesses,
+    fx.word,
+  ]);
   expect(shared).toBe(buildShareText(fx.puzzleNo, state.rows, "won", baseURL ?? ""));
   const [headline, squares, link] = shared.split("\n");
   expect(headline).toBe(`I spydle #${fx.puzzleNo} 🔍 4/6`);

@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import type { GameState, PuzzleInfo } from "../../shared/types";
 import { HttpError, failureMessage, fetchPuzzle, postGuesses } from "../lib/api";
 import { EMPTY_STATE, errorMessage } from "../lib/game";
-import { loadGame, recordResult, removeGame, saveGame } from "../lib/storage";
+import { loadGame, recordResult, removeGame, saveGame, type StoredGame } from "../lib/storage";
 import { useRetryWhenOnline } from "./useOnline";
 
 export type GamePhase = "loading" | "ready" | "notFound" | "error";
@@ -10,6 +10,14 @@ export type GamePhase = "loading" | "ready" | "notFound" | "error";
 /** null: ignored (a guess is already being checked). */
 export type SubmitResult =
   { ok: true; prev: GameState; next: GameState } | { ok: false; message: string } | null;
+
+export type Hint = "category" | "clue";
+
+/** The hints this device has already revealed, as request flags. */
+const storedReveal = (stored: StoredGame | undefined) => ({
+  revealCategory: stored?.categoryRevealed ?? false,
+  revealClue: stored?.clueRevealed ?? false,
+});
 
 /**
  * Loads a puzzle and rebuilds its state from the guesses stored on this device
@@ -34,7 +42,7 @@ export function useGame(puzzleNo: number) {
       let next = EMPTY_STATE;
       if (stored?.guesses.length) {
         try {
-          const res = await postGuesses(puzzleNo, stored.guesses, stored.categoryRevealed ?? false);
+          const res = await postGuesses(puzzleNo, stored.guesses, storedReveal(stored));
           if (res.valid) next = res.state;
         } catch (err) {
           // 400: the stored history no longer validates (e.g. the word list changed). Start over.
@@ -47,6 +55,7 @@ export function useGame(puzzleNo: number) {
         status: next.status,
         startedAt: stored?.startedAt ?? Date.now(),
         categoryRevealed: stored?.categoryRevealed,
+        clueRevealed: stored?.clueRevealed,
       });
       setPuzzle(info);
       setState(next);
@@ -77,7 +86,7 @@ export function useGame(puzzleNo: number) {
       try {
         const stored = loadGame(puzzleNo);
         const guesses = [...state.rows.map((r) => r.word), guess];
-        const res = await postGuesses(puzzleNo, guesses, stored?.categoryRevealed ?? false);
+        const res = await postGuesses(puzzleNo, guesses, storedReveal(stored));
         if (!res.valid) return { ok: false, message: errorMessage(res.error, puzzle.firstLetter) };
 
         saveGame(puzzleNo, {
@@ -101,22 +110,34 @@ export function useGame(puzzleNo: number) {
   );
 
   /** Returns an error message, or null on success. */
-  const revealCategory = useCallback(async (): Promise<string | null> => {
-    const stored = loadGame(puzzleNo);
-    try {
-      const res = await postGuesses(
-        puzzleNo,
-        state.rows.map((r) => r.word),
-        true,
-      );
-      if (!res.valid) return failureMessage(null);
-      if (stored) saveGame(puzzleNo, { ...stored, categoryRevealed: true });
-      setState(res.state);
-      return null;
-    } catch (err) {
-      return failureMessage(err);
-    }
-  }, [puzzleNo, state.rows]);
+  const revealHint = useCallback(
+    async (hint: Hint): Promise<string | null> => {
+      const stored = loadGame(puzzleNo);
+      const reveal = storedReveal(stored);
+      if (hint === "category") reveal.revealCategory = true;
+      else reveal.revealClue = true;
+      try {
+        const res = await postGuesses(
+          puzzleNo,
+          state.rows.map((r) => r.word),
+          reveal,
+        );
+        if (!res.valid) return failureMessage(null);
+        if (stored) {
+          saveGame(puzzleNo, {
+            ...stored,
+            categoryRevealed: reveal.revealCategory,
+            clueRevealed: reveal.revealClue,
+          });
+        }
+        setState(res.state);
+        return null;
+      } catch (err) {
+        return failureMessage(err);
+      }
+    },
+    [puzzleNo, state.rows],
+  );
 
-  return { phase, loadError, puzzle, state, busy, submit, revealCategory, retry };
+  return { phase, loadError, puzzle, state, busy, submit, revealHint, retry };
 }

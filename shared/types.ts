@@ -16,6 +16,8 @@ export interface GameState {
   wordLength: number | null;
   categoryAvailable: boolean;
   category: string | null;
+  clueAvailable: boolean;
+  clue: string | null;
   answer: string | null;
 }
 
@@ -27,6 +29,7 @@ export interface PuzzleInfo {
 export interface GuessRequest {
   guesses: string[];
   revealCategory?: boolean;
+  revealClue?: boolean;
 }
 
 export type GuessResponse = { valid: true; state: GameState } | { valid: false; error: GuessError };

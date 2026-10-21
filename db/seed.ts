@@ -30,9 +30,10 @@ async function main() {
     for (const e of errors) console.error(`  ${e}`);
     process.exit(1);
   }
-  const answers = (entries as WordEntry[]).map(({ word, category, tier }) => ({
+  const answers = (entries as WordEntry[]).map(({ word, category, clue, tier }) => ({
     word,
     category,
+    clue,
     tier,
   }));
 
@@ -64,7 +65,11 @@ async function main() {
       .onConflictDoUpdate({
         target: puzzles.word,
         // Never reassign puzzleNo.
-        set: { category: sql`excluded.category`, tier: sql`excluded.tier` },
+        set: {
+          category: sql`excluded.category`,
+          clue: sql`excluded.clue`,
+          tier: sql`excluded.tier`,
+        },
       });
   }
 

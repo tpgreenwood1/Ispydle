@@ -2,9 +2,15 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 import type { Puzzle } from "../../api/_lib/queries";
 
 const PUZZLES: (Puzzle & { tier: number })[] = [
-  { puzzleNo: 4821, word: "sandal", category: "Clothing", tier: 1 },
-  { puzzleNo: 1234, word: "acorn", category: "Nature", tier: 1 },
-  { puzzleNo: 5555, word: "yacht", category: "Vehicles", tier: 2 },
+  {
+    puzzleNo: 4821,
+    word: "sandal",
+    category: "Clothing",
+    clue: "Open shoe with straps for summer",
+    tier: 1,
+  },
+  { puzzleNo: 1234, word: "acorn", category: "Nature", clue: null, tier: 1 },
+  { puzzleNo: 5555, word: "yacht", category: "Vehicles", clue: null, tier: 2 },
 ];
 const DICTIONARY = new Set(["spoon", "sofa", "salad", "sandy", "sand", "sane", "sandal", "acorn"]);
 
@@ -85,6 +91,8 @@ describe("POST /api/puzzles/:puzzleNo/guess", () => {
         wordLength: null,
         categoryAvailable: false,
         category: null,
+        clueAvailable: false,
+        clue: null,
         answer: null,
       },
     });
@@ -108,6 +116,16 @@ describe("POST /api/puzzles/:puzzleNo/guess", () => {
     const shown = await (await guess({ guesses: three, revealCategory: true })).json();
     expect(shown.state.category).toBe("Clothing");
     expect(shown.state.answer).toBeNull();
+  });
+
+  it("returns the clue only when asked after guess 4", async () => {
+    const four = ["spoon", "sofa", "salad", "sandy"];
+    const hidden = await (await guess({ guesses: four })).json();
+    expect(hidden.state).toMatchObject({ clueAvailable: true, clue: null });
+    const early = await (await guess({ guesses: four.slice(0, 3), revealClue: true })).json();
+    expect(early.state.clue).toBeNull();
+    const shown = await (await guess({ guesses: four, revealClue: true })).json();
+    expect(shown.state).toMatchObject({ clue: "Open shoe with straps for summer", answer: null });
   });
 
   it("returns the answer and category on a win or loss", async () => {
@@ -140,6 +158,7 @@ describe("POST /api/puzzles/:puzzleNo/guess", () => {
     ["non-string guesses", { guesses: [1] }],
     ["a missing guesses field", {}],
     ["a non-boolean revealCategory", { guesses: [], revealCategory: "yes" }],
+    ["a non-boolean revealClue", { guesses: [], revealClue: 1 }],
     ["malformed JSON", "{"],
   ])("returns 400 for %s", async (_, body) => {
     expect((await guess(body)).status).toBe(400);

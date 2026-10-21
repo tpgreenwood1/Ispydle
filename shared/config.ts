@@ -11,6 +11,7 @@ export const MAX_WORD_LEN = envInt(process.env.MAX_WORD_LEN, 6);
 export const MIN_WORD_LEN = 3;
 export const LENGTH_REVEAL_AFTER = envInt(process.env.LENGTH_REVEAL_AFTER, 2);
 export const CATEGORY_HINT_AFTER = envInt(process.env.CATEGORY_HINT_AFTER, 3);
+export const CLUE_HINT_AFTER = envInt(process.env.CLUE_HINT_AFTER, 4);
 export const MIN_GUESS_LEN = 2;
 export const MAX_GUESS_LEN = 12;
 export const DEFAULT_ENABLED_TIERS = [1];

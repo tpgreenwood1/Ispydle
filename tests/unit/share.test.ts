@@ -5,7 +5,7 @@ import { buildShareText } from "../../shared/share";
 const ORIGIN = "https://ispydle.example";
 
 function share(guesses: string[]) {
-  const state = evaluateGuesses("sandal", "Clothing", guesses);
+  const state = evaluateGuesses("sandal", { category: "Clothing", clue: "Summer shoe" }, guesses);
   return buildShareText(4821, state.rows, state.status, ORIGIN);
 }
 
@@ -27,11 +27,12 @@ describe("buildShareText", () => {
     expect(text).not.toContain("🟨");
   });
 
-  it("leaks no answer, letters, length or category", () => {
+  it("leaks no answer, letters, length, category or clue", () => {
     const text = share(["spoon", "sofa", "salad", "sandy", "sandal"]);
     const body = text.replace("I spydle", "").replace(`${ORIGIN}/p/4821`, "");
     expect(body).not.toMatch(/[a-z]/i);
     expect(body).not.toContain("6 letters");
     expect(text).not.toContain("Clothing");
+    expect(text).not.toContain("Summer shoe");
   });
 });

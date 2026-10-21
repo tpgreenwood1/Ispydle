@@ -9,6 +9,8 @@ export const EMPTY_STATE: GameState = {
   wordLength: null,
   categoryAvailable: false,
   category: null,
+  clueAvailable: false,
+  clue: null,
   answer: null,
 };
 
@@ -54,5 +56,6 @@ export function describeGuess(prev: GameState, next: GameState, firstLetter: str
     parts.push(`the word has ${next.wordLength} letters`);
   }
   if (!prev.categoryAvailable && next.categoryAvailable) parts.push("category hint unlocked");
+  if (!prev.clueAvailable && next.clueAvailable) parts.push("clue unlocked");
   return parts.join(", ");
 }

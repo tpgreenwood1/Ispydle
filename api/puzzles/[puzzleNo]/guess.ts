@@ -15,6 +15,7 @@ import { dictionaryHas, getPuzzle } from "../../_lib/queries.js";
 interface Body {
   guesses: string[];
   revealCategory: boolean;
+  revealClue: boolean;
 }
 
 function parseBody(text: string): Body | null {
@@ -25,13 +26,15 @@ function parseBody(text: string): Body | null {
     return null;
   }
   if (typeof body !== "object" || body === null) return null;
-  const { guesses, revealCategory } = body as Record<string, unknown>;
+  const { guesses, revealCategory, revealClue } = body as Record<string, unknown>;
   if (!Array.isArray(guesses) || !guesses.every((g) => typeof g === "string")) return null;
   if (revealCategory !== undefined && typeof revealCategory !== "boolean") return null;
+  if (revealClue !== undefined && typeof revealClue !== "boolean") return null;
   // Guesses are case-insensitive: "Spoon" and "spoon" are the same guess.
   return {
     guesses: guesses.map((g: string) => g.trim().toLowerCase()),
     revealCategory: revealCategory ?? false,
+    revealClue: revealClue ?? false,
   };
 }
 
@@ -45,8 +48,13 @@ export const POST = withErrors(async (req) => {
   const text = await req.text();
   if (text.length > MAX_BODY_BYTES) return error(413, "Body too large");
   const body = parseBody(text);
-  if (!body) return error(400, "Body must be { guesses: string[], revealCategory?: boolean }");
-  const { guesses, revealCategory } = body;
+  if (!body) {
+    return error(
+      400,
+      "Body must be { guesses: string[], revealCategory?: boolean, revealClue?: boolean }",
+    );
+  }
+  const { guesses, revealCategory, revealClue } = body;
   if (guesses.length > MAX_GUESSES) return error(400, `At most ${MAX_GUESSES} guesses`);
 
   const [puzzle, known] = await Promise.all([
@@ -67,6 +75,9 @@ export const POST = withErrors(async (req) => {
     return json({ valid: false, error: err } satisfies GuessResponse);
   }
 
-  const state = evaluateGuesses(puzzle.word, puzzle.category, guesses, revealCategory);
+  const state = evaluateGuesses(puzzle.word, puzzle, guesses, {
+    category: revealCategory,
+    clue: revealClue,
+  });
   return json({ valid: true, state } satisfies GuessResponse);
 });

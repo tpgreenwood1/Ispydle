@@ -1,6 +1,12 @@
 import { useState, type FormEvent } from "react";
-import { CATEGORY_HINT_AFTER, MAX_GUESSES, MAX_GUESS_LEN } from "../../shared/config";
+import {
+  CATEGORY_HINT_AFTER,
+  CLUE_HINT_AFTER,
+  MAX_GUESSES,
+  MAX_GUESS_LEN,
+} from "../../shared/config";
 import type { GameState } from "../../shared/types";
+import type { Hint } from "../hooks/useGame";
 import { LockIcon } from "./Icons";
 
 export function Counter({ guessesUsed, puzzleNo }: { guessesUsed: number; puzzleNo: number }) {
@@ -20,26 +26,59 @@ export function Counter({ guessesUsed, puzzleNo }: { guessesUsed: number; puzzle
   );
 }
 
-interface CategoryStripProps {
+interface HintStripsProps {
   state: GameState;
+  onReveal: (hint: Hint) => void;
+}
+
+/** The category hint, then (once the category unlocks) the clue below it. */
+export function HintStrips({ state, onReveal }: HintStripsProps) {
+  return (
+    <>
+      <HintStrip
+        text={state.category && `Category: ${state.category}`}
+        available={state.categoryAvailable}
+        revealLabel="Show category"
+        lockedLabel={`Category hint unlocks after guess ${CATEGORY_HINT_AFTER}`}
+        onReveal={() => onReveal("category")}
+      />
+      {(state.categoryAvailable || state.clue) && (
+        <HintStrip
+          text={state.clue && `Clue: ${state.clue}`}
+          available={state.clueAvailable}
+          revealLabel="Show clue"
+          lockedLabel={`Clue unlocks after guess ${CLUE_HINT_AFTER}`}
+          onReveal={() => onReveal("clue")}
+        />
+      )}
+    </>
+  );
+}
+
+interface HintStripProps {
+  /** The revealed hint, or null while hidden. */
+  text: string | null;
+  available: boolean;
+  revealLabel: string;
+  lockedLabel: string;
   onReveal: () => void;
 }
 
-export function CategoryStrip({ state, onReveal }: CategoryStripProps) {
-  if (state.category) {
-    return <div className="hint-strip revealed">Category: {state.category}</div>;
+function HintStrip({ text, available, revealLabel, lockedLabel, onReveal }: HintStripProps) {
+  if (text) {
+    return <div className="hint-strip revealed">{text}</div>;
   }
-  if (state.categoryAvailable) {
+  if (available) {
     return (
       <button type="button" className="hint-strip" onClick={onReveal}>
-        Show category
+        {revealLabel}
       </button>
     );
   }
   return (
     <div className="hint-strip">
       <LockIcon />
-      Category hint unlocks after guess {CATEGORY_HINT_AFTER}
+      {lockedLabel}
     </div>
   );
 }

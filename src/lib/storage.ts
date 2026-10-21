@@ -33,6 +33,7 @@ export interface StoredGame {
   status: GameStatus;
   startedAt: number;
   categoryRevealed?: boolean;
+  clueRevealed?: boolean;
 }
 
 type Games = Record<string, StoredGame>;
