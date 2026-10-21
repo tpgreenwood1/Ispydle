@@ -1,671 +1,4685 @@
 [
-{"word":"acorn","category":"Nature","tier":1,"neighbours":["ace","ache","acre","actor","across"]},
-{"word":"aisle","category":"Street & town","tier":2,"neighbours":["air","aim","airline","aid"]},
-{"word":"alarm","category":"Bedroom & furniture","tier":1,"neighbours":["album","alley","almond","alone"]},
-{"word":"alley","category":"Street & town","tier":1,"neighbours":["alarm","album","almond","alone"]},
-{"word":"almond","category":"Food & drink","tier":2,"neighbours":["alarm","album","alley","alone"]},
-{"word":"alpaca","category":"Animals","tier":2,"neighbours":["alarm","album","alley","almond"]},
-{"word":"anchor","category":"Sports & outdoors","tier":2,"neighbours":["ant","ankle","antler","angel"]},
-{"word":"ankle","category":"Body","tier":1,"neighbours":["ant","antler","anchor","angel"]},
-{"word":"antler","category":"Animals","tier":2,"neighbours":["ant","ankle","anchor","angel"]},
-{"word":"apple","category":"Food & drink","tier":1,"neighbours":["apron","apricot","apply","appear"]},
-{"word":"apricot","category":"Food & drink","tier":2,"neighbours":["apple","apron","apply","appear"]},
-{"word":"apron","category":"Clothing","tier":1,"neighbours":["apple","apricot","apply","appear"]},
-{"word":"arch","category":"Street & town","tier":2,"neighbours":["arrow","army","art","archer"]},
-{"word":"arrow","category":"Toys & games","tier":1,"neighbours":["arm","army","art","arch"]},
-{"word":"atlas","category":"School & office","tier":2,"neighbours":["attic","attack","attach","attend"]},
-{"word":"attic","category":"Bedroom & furniture","tier":1,"neighbours":["attack","attach","atlas","attend"]},
-{"word":"avenue","category":"Street & town","tier":2,"neighbours":["avocado","average","avoid","avalanche"]},
-{"word":"avocado","category":"Food & drink","tier":2,"neighbours":["avenue","average","avoid","avalanche"]},
-{"word":"awning","category":"Street & town","tier":2,"neighbours":["away","award","awake","awkward"]},
-{"word":"bacon","category":"Food & drink","tier":1,"neighbours":["bag","ball","band","bank","barn"]},
-{"word":"badge","category":"Clothing","tier":2,"neighbours":["bag","bat","bath","bacon","band"]},
-{"word":"badger","category":"Animals","tier":1,"neighbours":["bag","bat","bath","bacon","band"]},
-{"word":"bagel","category":"Food & drink","tier":2,"neighbours":["bag","bat","bath","bacon","band"]},
-{"word":"bakery","category":"Street & town","tier":2,"neighbours":["bag","bat","bacon","bank","band"]},
-{"word":"ball","category":"Toys & games","tier":1,"neighbours":["bag","band","bank","bake","basket"]},
-{"word":"balloon","category":"Toys & games","tier":1,"neighbours":["ball","banana","bank","band","basket"]},
-{"word":"banana","category":"Food & drink","tier":1,"neighbours":["bag","ball","band","bank","basket"]},
-{"word":"bank","category":"Street & town","tier":1,"neighbours":["bag","ball","band","bark","bake","basket"]},
-{"word":"bark","category":"Nature","tier":1,"neighbours":["bank","barn","bar","basket","bat"]},
-{"word":"barn","category":"Nature","tier":1,"neighbours":["bark","bank","bar","basket","bat"]},
-{"word":"basin","category":"Bathroom","tier":2,"neighbours":["basket","bath","bag","bat","ball"]},
-{"word":"basket","category":"Kitchen","tier":1,"neighbours":["bag","ball","bank","barn","bat"]},
-{"word":"bath","category":"Bathroom","tier":1,"neighbours":["bag","ball","basket","bat","bay"]},
-{"word":"bathtub","category":"Bathroom","tier":1,"neighbours":["bath","bag","bat","basket","ball"]},
-{"word":"beach","category":"Sports & outdoors","tier":1,"neighbours":["bed","bee","bear","beak","bean"]},
-{"word":"beak","category":"Animals","tier":1,"neighbours":["bear","bean","beach","bee","bed"]},
-{"word":"bean","category":"Food & drink","tier":1,"neighbours":["bee","beak","bear","beach","bed"]},
-{"word":"beanbag","category":"Bedroom & furniture","tier":1,"neighbours":["bean","bear","bed","bee","beach"]},
-{"word":"bear","category":"Animals","tier":1,"neighbours":["bee","beak","bean","beach","bed"]},
-{"word":"beard","category":"Body","tier":1,"neighbours":["bed","bee","bear","bean","beach"]},
-{"word":"beaver","category":"Animals","tier":1,"neighbours":["bed","bee","bear","bean","beach"]},
-{"word":"bed","category":"Bedroom & furniture","tier":1,"neighbours":["bee","beak","bear","beach","bean"]},
-{"word":"bedroom","category":"Bedroom & furniture","tier":1,"neighbours":["bed","bee","bear","bean","beach"]},
-{"word":"bee","category":"Animals","tier":1,"neighbours":["bed","beak","bear","beach","bean"]},
-{"word":"beetle","category":"Animals","tier":1,"neighbours":["bee","bed","beach","bean","beak"]},
-{"word":"bell","category":"Street & town","tier":1,"neighbours":["bench","belt","berry","bed","bee"]},
-{"word":"belt","category":"Clothing","tier":1,"neighbours":["bell","bench","berry","bed","bee"]},
-{"word":"bench","category":"Street & town","tier":1,"neighbours":["bell","belt","berry","bed","bee"]},
-{"word":"berry","category":"Food & drink","tier":1,"neighbours":["bell","belt","bench","bee","bed"]},
-{"word":"bicycle","category":"Vehicles","tier":1,"neighbours":["bike","bird","bin","bite","big"]},
-{"word":"bike","category":"Vehicles","tier":1,"neighbours":["bin","bird","bib","big","bite"]},
-{"word":"bird","category":"Animals","tier":1,"neighbours":["bike","bin","bite","big","bib"]},
-{"word":"blanket","category":"Bedroom & furniture","tier":1,"neighbours":["black","blade","blink","blow","block"]},
-{"word":"blender","category":"Kitchen","tier":2,"neighbours":["black","blade","blanket","block","blouse"]},
-{"word":"block","category":"Toys & games","tier":1,"neighbours":["black","blade","blink","blow","blanket"]},
-{"word":"blossom","category":"Garden & plants","tier":1,"neighbours":["black","blade","blanket","block","blouse"]},
-{"word":"blouse","category":"Clothing","tier":2,"neighbours":["block","blanket","blow","bloom","blink"]},
-{"word":"boat","category":"Vehicles","tier":1,"neighbours":["bone","book","boot","bowl","box"]},
-{"word":"bolt","category":"Tools & DIY","tier":1,"neighbours":["boat","bone","book","boot","bowl"]},
-{"word":"bone","category":"Body","tier":1,"neighbours":["boat","book","boot","bowl","bold"]},
-{"word":"bonfire","category":"Sports & outdoors","tier":1,"neighbours":["bone","boat","book","boot","bowl"]},
-{"word":"book","category":"School & office","tier":1,"neighbours":["boat","bone","boot","bowl","box"]},
-{"word":"boot","category":"Clothing","tier":1,"neighbours":["boat","bone","book","bowl","box"]},
-{"word":"bottle","category":"Kitchen","tier":1,"neighbours":["boat","book","boot","bowl","bolt"]},
-{"word":"bowl","category":"Kitchen","tier":1,"neighbours":["bow","boat","bone","book","boot"]},
-{"word":"brain","category":"Body","tier":1,"neighbours":["bread","branch","brick","bridge","brush"]},
-{"word":"bramble","category":"Garden & plants","tier":2,"neighbours":["bread","brain","branch","brick","bridge"]},
-{"word":"branch","category":"Nature","tier":1,"neighbours":["bread","brain","brick","bridge","brush"]},
-{"word":"bread","category":"Food & drink","tier":1,"neighbours":["brain","branch","brick","bridge","brush"]},
-{"word":"breeze","category":"Weather & sky","tier":2,"neighbours":["bread","brain","brick","bridge","brush"]},
-{"word":"brick","category":"Tools & DIY","tier":1,"neighbours":["bread","brain","branch","bridge","brush"]},
-{"word":"bridge","category":"Street & town","tier":1,"neighbours":["bread","brain","branch","brick","brush"]},
-{"word":"broom","category":"Kitchen","tier":1,"neighbours":["brush","bread","brick","bridge","brain"]},
-{"word":"brownie","category":"Food & drink","tier":2,"neighbours":["bread","brain","brick","brush","broom"]},
-{"word":"brush","category":"Bathroom","tier":1,"neighbours":["bread","brain","brick","bridge","branch"]},
-{"word":"bubble","category":"Toys & games","tier":1,"neighbours":["bucket","buckle","bud","bun","bus","button"]},
-{"word":"bucket","category":"Garden & plants","tier":1,"neighbours":["bubble","buckle","bud","bun","bus","button"]},
-{"word":"buckle","category":"Clothing","tier":2,"neighbours":["bubble","bucket","bud","bun","button"]},
-{"word":"bulb","category":"Garden & plants","tier":1,"neighbours":["bud","bun","bus","bull","button","bubble"]},
-{"word":"bull","category":"Animals","tier":1,"neighbours":["bud","bun","bus","bubble","bucket"]},
-{"word":"bulldog","category":"Animals","tier":2,"neighbours":["bud","bun","bus","bull","bubble"]},
-{"word":"bunk","category":"Bedroom & furniture","tier":2,"neighbours":["bun","bus","bud","bull","button"]},
-{"word":"bunny","category":"Animals","tier":1,"neighbours":["bun","bus","bud","bull","button"]},
-{"word":"burger","category":"Food & drink","tier":1,"neighbours":["bud","bun","bus","bull","button","butter"]},
-{"word":"bus","category":"Vehicles","tier":1,"neighbours":["bun","butter","bubble","button","bush"]},
-{"word":"bush","category":"Garden & plants","tier":1,"neighbours":["bud","bun","bus","bull","button","butter"]},
-{"word":"butter","category":"Food & drink","tier":1,"neighbours":["button","bubble","bucket","bud","bun","bus"]},
-{"word":"button","category":"Clothing","tier":1,"neighbours":["bubble","bucket","buckle","bud","bun","bus"]},
-{"word":"cabbage","category":"Food & drink","tier":1,"neighbours":["cab","cabin","cat","cap","car"]},
-{"word":"cabin","category":"Sports & outdoors","tier":2,"neighbours":["cat","cap","car","cake","cab"]},
-{"word":"cactus","category":"Garden & plants","tier":1,"neighbours":["cab","cabin","cat","cap","car"]},
-{"word":"cake","category":"Food & drink","tier":1,"neighbours":["cat","cap","car","card","candle"]},
-{"word":"calf","category":"Animals","tier":2,"neighbours":["cat","cap","car","cake","call"]},
-{"word":"camel","category":"Animals","tier":1,"neighbours":["cat","cap","car","cake","candle"]},
-{"word":"camera","category":"Toys & games","tier":1,"neighbours":["cat","cap","car","cake","camp"]},
-{"word":"camp","category":"Sports & outdoors","tier":1,"neighbours":["camel","cat","cap","car","cake"]},
-{"word":"canal","category":"Street & town","tier":2,"neighbours":["cat","cap","car","cake","camp"]},
-{"word":"canary","category":"Animals","tier":2,"neighbours":["cat","cap","car","cake","canal"]},
-{"word":"candle","category":"Bedroom & furniture","tier":1,"neighbours":["candy","canal","cane","camp","cat"]},
-{"word":"canoe","category":"Sports & outdoors","tier":1,"neighbours":["cat","cap","car","cake","camp"]},
-{"word":"cape","category":"Clothing","tier":2,"neighbours":["cat","cap","car","cake","camp"]},
-{"word":"card","category":"School & office","tier":1,"neighbours":["car","cat","cap","cake","camp"]},
-{"word":"carpet","category":"Bedroom & furniture","tier":1,"neighbours":["car","card","carrot","carton","cart"]},
-{"word":"carrot","category":"Food & drink","tier":1,"neighbours":["car","card","carpet","carton","cart"]},
-{"word":"carton","category":"Kitchen","tier":2,"neighbours":["car","card","carpet","carrot","cart"]},
-{"word":"castle","category":"Street & town","tier":1,"neighbours":["cast","cash","case","cattle","catch"]},
-{"word":"cat","category":"Animals","tier":1,"neighbours":["cap","car","card","cake","can"]},
-{"word":"cave","category":"Nature","tier":1,"neighbours":["cat","cap","car","cake","camp"]},
-{"word":"ceiling","category":"Bedroom & furniture","tier":1,"neighbours":["cell","cellar","cement","cedar","celery","cereal"]},
-{"word":"celery","category":"Food & drink","tier":2,"neighbours":["cell","cent","cereal","cellar","cedar"]},
-{"word":"cement","category":"Tools & DIY","tier":2,"neighbours":["cell","cellar","cedar","celery","cereal"]},
-{"word":"cereal","category":"Food & drink","tier":1,"neighbours":["cell","cellar","cement","cedar","celery"]},
-{"word":"chain","category":"Vehicles","tier":2,"neighbours":["chair","chalk","check","cheek","cheese","chest"]},
-{"word":"chair","category":"Bedroom & furniture","tier":1,"neighbours":["chain","chalk","check","cheek","cheese","chest"]},
-{"word":"chalk","category":"School & office","tier":1,"neighbours":["chair","chain","check","cheek","cheese","chest"]},
-{"word":"cheek","category":"Body","tier":1,"neighbours":["chair","chain","chalk","check","cheese","chest"]},
-{"word":"cheese","category":"Food & drink","tier":1,"neighbours":["chair","chain","chalk","cheek","check","chest"]},
-{"word":"cheetah","category":"Animals","tier":2,"neighbours":["chair","chain","chalk","check","cheek","cheese"]},
-{"word":"cherry","category":"Food & drink","tier":1,"neighbours":["chair","chain","chalk","cheek","cheese","chest"]},
-{"word":"chess","category":"Toys & games","tier":1,"neighbours":["chest","chair","chain","chalk","cheek","cheese"]},
-{"word":"chest","category":"Body","tier":1,"neighbours":["chair","chain","chalk","cheek","cheese","check"]},
-{"word":"chick","category":"Animals","tier":1,"neighbours":["chin","chip","child","chair","chain"]},
-{"word":"chicken","category":"Animals","tier":1,"neighbours":["chick","chin","chip","chair","chain","chest"]},
-{"word":"chimney","category":"Street & town","tier":1,"neighbours":["chin","chip","chick","chain","chair"]},
-{"word":"chin","category":"Body","tier":1,"neighbours":["chip","chick","chimney","chair","chain"]},
-{"word":"chisel","category":"Tools & DIY","tier":2,"neighbours":["chin","chick","chimney","chair","chain","chip"]},
-{"word":"church","category":"Street & town","tier":1,"neighbours":["chin","chick","chair","chain","chalk","chest"]},
-{"word":"clamp","category":"Tools & DIY","tier":2,"neighbours":["clap","class","clay","clean","clip","clock"]},
-{"word":"cliff","category":"Nature","tier":1,"neighbours":["clip","clock","cloud","clap","clay","clown"]},
-{"word":"clip","category":"School & office","tier":2,"neighbours":["clock","cloud","clap","class","clay","clown"]},
-{"word":"cloak","category":"Clothing","tier":2,"neighbours":["clock","cloud","clap","class","clown","clip"]},
-{"word":"clock","category":"Bedroom & furniture","tier":1,"neighbours":["clap","class","clay","clean","clip","cloud"]},
-{"word":"cloud","category":"Weather & sky","tier":1,"neighbours":["clock","clap","class","clay","clean","clip"]},
-{"word":"clover","category":"Garden & plants","tier":2,"neighbours":["clock","cloud","clap","class","clay","clown"]},
-{"word":"clown","category":"Toys & games","tier":1,"neighbours":["clock","cloud","clap","class","clay","clip"]},
-{"word":"coat","category":"Clothing","tier":1,"neighbours":["coin","cone","cook","cool","corn","cow"]},
-{"word":"coconut","category":"Food & drink","tier":1,"neighbours":["coat","coin","cone","cook","cool","corn"]},
-{"word":"coffee","category":"Food & drink","tier":1,"neighbours":["coat","coin","cone","cook","cool","corn"]},
-{"word":"coin","category":"Toys & games","tier":1,"neighbours":["coat","cone","cook","cool","corn","cow"]},
-{"word":"collar","category":"Clothing","tier":1,"neighbours":["coat","coin","cone","cook","coffee","corn"]},
-{"word":"comb","category":"Bathroom","tier":1,"neighbours":["coat","coin","cone","cook","coffee","corn"]},
-{"word":"compass","category":"Sports & outdoors","tier":2,"neighbours":["coat","coin","cone","comb","coffee","corn"]},
-{"word":"cone","category":"Food & drink","tier":1,"neighbours":["coat","coin","cook","cool","corn","cow"]},
-{"word":"coral","category":"Nature","tier":2,"neighbours":["coat","coin","cone","corn","cook","cow"]},
-{"word":"cork","category":"Kitchen","tier":2,"neighbours":["corn","corner","coat","coin","cone","coral"]},
-{"word":"corn","category":"Food & drink","tier":1,"neighbours":["coat","coin","cone","cook","coral","cow"]},
-{"word":"corner","category":"Street & town","tier":1,"neighbours":["corn","coat","coin","cone","cook","coral"]},
-{"word":"cottage","category":"Street & town","tier":1,"neighbours":["coat","coin","cone","cook","corn","cotton"]},
-{"word":"cotton","category":"Clothing","tier":2,"neighbours":["coat","coin","cone","cook","corn","cow"]},
-{"word":"cow","category":"Animals","tier":1,"neighbours":["cot","cook","cool","coat","cone"]},
-{"word":"crab","category":"Animals","tier":1,"neighbours":["crane","crash","crayon","cream","crow","crown"]},
-{"word":"cracker","category":"Food & drink","tier":1,"neighbours":["crab","crane","crash","crayon","cream","crow"]},
-{"word":"crane","category":"Street & town","tier":1,"neighbours":["crab","crash","crayon","cream","crow","crown"]},
-{"word":"crayon","category":"School & office","tier":1,"neighbours":["crab","crane","crash","cream","crow","crown"]},
-{"word":"cream","category":"Food & drink","tier":1,"neighbours":["crab","crane","crash","crayon","crow","crown"]},
-{"word":"cricket","category":"Sports & outdoors","tier":1,"neighbours":["crab","crane","crayon","cream","crow","crown"]},
-{"word":"crow","category":"Animals","tier":1,"neighbours":["crab","crane","cream","crayon","crown","crash"]},
-{"word":"crown","category":"Toys & games","tier":1,"neighbours":["crab","crane","cream","crayon","crow","crash"]},
-{"word":"cube","category":"Toys & games","tier":1,"neighbours":["cub","cup","cut","cute","curtain","curl"]},
-{"word":"cupcake","category":"Food & drink","tier":1,"neighbours":["cub","cup","cut","cube","curtain","curl"]},
-{"word":"curtain","category":"Bedroom & furniture","tier":1,"neighbours":["cub","cup","cut","cube","curl","curb"]},
-{"word":"cushion","category":"Bedroom & furniture","tier":1,"neighbours":["cub","cup","cut","cube","curtain"]},
-{"word":"custard","category":"Food & drink","tier":2,"neighbours":["cub","cup","cut","cube","curtain","cushion"]},
-{"word":"daisy","category":"Garden & plants","tier":1,"neighbours":["dad","dam","dance","danger","dark"]},
-{"word":"dart","category":"Toys & games","tier":1,"neighbours":["daisy","dark","dash","date","dance"]},
-{"word":"date","category":"Food & drink","tier":2,"neighbours":["daisy","dart","dance","dark","dash"]},
-{"word":"dawn","category":"Weather & sky","tier":2,"neighbours":["dad","dam","dance","dark","dash","date"]},
-{"word":"deck","category":"Sports & outdoors","tier":2,"neighbours":["desk","deep","deer","den","dent"]},
-{"word":"deer","category":"Animals","tier":1,"neighbours":["desk","deck","deep","den","dent"]},
-{"word":"desk","category":"School & office","tier":1,"neighbours":["deck","deep","deer","den","dent"]},
-{"word":"diamond","category":"Toys & games","tier":1,"neighbours":["dial","dice","dig","dinner","dish","dive"]},
-{"word":"dice","category":"Toys & games","tier":1,"neighbours":["dial","diamond","dig","dinner","dish","dive"]},
-{"word":"dish","category":"Kitchen","tier":1,"neighbours":["dice","dial","dig","diamond","dinner","dive"]},
-{"word":"ditch","category":"Street & town","tier":2,"neighbours":["dice","dial","dig","dish","dive","dinner"]},
-{"word":"diver","category":"Sports & outdoors","tier":2,"neighbours":["dice","dial","dig","dish","dive","dinner"]},
-{"word":"dock","category":"Street & town","tier":2,"neighbours":["dog","doll","dot","door","down"]},
-{"word":"dog","category":"Animals","tier":1,"neighbours":["dock","doll","dot","dove","down"]},
-{"word":"doll","category":"Toys & games","tier":1,"neighbours":["dog","dock","dot","door","down","dove"]},
-{"word":"dolphin","category":"Animals","tier":1,"neighbours":["dog","doll","dock","door","dove","dot"]},
-{"word":"domino","category":"Toys & games","tier":2,"neighbours":["dog","doll","dock","door","dove","dot"]},
-{"word":"donkey","category":"Animals","tier":1,"neighbours":["dog","doll","dock","door","dove","dot"]},
-{"word":"door","category":"Bedroom & furniture","tier":1,"neighbours":["dog","doll","dot","dock","down","dove"]},
-{"word":"doormat","category":"Bedroom & furniture","tier":2,"neighbours":["dog","doll","dock","door","dove","dot"]},
-{"word":"dove","category":"Animals","tier":2,"neighbours":["dog","doll","door","dot","down","dock"]},
-{"word":"dragon","category":"Toys & games","tier":1,"neighbours":["drain","draw","drawer","dream","dress","drum"]},
-{"word":"drain","category":"Street & town","tier":2,"neighbours":["dress","draw","drawer","dream","drill","drum"]},
-{"word":"drawer","category":"Bedroom & furniture","tier":1,"neighbours":["dress","drain","draw","dream","drill","drum"]},
-{"word":"dress","category":"Clothing","tier":1,"neighbours":["drain","draw","drawer","dream","drill","drum"]},
-{"word":"drill","category":"Tools & DIY","tier":1,"neighbours":["dress","drain","draw","drawer","drum","drip"]},
-{"word":"drum","category":"Toys & games","tier":1,"neighbours":["dress","drain","draw","drawer","drill","drop"]},
-{"word":"duck","category":"Animals","tier":1,"neighbours":["dust","dune","dug","dumb","dump"]},
-{"word":"dune","category":"Nature","tier":1,"neighbours":["duck","dust","dull","dump","duvet"]},
-{"word":"duvet","category":"Bedroom & furniture","tier":1,"neighbours":["duck","dust","dune","dull","dump"]},
-{"word":"eagle","category":"Animals","tier":1,"neighbours":["ear","earth","early","easel","east"]},
-{"word":"ear","category":"Body","tier":1,"neighbours":["eagle","earth","earring","easel","east","eat"]},
-{"word":"earring","category":"Clothing","tier":1,"neighbours":["ear","eagle","earth","easel","east","eat"]},
-{"word":"earth","category":"Nature","tier":1,"neighbours":["ear","eagle","earring","easel","east","eat"]},
-{"word":"easel","category":"School & office","tier":2,"neighbours":["ear","eagle","earth","earring","east","eat"]},
-{"word":"elbow","category":"Body","tier":1,"neighbours":["elf","elk","elm","else","elder"]},
-{"word":"engine","category":"Vehicles","tier":1,"neighbours":["end","enemy","enjoy","enter","energy"]},
-{"word":"exit","category":"Street & town","tier":2,"neighbours":["exam","example","excuse","excite","expert"]},
-{"word":"eye","category":"Body","tier":1,"neighbours":["eyelid","eyelash","eyebrow","eyes"]},
-{"word":"eyebrow","category":"Body","tier":1,"neighbours":["eye","eyelash","eyelid","eyes"]},
-{"word":"eyelid","category":"Body","tier":2,"neighbours":["eye","eyelash","eyebrow","eyes"]},
-{"word":"face","category":"Body","tier":1,"neighbours":["fan","farm","far","fall","fast","fat"]},
-{"word":"fairy","category":"Toys & games","tier":1,"neighbours":["face","fall","fan","farm","fast"]},
-{"word":"falcon","category":"Animals","tier":2,"neighbours":["face","fall","fan","farm","fast","fairy"]},
-{"word":"farm","category":"Nature","tier":1,"neighbours":["fan","far","fast","fat","fall","face"]},
-{"word":"feather","category":"Nature","tier":1,"neighbours":["fee","feed","feel","feet","fence","fern"]},
-{"word":"fence","category":"Street & town","tier":1,"neighbours":["feather","fee","feed","feel","feet","fern"]},
-{"word":"fern","category":"Garden & plants","tier":1,"neighbours":["feather","fence","feed","feel","feet","few"]},
-{"word":"ferry","category":"Vehicles","tier":1,"neighbours":["fence","fern","feather","feed","feel","feet"]},
-{"word":"field","category":"Nature","tier":1,"neighbours":["fig","fill","film","fin","find","fire"]},
-{"word":"finger","category":"Body","tier":1,"neighbours":["fin","field","fig","fill","film","fire"]},
-{"word":"fire","category":"Nature","tier":1,"neighbours":["fig","field","fill","film","fin","finger"]},
-{"word":"fish","category":"Animals","tier":1,"neighbours":["fig","field","fill","film","fin","fire"]},
-{"word":"flag","category":"Street & town","tier":1,"neighbours":["flat","flame","flap","flash","flea","flip"]},
-{"word":"flame","category":"Nature","tier":1,"neighbours":["flag","flat","flap","flash","flea","flip"]},
-{"word":"flask","category":"Kitchen","tier":2,"neighbours":["flag","flat","flame","flap","flash","flea"]},
-{"word":"floor","category":"Bedroom & furniture","tier":1,"neighbours":["flag","flat","flame","flap","flash","flour"]},
-{"word":"flour","category":"Food & drink","tier":1,"neighbours":["floor","flag","flat","flame","flash","flower"]},
-{"word":"flower","category":"Garden & plants","tier":1,"neighbours":["floor","flag","flat","flame","flash","flour"]},
-{"word":"flute","category":"Toys & games","tier":2,"neighbours":["flag","flat","flame","flash","flea","flour"]},
-{"word":"foil","category":"Kitchen","tier":2,"neighbours":["fog","foam","foot","fork","fox","form"]},
-{"word":"foot","category":"Body","tier":1,"neighbours":["fox","foam","fork","form","fort","fog"]},
-{"word":"forest","category":"Nature","tier":1,"neighbours":["fog","foam","foot","fork","form","fort"]},
-{"word":"fork","category":"Kitchen","tier":1,"neighbours":["fox","foam","foot","form","fort","fog"]},
-{"word":"fort","category":"Sports & outdoors","tier":1,"neighbours":["fog","foam","foot","fork","fox","form"]},
-{"word":"fossil","category":"Nature","tier":2,"neighbours":["fog","foam","foot","fork","fox","form"]},
-{"word":"fox","category":"Animals","tier":1,"neighbours":["fog","foam","foot","fork","fort","form"]},
-{"word":"frame","category":"Bedroom & furniture","tier":1,"neighbours":["frog","front","fruit","free","fresh","friend"]},
-{"word":"freezer","category":"Kitchen","tier":1,"neighbours":["frame","frog","front","fruit","free","fresh"]},
-{"word":"fridge","category":"Kitchen","tier":1,"neighbours":["frame","frog","front","fruit","free","fresh"]},
-{"word":"frog","category":"Animals","tier":1,"neighbours":["frame","front","fruit","free","fresh","fridge"]},
-{"word":"fruit","category":"Food & drink","tier":1,"neighbours":["frame","frog","front","fridge","free","fresh"]},
-{"word":"funnel","category":"Kitchen","tier":2,"neighbours":["fun","fur","fuse","full","fuel"]},
-{"word":"game","category":"Toys & games","tier":1,"neighbours":["gate","gap","garden","gas","garlic","gallop"]},
-{"word":"garage","category":"Street & town","tier":1,"neighbours":["game","gate","gap","garden","gas","garlic"]},
-{"word":"garden","category":"Garden & plants","tier":1,"neighbours":["game","gate","gap","gas","garlic","garage"]},
-{"word":"garlic","category":"Food & drink","tier":1,"neighbours":["game","gate","gap","garden","garage","gas"]},
-{"word":"gate","category":"Street & town","tier":1,"neighbours":["game","gap","garden","gas","gallery"]},
-{"word":"gift","category":"Toys & games","tier":1,"neighbours":["giraffe","ginger","girl","give","gill"]},
-{"word":"ginger","category":"Food & drink","tier":2,"neighbours":["giraffe","gift","girl","give","gill"]},
-{"word":"giraffe","category":"Animals","tier":1,"neighbours":["gift","ginger","girl","give","gill"]},
-{"word":"glass","category":"Kitchen","tier":1,"neighbours":["glad","glove","glue","globe","glow","glitter"]},
-{"word":"globe","category":"School & office","tier":2,"neighbours":["glass","glad","glove","glue","glow","glitter"]},
-{"word":"glove","category":"Clothing","tier":1,"neighbours":["glass","glad","glue","globe","glow","glitter"]},
-{"word":"glue","category":"School & office","tier":1,"neighbours":["glass","glad","glove","globe","glow","glitter"]},
-{"word":"goal","category":"Sports & outdoors","tier":1,"neighbours":["goat","gold","golf","good","goose","gown"]},
-{"word":"goat","category":"Animals","tier":1,"neighbours":["goal","gold","golf","good","goose","gown"]},
-{"word":"golf","category":"Sports & outdoors","tier":1,"neighbours":["goat","goal","gold","good","goose","gown"]},
-{"word":"goose","category":"Animals","tier":1,"neighbours":["goat","goal","gold","golf","good","gown"]},
-{"word":"gorilla","category":"Animals","tier":1,"neighbours":["goat","goal","gold","golf","goose","gown"]},
-{"word":"gown","category":"Clothing","tier":2,"neighbours":["goat","goal","gold","golf","good","goose"]},
-{"word":"grape","category":"Food & drink","tier":1,"neighbours":["grass","gravel","green","grill","grin","ground"]},
-{"word":"grass","category":"Garden & plants","tier":1,"neighbours":["grape","green","grill","grin","ground","grab"]},
-{"word":"gravel","category":"Nature","tier":2,"neighbours":["grape","grass","green","grill","ground","grab"]},
-{"word":"grill","category":"Kitchen","tier":2,"neighbours":["grape","grass","green","grin","ground","grab"]},
-{"word":"guitar","category":"Toys & games","tier":1,"neighbours":["gum","gun","gust","guess","guest","guard"]},
-{"word":"gull","category":"Animals","tier":2,"neighbours":["gum","gun","gust","guess","guest","guitar"]},
-{"word":"gutter","category":"Street & town","tier":2,"neighbours":["gum","gun","gust","guess","guest","guitar"]},
-{"word":"hair","category":"Body","tier":1,"neighbours":["hat","hand","hang","half","hall","ham"]},
-{"word":"hammer","category":"Tools & DIY","tier":1,"neighbours":["hat","hand","hair","half","hall","ham"]},
-{"word":"hammock","category":"Garden & plants","tier":2,"neighbours":["hat","hand","hair","half","hall","hammer"]},
-{"word":"hamster","category":"Animals","tier":1,"neighbours":["hat","hand","hair","half","hall","hammer"]},
-{"word":"hand","category":"Body","tier":1,"neighbours":["hat","hang","hair","half","hall","ham"]},
-{"word":"handbag","category":"Clothing","tier":1,"neighbours":["hat","hand","hair","half","hall","hammer"]},
-{"word":"handle","category":"Tools & DIY","tier":1,"neighbours":["hat","hand","hair","half","hall","hammer"]},
-{"word":"hanger","category":"Bedroom & furniture","tier":1,"neighbours":["hat","hand","hair","half","hall","hammer"]},
-{"word":"harp","category":"Toys & games","tier":2,"neighbours":["hat","hand","hair","half","hall","hammer"]},
-{"word":"hat","category":"Clothing","tier":1,"neighbours":["hand","hang","hair","half","hall","ham"]},
-{"word":"hawk","category":"Animals","tier":2,"neighbours":["hat","hand","hair","hammer","hay","half"]},
-{"word":"head","category":"Body","tier":1,"neighbours":["heel","heart","heat","hedge","hen","helmet"]},
-{"word":"heart","category":"Body","tier":1,"neighbours":["head","heel","heat","hedge","hen","helmet"]},
-{"word":"heater","category":"Bedroom & furniture","tier":1,"neighbours":["head","heel","heart","heat","hedge","hen"]},
-{"word":"hedge","category":"Garden & plants","tier":1,"neighbours":["head","heel","heart","heat","hen","helmet"]},
-{"word":"heel","category":"Body","tier":1,"neighbours":["head","heart","heat","hedge","hen","helmet"]},
-{"word":"helmet","category":"Sports & outdoors","tier":1,"neighbours":["head","heel","heart","hedge","hen","heat"]},
-{"word":"heron","category":"Animals","tier":2,"neighbours":["head","heel","heart","heat","hedge","hen"]},
-{"word":"hill","category":"Nature","tier":1,"neighbours":["hip","hit","hive","his","hint","hippo"]},
-{"word":"hippo","category":"Animals","tier":1,"neighbours":["hill","hip","hive","hint","hit"]},
-{"word":"hive","category":"Animals","tier":2,"neighbours":["hill","hip","hippo","hint","hit"]},
-{"word":"hockey","category":"Sports & outdoors","tier":1,"neighbours":["hose","horn","horse","hole","hood","hook"]},
-{"word":"hole","category":"Tools & DIY","tier":1,"neighbours":["hose","horn","horse","home","hood","hook"]},
-{"word":"holly","category":"Garden & plants","tier":2,"neighbours":["hose","horn","horse","hole","hood","hook"]},
-{"word":"honey","category":"Food & drink","tier":1,"neighbours":["hose","horn","horse","home","hood","hook"]},
-{"word":"hood","category":"Clothing","tier":1,"neighbours":["hose","horn","horse","hole","hook","hotel"]},
-{"word":"hook","category":"Tools & DIY","tier":1,"neighbours":["hose","horn","horse","hole","hood","hotel"]},
-{"word":"hoop","category":"Toys & games","tier":1,"neighbours":["hose","horn","horse","hole","hood","hook"]},
-{"word":"horn","category":"Animals","tier":2,"neighbours":["hose","horse","hole","hood","hook","hotel"]},
-{"word":"horse","category":"Animals","tier":1,"neighbours":["hose","horn","hole","hood","hook","hotel"]},
-{"word":"hose","category":"Garden & plants","tier":1,"neighbours":["horn","horse","hole","home","hood","hook"]},
-{"word":"hotel","category":"Street & town","tier":1,"neighbours":["hose","horn","horse","hole","hood","hook"]},
-{"word":"house","category":"Street & town","tier":1,"neighbours":["hose","horn","horse","hole","hood","hotel"]},
-{"word":"hurdle","category":"Sports & outdoors","tier":2,"neighbours":["hum","hug","hunt","hurt","hut","hunter"]},
-{"word":"icicle","category":"Weather & sky","tier":2,"neighbours":["ice","icing","icon","icy"]},
-{"word":"insect","category":"Animals","tier":1,"neighbours":["ink","inch","inn","inside"]},
-{"word":"jacket","category":"Clothing","tier":1,"neighbours":["jam","jar","jaw","jaguar","jazz"]},
-{"word":"jaguar","category":"Animals","tier":2,"neighbours":["jam","jar","jaw","jacket","jazz"]},
-{"word":"jar","category":"Kitchen","tier":1,"neighbours":["jam","jaw","jacket","jaguar","jazz"]},
-{"word":"jeans","category":"Clothing","tier":1,"neighbours":["jet","jelly","jewel","jeep"]},
-{"word":"jewel","category":"Clothing","tier":2,"neighbours":["jet","jelly","jeans","jeep"]},
-{"word":"juice","category":"Food & drink","tier":1,"neighbours":["jug","jump","jungle","judge"]},
-{"word":"jungle","category":"Nature","tier":1,"neighbours":["juice","jug","jump","judge"]},
-{"word":"kettle","category":"Kitchen","tier":1,"neighbours":["key","kennel","keen","keep"]},
-{"word":"king","category":"Toys & games","tier":1,"neighbours":["kit","kick","kid","kite","kiss","kitchen"]},
-{"word":"kitchen","category":"Kitchen","tier":1,"neighbours":["kit","kick","kid","king","kiss","kite"]},
-{"word":"kite","category":"Toys & games","tier":1,"neighbours":["kit","kick","kid","king","kiss","kitchen"]},
-{"word":"kitten","category":"Animals","tier":1,"neighbours":["kit","kick","kid","king","kiss","kite"]},
-{"word":"kiwi","category":"Food & drink","tier":2,"neighbours":["kit","kick","kid","king","kiss","kite"]},
-{"word":"knee","category":"Body","tier":1,"neighbours":["knit","knife","knight","knock","knot","know"]},
-{"word":"knife","category":"Kitchen","tier":1,"neighbours":["knee","knit","knight","knock","knot","know"]},
-{"word":"knight","category":"Toys & games","tier":2,"neighbours":["knee","knit","knife","knock","knot","know"]},
-{"word":"knuckle","category":"Body","tier":2,"neighbours":["knee","knit","knife","knight","knock","knot"]},
-{"word":"lace","category":"Clothing","tier":2,"neighbours":["lamp","lamb","lake","land","lap","ladder"]},
-{"word":"ladder","category":"Tools & DIY","tier":1,"neighbours":["lamp","lamb","lace","lake","land","lap"]},
-{"word":"ladle","category":"Kitchen","tier":2,"neighbours":["lamp","lamb","lake","land","ladder","lace"]},
-{"word":"lake","category":"Nature","tier":1,"neighbours":["lamp","lamb","lace","land","lap","ladder"]},
-{"word":"lamb","category":"Animals","tier":1,"neighbours":["lamp","lace","lake","land","lap","ladder"]},
-{"word":"lamp","category":"Bedroom & furniture","tier":1,"neighbours":["lace","lake","lamb","land","lap","ladder"]},
-{"word":"lantern","category":"Sports & outdoors","tier":2,"neighbours":["lamp","lamb","lake","land","ladder","lace"]},
-{"word":"laptop","category":"School & office","tier":1,"neighbours":["lamp","lamb","lake","land","ladder","lace"]},
-{"word":"lawn","category":"Garden & plants","tier":1,"neighbours":["lamp","lamb","lake","land","ladder","lace"]},
-{"word":"leaf","category":"Garden & plants","tier":1,"neighbours":["leg","lean","leap","left","lemon","lettuce"]},
-{"word":"leg","category":"Body","tier":1,"neighbours":["leaf","lean","leap","left","lemon","lettuce"]},
-{"word":"lemon","category":"Food & drink","tier":1,"neighbours":["leaf","leg","lean","leap","left","lettuce"]},
-{"word":"leopard","category":"Animals","tier":1,"neighbours":["leaf","leg","lean","leap","left","lemon"]},
-{"word":"letter","category":"School & office","tier":1,"neighbours":["leaf","leg","lean","left","lemon","lettuce"]},
-{"word":"lettuce","category":"Food & drink","tier":1,"neighbours":["leaf","leg","lean","leap","left","lemon"]},
-{"word":"light","category":"Bedroom & furniture","tier":1,"neighbours":["lid","lift","lily","limb","line","lion"]},
-{"word":"lily","category":"Garden & plants","tier":1,"neighbours":["lid","lift","light","limb","line","lion"]},
-{"word":"lime","category":"Food & drink","tier":1,"neighbours":["lid","lift","light","lily","limb","line"]},
-{"word":"lion","category":"Animals","tier":1,"neighbours":["lid","lift","light","lily","lime","line"]},
-{"word":"lizard","category":"Animals","tier":1,"neighbours":["lid","lift","light","lily","lime","lion"]},
-{"word":"loaf","category":"Food & drink","tier":1,"neighbours":["lock","log","look","loop","long","lost"]},
-{"word":"lobster","category":"Animals","tier":2,"neighbours":["lock","log","look","loop","long","loaf"]},
-{"word":"lock","category":"Tools & DIY","tier":1,"neighbours":["log","look","loop","long","lost","loaf"]},
-{"word":"locker","category":"Street & town","tier":2,"neighbours":["lock","log","look","loop","long","lost"]},
-{"word":"log","category":"Nature","tier":1,"neighbours":["lock","look","loop","long","lost","loaf"]},
-{"word":"magnet","category":"School & office","tier":2,"neighbours":["map","mat","mask","match","mango","maze"]},
-{"word":"magpie","category":"Animals","tier":2,"neighbours":["map","mat","mask","match","mango","magnet"]},
-{"word":"mallet","category":"Tools & DIY","tier":2,"neighbours":["map","mat","mask","match","mango","magnet"]},
-{"word":"mango","category":"Food & drink","tier":1,"neighbours":["map","mat","mask","match","magnet","maze"]},
-{"word":"map","category":"School & office","tier":1,"neighbours":["mat","mask","match","mango","magnet","maze"]},
-{"word":"marble","category":"Toys & games","tier":1,"neighbours":["map","mat","mask","match","mango","marsh"]},
-{"word":"marker","category":"School & office","tier":2,"neighbours":["map","mat","mask","marble","market","match"]},
-{"word":"market","category":"Street & town","tier":1,"neighbours":["map","mat","mask","marble","marsh","match"]},
-{"word":"mask","category":"Toys & games","tier":1,"neighbours":["map","mat","match","mango","magnet","maze"]},
-{"word":"meat","category":"Food & drink","tier":1,"neighbours":["meal","melon","menu","medal","metal","mess"]},
-{"word":"medal","category":"Sports & outdoors","tier":2,"neighbours":["meat","melon","menu","metal","mess","meal"]},
-{"word":"melon","category":"Food & drink","tier":1,"neighbours":["meat","medal","menu","metal","mess","meal"]},
-{"word":"mermaid","category":"Toys & games","tier":2,"neighbours":["meat","melon","medal","menu","metal","mess"]},
-{"word":"milk","category":"Food & drink","tier":1,"neighbours":["mill","mild","mile","mind","mint","mitten"]},
-{"word":"mill","category":"Street & town","tier":2,"neighbours":["milk","mile","mint","mitten","mirror","mixer"]},
-{"word":"mint","category":"Food & drink","tier":1,"neighbours":["milk","mill","mile","mitten","mirror","mixer"]},
-{"word":"mirror","category":"Bathroom","tier":1,"neighbours":["milk","mill","mint","mitten","mixer","middle"]},
-{"word":"mitten","category":"Clothing","tier":1,"neighbours":["milk","mill","mint","mirror","mixer","middle"]},
-{"word":"mixer","category":"Kitchen","tier":2,"neighbours":["milk","mill","mint","mirror","mitten","middle"]},
-{"word":"mole","category":"Animals","tier":2,"neighbours":["moon","moth","mouse","mouth","mop","monkey"]},
-{"word":"monkey","category":"Animals","tier":1,"neighbours":["mole","moon","moth","mouse","mouth","mop"]},
-{"word":"moon","category":"Weather & sky","tier":1,"neighbours":["mole","moth","mouse","mouth","mop","monkey"]},
-{"word":"mop","category":"Kitchen","tier":1,"neighbours":["mole","moon","moth","mouse","mouth","monkey"]},
-{"word":"moth","category":"Animals","tier":1,"neighbours":["mole","moon","mouse","mouth","mop","monkey"]},
-{"word":"mouse","category":"Animals","tier":1,"neighbours":["mole","moon","moth","mouth","mop","monkey"]},
-{"word":"mouth","category":"Body","tier":1,"neighbours":["mole","moon","moth","mouse","mop","monkey"]},
-{"word":"mower","category":"Garden & plants","tier":1,"neighbours":["mole","moon","mouse","mop","monkey"]},
-{"word":"muffin","category":"Food & drink","tier":1,"neighbours":["mud","mug","mule","music","muscle"]},
-{"word":"muscle","category":"Body","tier":1,"neighbours":["mud","mug","mule","muffin","music"]},
-{"word":"mustard","category":"Food & drink","tier":1,"neighbours":["mud","mug","mule","muffin","music","muscle"]},
-{"word":"nail","category":"Tools & DIY","tier":1,"neighbours":["name","nap","navy","nature","napkin"]},
-{"word":"napkin","category":"Kitchen","tier":1,"neighbours":["nail","name","nap","navy","nature"]},
-{"word":"neck","category":"Body","tier":1,"neighbours":["near","nest","net","never","needle","new"]},
-{"word":"needle","category":"Tools & DIY","tier":1,"neighbours":["neck","near","nest","net","never","new"]},
-{"word":"nest","category":"Animals","tier":1,"neighbours":["neck","near","net","never","needle","new"]},
-{"word":"nettle","category":"Garden & plants","tier":2,"neighbours":["neck","near","nest","net","never","needle"]},
-{"word":"newt","category":"Animals","tier":2,"neighbours":["neck","near","nest","net","never","needle"]},
-{"word":"noodle","category":"Food & drink","tier":1,"neighbours":["nose","nod","north","note","noon","none"]},
-{"word":"nose","category":"Body","tier":1,"neighbours":["nod","noodle","north","note","noon","none"]},
-{"word":"ocean","category":"Nature","tier":1,"neighbours":["octopus","occur","occasion"]},
-{"word":"octopus","category":"Animals","tier":1,"neighbours":["ocean","occur","occasion"]},
-{"word":"onion","category":"Food & drink","tier":1,"neighbours":["only","once","one","onto"]},
-{"word":"orange","category":"Food & drink","tier":1,"neighbours":["orbit","order","organ","orchard"]},
-{"word":"orchard","category":"Nature","tier":2,"neighbours":["orbit","order","organ","orange","ore"]},
-{"word":"paddle","category":"Sports & outdoors","tier":1,"neighbours":["pan","pack","page","pail","paint","palm"]},
-{"word":"page","category":"School & office","tier":1,"neighbours":["pan","pack","pail","paint","pair","palm"]},
-{"word":"pail","category":"Garden & plants","tier":2,"neighbours":["pan","pack","page","paint","pair","palm"]},
-{"word":"paint","category":"School & office","tier":1,"neighbours":["pan","pack","page","pail","pair","palm"]},
-{"word":"palm","category":"Garden & plants","tier":1,"neighbours":["pan","pack","page","pail","paint","pair"]},
-{"word":"pancake","category":"Food & drink","tier":1,"neighbours":["pan","pack","page","pail","paint","palm"]},
-{"word":"panda","category":"Animals","tier":1,"neighbours":["pan","pack","page","pail","paint","palm"]},
-{"word":"paper","category":"School & office","tier":1,"neighbours":["pan","pack","page","pail","paint","palm"]},
-{"word":"parcel","category":"Street & town","tier":2,"neighbours":["pan","pack","page","park","paint","palm"]},
-{"word":"park","category":"Street & town","tier":1,"neighbours":["pan","pack","page","pail","paint","palm"]},
-{"word":"parrot","category":"Animals","tier":1,"neighbours":["pan","pack","park","page","paint","palm"]},
-{"word":"pasta","category":"Food & drink","tier":1,"neighbours":["pan","pack","page","park","paint","palm"]},
-{"word":"path","category":"Street & town","tier":1,"neighbours":["pan","pack","page","park","paint","palm"]},
-{"word":"peach","category":"Food & drink","tier":1,"neighbours":["pea","pear","peg","pen","pencil","pepper"]},
-{"word":"peanut","category":"Food & drink","tier":1,"neighbours":["peach","pear","peg","pen","pencil","pepper"]},
-{"word":"pear","category":"Food & drink","tier":1,"neighbours":["peach","peg","pen","pencil","pepper","pebble"]},
-{"word":"pebble","category":"Nature","tier":1,"neighbours":["peach","pear","peg","pen","pencil","pepper"]},
-{"word":"pedal","category":"Vehicles","tier":2,"neighbours":["peach","pear","peg","pen","pencil","pepper"]},
-{"word":"pelican","category":"Animals","tier":2,"neighbours":["peach","pear","peg","pen","pencil","pepper"]},
-{"word":"pen","category":"School & office","tier":1,"neighbours":["peach","pear","peg","pencil","pepper","pebble"]},
-{"word":"pencil","category":"School & office","tier":1,"neighbours":["peach","pear","peg","pen","pepper","pebble"]},
-{"word":"penguin","category":"Animals","tier":1,"neighbours":["peach","pear","peg","pen","pencil","pepper"]},
-{"word":"pepper","category":"Food & drink","tier":1,"neighbours":["peach","pear","peg","pen","pencil","pebble"]},
-{"word":"petal","category":"Garden & plants","tier":2,"neighbours":["peach","pear","peg","pen","pencil","pepper"]},
-{"word":"piano","category":"Toys & games","tier":1,"neighbours":["pie","pig","pill","pin","pine","pink"]},
-{"word":"picnic","category":"Sports & outdoors","tier":1,"neighbours":["pie","piano","pig","pill","pin","pine"]},
-{"word":"picture","category":"Bedroom & furniture","tier":1,"neighbours":["pie","piano","pig","pill","pin","pine"]},
-{"word":"pie","category":"Food & drink","tier":1,"neighbours":["piano","pig","pill","pin","pine","pink"]},
-{"word":"pig","category":"Animals","tier":1,"neighbours":["pie","piano","pill","pin","pine","pink"]},
-{"word":"pigeon","category":"Animals","tier":1,"neighbours":["pie","piano","pig","pill","pin","pine"]},
-{"word":"pillow","category":"Bedroom & furniture","tier":1,"neighbours":["pie","piano","pig","pill","pin","pine"]},
-{"word":"pine","category":"Garden & plants","tier":1,"neighbours":["pie","piano","pig","pill","pin","pink"]},
-{"word":"pirate","category":"Toys & games","tier":1,"neighbours":["pie","piano","pig","pill","pin","pine"]},
-{"word":"pizza","category":"Food & drink","tier":1,"neighbours":["pie","piano","pig","pill","pin","pine"]},
-{"word":"plane","category":"Vehicles","tier":1,"neighbours":["plant","plate","play","plum","plug","plank"]},
-{"word":"plank","category":"Tools & DIY","tier":2,"neighbours":["plane","plant","plate","play","plum","plug"]},
-{"word":"plant","category":"Garden & plants","tier":1,"neighbours":["plane","plate","play","plum","plug","plank"]},
-{"word":"plate","category":"Kitchen","tier":1,"neighbours":["plane","plant","play","plum","plug","plank"]},
-{"word":"pliers","category":"Tools & DIY","tier":2,"neighbours":["plane","plant","plate","play","plum","plank"]},
-{"word":"plug","category":"Bedroom & furniture","tier":1,"neighbours":["plane","plant","plate","play","plum","plank"]},
-{"word":"plum","category":"Food & drink","tier":1,"neighbours":["plane","plant","plate","play","plug","plank"]},
-{"word":"pocket","category":"Clothing","tier":1,"neighbours":["pole","pond","pony","pool","pop","pot"]},
-{"word":"pole","category":"Street & town","tier":2,"neighbours":["pocket","pond","pony","pool","pop","pot"]},
-{"word":"pond","category":"Nature","tier":1,"neighbours":["pocket","pole","pony","pool","pop","pot"]},
-{"word":"pony","category":"Animals","tier":1,"neighbours":["pocket","pole","pond","pool","pop","pot"]},
-{"word":"pool","category":"Sports & outdoors","tier":1,"neighbours":["pocket","pole","pond","pony","pop","pot"]},
-{"word":"popcorn","category":"Food & drink","tier":1,"neighbours":["pocket","pole","pond","pony","pool","pot"]},
-{"word":"poppy","category":"Garden & plants","tier":1,"neighbours":["pocket","pole","pond","pony","pool","pot"]},
-{"word":"porch","category":"Street & town","tier":1,"neighbours":["pocket","pole","pond","pony","pool","pot"]},
-{"word":"poster","category":"Bedroom & furniture","tier":1,"neighbours":["pocket","pole","pond","pony","pool","pot"]},
-{"word":"pot","category":"Kitchen","tier":1,"neighbours":["pocket","pole","pond","pony","pool","pop"]},
-{"word":"potato","category":"Food & drink","tier":1,"neighbours":["pocket","pole","pond","pony","pool","pot"]},
-{"word":"present","category":"Toys & games","tier":1,"neighbours":["prawn","price","prince","print","prize"]},
-{"word":"puddle","category":"Nature","tier":1,"neighbours":["pup","pudding","puff","pull","pump","pumpkin"]},
-{"word":"pump","category":"Tools & DIY","tier":2,"neighbours":["pup","puppy","puddle","pull","pumpkin","purse"]},
-{"word":"pumpkin","category":"Food & drink","tier":1,"neighbours":["pup","puppy","puddle","pull","pump","purse"]},
-{"word":"puppet","category":"Toys & games","tier":1,"neighbours":["pup","puppy","puddle","pull","pump","purse"]},
-{"word":"puppy","category":"Animals","tier":1,"neighbours":["pup","puddle","pull","pump","pumpkin","purse"]},
-{"word":"purse","category":"Clothing","tier":1,"neighbours":["pup","puppy","puddle","pull","pump","pumpkin"]},
-{"word":"puzzle","category":"Toys & games","tier":1,"neighbours":["pup","puppy","puddle","pull","pump","pumpkin"]},
-{"word":"quail","category":"Animals","tier":2,"neighbours":["quack","queen","quick","quiet"]},
-{"word":"quilt","category":"Bedroom & furniture","tier":1,"neighbours":["quack","queen","quick","quiet"]},
-{"word":"rabbit","category":"Animals","tier":1,"neighbours":["race","rack","radio","raft","rail","rake"]},
-{"word":"raccoon","category":"Animals","tier":2,"neighbours":["race","rack","radio","raft","rail","rake"]},
-{"word":"race","category":"Sports & outdoors","tier":2,"neighbours":["rabbit","rack","radio","raft","rail","rake"]},
-{"word":"racket","category":"Sports & outdoors","tier":1,"neighbours":["race","rack","radio","raft","rail","rake"]},
-{"word":"radio","category":"Bedroom & furniture","tier":1,"neighbours":["race","rack","rabbit","raft","rail","rake"]},
-{"word":"radish","category":"Food & drink","tier":2,"neighbours":["race","rack","radio","raft","rail","rake"]},
-{"word":"raft","category":"Sports & outdoors","tier":1,"neighbours":["race","rack","radio","rabbit","rail","rake"]},
-{"word":"rain","category":"Weather & sky","tier":1,"neighbours":["race","rack","radio","raft","rail","rake"]},
-{"word":"rainbow","category":"Weather & sky","tier":1,"neighbours":["race","rack","radio","raft","rail","rake"]},
-{"word":"raisin","category":"Food & drink","tier":2,"neighbours":["race","rack","radio","raft","rail","rake"]},
-{"word":"rake","category":"Garden & plants","tier":1,"neighbours":["race","rack","radio","raft","rail","rabbit"]},
-{"word":"rat","category":"Animals","tier":1,"neighbours":["race","rack","radio","raft","rail","rake"]},
-{"word":"rattle","category":"Toys & games","tier":1,"neighbours":["race","rack","radio","raft","rail","rake"]},
-{"word":"razor","category":"Bathroom","tier":2,"neighbours":["race","rack","radio","raft","rail","rake"]},
-{"word":"remote","category":"Bedroom & furniture","tier":1,"neighbours":["rest","rent","reach","ready","red","repair"]},
-{"word":"ribbon","category":"Toys & games","tier":1,"neighbours":["rib","rice","rich","ride","ring","rink"]},
-{"word":"rice","category":"Food & drink","tier":1,"neighbours":["ribbon","rib","ride","ring","rink","river"]},
-{"word":"ring","category":"Clothing","tier":1,"neighbours":["ribbon","rib","rice","ride","rink","river"]},
-{"word":"river","category":"Nature","tier":1,"neighbours":["ribbon","rib","rice","ride","ring","rink"]},
-{"word":"road","category":"Street & town","tier":1,"neighbours":["roar","roast","robe","robin","robot","rock"]},
-{"word":"robe","category":"Clothing","tier":2,"neighbours":["road","roar","roast","robin","robot","rock"]},
-{"word":"robin","category":"Animals","tier":1,"neighbours":["road","roar","roast","robe","robot","rock"]},
-{"word":"robot","category":"Toys & games","tier":1,"neighbours":["road","roar","roast","robe","robin","rock"]},
-{"word":"rock","category":"Nature","tier":1,"neighbours":["road","roar","roast","robe","robin","robot"]},
-{"word":"rocket","category":"Toys & games","tier":1,"neighbours":["road","roar","roast","robe","robin","robot"]},
-{"word":"roof","category":"Street & town","tier":1,"neighbours":["road","roar","roast","room","rope","rose"]},
-{"word":"room","category":"Bedroom & furniture","tier":1,"neighbours":["road","roof","roast","rope","rose","rock"]},
-{"word":"rope","category":"Sports & outdoors","tier":1,"neighbours":["road","roof","room","rose","rock","robe"]},
-{"word":"rose","category":"Garden & plants","tier":1,"neighbours":["road","roof","room","rope","rock","robe"]},
-{"word":"rug","category":"Bedroom & furniture","tier":1,"neighbours":["rub","ruby","rule","ruler","rush","runway"]},
-{"word":"ruler","category":"School & office","tier":1,"neighbours":["rug","rub","ruby","rule","rush","runway"]},
-{"word":"saddle","category":"Sports & outdoors","tier":1,"neighbours":["sad","safe","sail","salad","sale","salt"]},
-{"word":"safe","category":"Bedroom & furniture","tier":2,"neighbours":["saddle","sail","salad","sale","salt","sand"]},
-{"word":"sail","category":"Sports & outdoors","tier":1,"neighbours":["saddle","safe","salad","sale","salt","sand"]},
-{"word":"salad","category":"Food & drink","tier":1,"neighbours":["saddle","safe","sail","sale","salt","sand"]},
-{"word":"salt","category":"Kitchen","tier":1,"neighbours":["saddle","safe","sail","salad","sale","sand"]},
-{"word":"sand","category":"Nature","tier":1,"neighbours":["saddle","safe","sail","salad","salt","sandal"]},
-{"word":"sandal","category":"Clothing","tier":1,"neighbours":["sand","sandy","salad","saddle","salt","sail"]},
-{"word":"sandpit","category":"Sports & outdoors","tier":1,"neighbours":["sand","sandal","sandy","salad","saddle","salt"]},
-{"word":"satchel","category":"School & office","tier":2,"neighbours":["sat","saw","sauce","saucer","sad","saddle"]},
-{"word":"sauce","category":"Food & drink","tier":1,"neighbours":["saucer","sausage","saw","sat","sad","saddle"]},
-{"word":"saucer","category":"Kitchen","tier":2,"neighbours":["sauce","sausage","saw","sat","sad","saddle"]},
-{"word":"sausage","category":"Food & drink","tier":1,"neighbours":["sat","saw","sauce","saucer","sad","saddle"]},
-{"word":"scarf","category":"Clothing","tier":1,"neighbours":["scale","scar","scare","scene","school","scooter"]},
-{"word":"school","category":"Street & town","tier":1,"neighbours":["scarf","scale","scare","scooter","scout","screen"]},
-{"word":"scone","category":"Food & drink","tier":2,"neighbours":["scarf","scale","scare","school","scooter","scout"]},
-{"word":"scooter","category":"Vehicles","tier":1,"neighbours":["scarf","scale","scare","school","scout","screen"]},
-{"word":"screen","category":"School & office","tier":1,"neighbours":["scarf","scale","scare","school","scooter","screw"]},
-{"word":"screw","category":"Tools & DIY","tier":1,"neighbours":["scarf","scale","scare","school","scooter","screen"]},
-{"word":"sea","category":"Nature","tier":1,"neighbours":["seal","seat","seed","seesaw","sell","seven"]},
-{"word":"seagull","category":"Animals","tier":1,"neighbours":["sea","seal","seat","seed","seesaw","sell"]},
-{"word":"seal","category":"Animals","tier":1,"neighbours":["sea","seat","seed","seesaw","sell","seven"]},
-{"word":"seat","category":"Street & town","tier":2,"neighbours":["sea","seal","seed","seesaw","sell","seven"]},
-{"word":"seaweed","category":"Nature","tier":1,"neighbours":["sea","seal","seat","seed","seesaw","sell"]},
-{"word":"seed","category":"Garden & plants","tier":1,"neighbours":["sea","seal","seat","seesaw","sell","seven"]},
-{"word":"seesaw","category":"Sports & outdoors","tier":1,"neighbours":["sea","seal","seat","seed","sell","seven"]},
-{"word":"shampoo","category":"Bathroom","tier":1,"neighbours":["shark","shade","shed","sheep","shell","shelf"]},
-{"word":"shark","category":"Animals","tier":1,"neighbours":["shade","shadow","shake","shape","shed","sheep"]},
-{"word":"shed","category":"Garden & plants","tier":1,"neighbours":["shark","shadow","shake","shape","sheep","shell"]},
-{"word":"sheep","category":"Animals","tier":1,"neighbours":["shark","shed","shadow","shake","shape","shell"]},
-{"word":"shelf","category":"Bedroom & furniture","tier":1,"neighbours":["shark","shed","shadow","shake","shape","sheep"]},
-{"word":"shell","category":"Nature","tier":1,"neighbours":["shark","shed","shadow","shake","shape","sheep"]},
-{"word":"shin","category":"Body","tier":1,"neighbours":["shirt","ship","shine","shoe","shop","short"]},
-{"word":"ship","category":"Vehicles","tier":1,"neighbours":["shirt","shin","shine","shoe","shop","short"]},
-{"word":"shirt","category":"Clothing","tier":1,"neighbours":["ship","shin","shine","shoe","shop","short"]},
-{"word":"shoe","category":"Clothing","tier":1,"neighbours":["shirt","ship","shin","shine","shop","short"]},
-{"word":"shop","category":"Street & town","tier":1,"neighbours":["shirt","ship","shin","shine","shoe","short"]},
-{"word":"shovel","category":"Garden & plants","tier":1,"neighbours":["shirt","ship","shin","shoe","shop","shout"]},
-{"word":"shower","category":"Bathroom","tier":1,"neighbours":["shirt","ship","shin","shoe","shop","short"]},
-{"word":"shutter","category":"Bedroom & furniture","tier":2,"neighbours":["shirt","ship","shin","shoe","shop","shovel"]},
-{"word":"sign","category":"Street & town","tier":1,"neighbours":["sink","sit","sing","sip","silk","silver"]},
-{"word":"sink","category":"Kitchen","tier":1,"neighbours":["sit","sing","sip","silk","sign","silver"]},
-{"word":"skate","category":"Sports & outdoors","tier":1,"neighbours":["skin","skip","skirt","skull","skunk","sky"]},
-{"word":"skin","category":"Body","tier":1,"neighbours":["skate","skip","skirt","skull","skunk","sky"]},
-{"word":"skirt","category":"Clothing","tier":1,"neighbours":["skate","skin","skip","skull","skunk","sky"]},
-{"word":"skull","category":"Body","tier":2,"neighbours":["skate","skin","skip","skirt","skunk","sky"]},
-{"word":"skunk","category":"Animals","tier":2,"neighbours":["skate","skin","skip","skirt","skull","sky"]},
-{"word":"sky","category":"Weather & sky","tier":1,"neighbours":["skate","skin","skip","skirt","skull","skunk"]},
-{"word":"sled","category":"Sports & outdoors","tier":1,"neighbours":["slide","sleeve","slice","slip","slow","slug"]},
-{"word":"sleeve","category":"Clothing","tier":2,"neighbours":["slide","sled","slice","slip","slow","slug"]},
-{"word":"slide","category":"Sports & outdoors","tier":1,"neighbours":["sleep","sleeve","slice","slip","slow","sled"]},
-{"word":"slipper","category":"Clothing","tier":1,"neighbours":["slide","sled","slice","slip","slow","slug"]},
-{"word":"slope","category":"Nature","tier":2,"neighbours":["slide","sleep","slice","slip","slow","sled"]},
-{"word":"slug","category":"Animals","tier":2,"neighbours":["slide","sled","slice","slip","slow","slipper"]},
-{"word":"smoke","category":"Nature","tier":2,"neighbours":["smile","smell","smart","small","smash"]},
-{"word":"snail","category":"Animals","tier":1,"neighbours":["snack","snake","snap","sneeze","sniff","snow"]},
-{"word":"snake","category":"Animals","tier":1,"neighbours":["snack","snail","snap","sneeze","sniff","snow"]},
-{"word":"snorkel","category":"Sports & outdoors","tier":2,"neighbours":["snack","snail","snake","snap","sneeze","snow"]},
-{"word":"snow","category":"Weather & sky","tier":1,"neighbours":["snack","snail","snake","snap","sneeze","sniff"]},
-{"word":"snowman","category":"Weather & sky","tier":1,"neighbours":["snack","snail","snake","snap","sneeze","snow"]},
-{"word":"soap","category":"Bathroom","tier":1,"neighbours":["sock","sofa","soft","soil","song","soup"]},
-{"word":"sock","category":"Clothing","tier":1,"neighbours":["soap","sofa","soft","soil","song","soup"]},
-{"word":"sofa","category":"Bedroom & furniture","tier":1,"neighbours":["soap","sock","soft","soil","song","soup"]},
-{"word":"soup","category":"Food & drink","tier":1,"neighbours":["soap","sock","sofa","soft","soil","song"]},
-{"word":"spade","category":"Garden & plants","tier":1,"neighbours":["space","spark","spell","spider","spin","spoon"]},
-{"word":"spanner","category":"Tools & DIY","tier":2,"neighbours":["spade","space","spark","spell","spider","spoon"]},
-{"word":"sparrow","category":"Animals","tier":2,"neighbours":["spade","space","spark","spell","spider","spoon"]},
-{"word":"spider","category":"Animals","tier":1,"neighbours":["spade","space","spark","spell","spin","spoon"]},
-{"word":"spoke","category":"Vehicles","tier":2,"neighbours":["spade","spark","spell","spider","spoon","sponge"]},
-{"word":"sponge","category":"Bathroom","tier":1,"neighbours":["spade","space","spark","spell","spider","spoon"]},
-{"word":"spoon","category":"Kitchen","tier":1,"neighbours":["spade","space","spark","spell","spider","sponge"]},
-{"word":"sprout","category":"Food & drink","tier":2,"neighbours":["spade","space","spark","spell","spider","spoon"]},
-{"word":"stadium","category":"Sports & outdoors","tier":2,"neighbours":["stamp","star","step","stick","stone","stool"]},
-{"word":"stamp","category":"School & office","tier":1,"neighbours":["star","steam","step","stick","stone","stool"]},
-{"word":"star","category":"Weather & sky","tier":1,"neighbours":["stamp","steam","step","stick","stone","stool"]},
-{"word":"station","category":"Street & town","tier":1,"neighbours":["stamp","star","step","stick","stone","stool"]},
-{"word":"statue","category":"Street & town","tier":1,"neighbours":["stamp","star","step","stick","stone","stool"]},
-{"word":"steak","category":"Food & drink","tier":1,"neighbours":["stamp","star","step","stick","stone","stool"]},
-{"word":"stem","category":"Garden & plants","tier":2,"neighbours":["stamp","star","step","stick","stone","stool"]},
-{"word":"step","category":"Street & town","tier":1,"neighbours":["stamp","star","steam","stick","stone","stool"]},
-{"word":"stick","category":"Nature","tier":1,"neighbours":["stamp","star","steam","step","stone","stool"]},
-{"word":"stone","category":"Nature","tier":1,"neighbours":["stamp","star","steam","step","stick","stool"]},
-{"word":"stool","category":"Bedroom & furniture","tier":1,"neighbours":["stamp","star","steam","step","stick","stone"]},
-{"word":"storm","category":"Weather & sky","tier":1,"neighbours":["stamp","star","steam","step","stick","stone"]},
-{"word":"stove","category":"Kitchen","tier":1,"neighbours":["stamp","star","step","stick","stone","stool"]},
-{"word":"straw","category":"Kitchen","tier":1,"neighbours":["stamp","star","step","stick","stone","strap"]},
-{"word":"street","category":"Street & town","tier":1,"neighbours":["stamp","star","step","stick","stone","straw"]},
-{"word":"string","category":"Toys & games","tier":1,"neighbours":["stamp","star","step","stick","stone","straw"]},
-{"word":"sugar","category":"Food & drink","tier":1,"neighbours":["sun","sunny","sum","sub","suit","summer"]},
-{"word":"suit","category":"Clothing","tier":1,"neighbours":["sun","sunny","sugar","sum","sub","summer"]},
-{"word":"sun","category":"Weather & sky","tier":1,"neighbours":["sugar","sunny","sum","sub","suit","summer"]},
-{"word":"sunset","category":"Weather & sky","tier":1,"neighbours":["sun","sunny","sugar","sum","suit","summer"]},
-{"word":"swallow","category":"Animals","tier":2,"neighbours":["swan","swim","swing","sweet","sword","swap"]},
-{"word":"swan","category":"Animals","tier":1,"neighbours":["swim","swing","sweet","sword","swap","sweep"]},
-{"word":"swing","category":"Sports & outdoors","tier":1,"neighbours":["swan","swim","sweet","sword","swap","sweep"]},
-{"word":"sword","category":"Toys & games","tier":1,"neighbours":["swan","swim","swing","sweet","swap","sweep"]},
-{"word":"table","category":"Bedroom & furniture","tier":1,"neighbours":["tab","tag","tail","take","talk","tall"]},
-{"word":"tablet","category":"School & office","tier":1,"neighbours":["table","tab","tag","tail","take","talk"]},
-{"word":"tadpole","category":"Animals","tier":1,"neighbours":["table","tab","tag","tail","take","tank"]},
-{"word":"tail","category":"Animals","tier":1,"neighbours":["table","tablet","tag","take","talk","tall"]},
-{"word":"tape","category":"School & office","tier":1,"neighbours":["table","tab","tag","tail","take","tank"]},
-{"word":"tart","category":"Food & drink","tier":2,"neighbours":["table","tab","tag","tail","take","tank"]},
-{"word":"taxi","category":"Vehicles","tier":1,"neighbours":["table","tab","tag","tail","take","tank"]},
-{"word":"tea","category":"Food & drink","tier":1,"neighbours":["teapot","teach","team","tear","tent","teddy"]},
-{"word":"teacup","category":"Kitchen","tier":1,"neighbours":["tea","teapot","teach","team","tear","teddy"]},
-{"word":"teapot","category":"Kitchen","tier":1,"neighbours":["tea","teach","team","tear","teddy","tent"]},
-{"word":"teddy","category":"Toys & games","tier":1,"neighbours":["tea","teapot","teach","team","tear","tent"]},
-{"word":"tennis","category":"Sports & outdoors","tier":1,"neighbours":["tea","team","tent","teddy","ten","tell"]},
-{"word":"tent","category":"Sports & outdoors","tier":1,"neighbours":["tea","teapot","teach","team","tear","teddy"]},
-{"word":"thimble","category":"School & office","tier":2,"neighbours":["thumb","thorn","thing","think","third","thread"]},
-{"word":"thistle","category":"Garden & plants","tier":2,"neighbours":["thumb","thorn","thing","think","third","thread"]},
-{"word":"thorn","category":"Garden & plants","tier":2,"neighbours":["thumb","thing","think","third","thread","three"]},
-{"word":"thread","category":"School & office","tier":1,"neighbours":["thumb","thorn","thing","think","third","three"]},
-{"word":"throat","category":"Body","tier":2,"neighbours":["thumb","thorn","thing","think","third","thread"]},
-{"word":"throne","category":"Toys & games","tier":2,"neighbours":["thumb","thorn","thing","think","third","thread"]},
-{"word":"thumb","category":"Body","tier":1,"neighbours":["think","thing","third","thorn","thread","three"]},
-{"word":"thunder","category":"Weather & sky","tier":1,"neighbours":["thumb","thorn","thing","think","third","thread"]},
-{"word":"ticket","category":"Street & town","tier":1,"neighbours":["tie","tide","tiger","tile","till","time"]},
-{"word":"tide","category":"Nature","tier":2,"neighbours":["tie","tiger","tile","till","time","tin"]},
-{"word":"tiger","category":"Animals","tier":1,"neighbours":["tie","tide","tile","till","time","tin"]},
-{"word":"tile","category":"Bathroom","tier":1,"neighbours":["tie","tide","tiger","till","time","tin"]},
-{"word":"toad","category":"Animals","tier":1,"neighbours":["toast","toe","tomato","tool","tooth","top"]},
-{"word":"toast","category":"Food & drink","tier":1,"neighbours":["toad","toe","tomato","tool","tooth","top"]},
-{"word":"toaster","category":"Kitchen","tier":1,"neighbours":["toad","toast","toe","tomato","tool","tooth"]},
-{"word":"toe","category":"Body","tier":1,"neighbours":["toad","toast","tomato","tool","tooth","top"]},
-{"word":"tomato","category":"Food & drink","tier":1,"neighbours":["toad","toast","toe","tool","tooth","top"]},
-{"word":"tongue","category":"Body","tier":1,"neighbours":["toad","toast","toe","tomato","tool","tooth"]},
-{"word":"tool","category":"Tools & DIY","tier":1,"neighbours":["toad","toast","toe","tomato","tooth","top"]},
-{"word":"tooth","category":"Body","tier":1,"neighbours":["toad","toast","toe","tomato","tool","top"]},
-{"word":"tornado","category":"Weather & sky","tier":1,"neighbours":["toad","toast","toe","tomato","tool","tooth"]},
-{"word":"towel","category":"Bathroom","tier":1,"neighbours":["toad","toast","toe","tomato","tool","tooth"]},
-{"word":"tower","category":"Street & town","tier":1,"neighbours":["toad","toast","toe","tomato","tool","tooth"]},
-{"word":"town","category":"Street & town","tier":1,"neighbours":["toad","toast","toe","tomato","tool","tooth"]},
-{"word":"toy","category":"Toys & games","tier":1,"neighbours":["toad","toast","toe","tomato","tool","tooth"]},
-{"word":"track","category":"Street & town","tier":1,"neighbours":["tractor","train","trap","tray","tree","trunk"]},
-{"word":"tractor","category":"Vehicles","tier":1,"neighbours":["track","train","trap","tray","tree","trunk"]},
-{"word":"train","category":"Vehicles","tier":1,"neighbours":["tractor","track","trap","tray","tree","trunk"]},
-{"word":"tray","category":"Kitchen","tier":1,"neighbours":["tractor","track","train","trap","tree","trunk"]},
-{"word":"tree","category":"Garden & plants","tier":1,"neighbours":["tractor","track","train","trap","tray","trunk"]},
-{"word":"trout","category":"Animals","tier":2,"neighbours":["tractor","track","train","trap","tray","tree"]},
-{"word":"trumpet","category":"Toys & games","tier":1,"neighbours":["tractor","track","train","trap","tray","tree"]},
-{"word":"trunk","category":"Nature","tier":2,"neighbours":["tractor","track","train","trap","tray","tree"]},
-{"word":"tub","category":"Bathroom","tier":1,"neighbours":["tulip","tube","tug","tuna","tunnel","turtle"]},
-{"word":"tulip","category":"Garden & plants","tier":1,"neighbours":["tub","tube","tug","tummy","tuna","tunnel"]},
-{"word":"tuna","category":"Food & drink","tier":2,"neighbours":["tulip","tub","tube","tug","tunnel","turtle"]},
-{"word":"tunnel","category":"Street & town","tier":1,"neighbours":["tulip","tub","tube","tug","tuna","turtle"]},
-{"word":"turkey","category":"Animals","tier":1,"neighbours":["tulip","tub","tube","tug","tuna","tunnel"]},
-{"word":"turtle","category":"Animals","tier":1,"neighbours":["tulip","tub","tube","tug","tuna","tunnel"]},
-{"word":"twig","category":"Nature","tier":1,"neighbours":["twin","twist","twelve","twenty","twice","tweet"]},
-{"word":"unicorn","category":"Toys & games","tier":1,"neighbours":["uncle","under","unit","union","until"]},
-{"word":"valley","category":"Nature","tier":1,"neighbours":["van","vase","value","vanilla","vacuum"]},
-{"word":"van","category":"Vehicles","tier":1,"neighbours":["vase","valley","value","vanilla","vacuum"]},
-{"word":"vase","category":"Bedroom & furniture","tier":1,"neighbours":["van","valley","value","vanilla","vacuum"]},
-{"word":"village","category":"Street & town","tier":1,"neighbours":["violin","view","vine","violet","video"]},
-{"word":"vine","category":"Garden & plants","tier":1,"neighbours":["violin","village","view","violet","video","vinegar"]},
-{"word":"vinegar","category":"Food & drink","tier":2,"neighbours":["violin","village","view","vine","video"]},
-{"word":"violet","category":"Garden & plants","tier":2,"neighbours":["violin","village","view","vine","video"]},
-{"word":"violin","category":"Toys & games","tier":1,"neighbours":["view","village","vine","violet","video"]},
-{"word":"volcano","category":"Nature","tier":1,"neighbours":["voice","volume","vote","vowel"]},
-{"word":"waffle","category":"Food & drink","tier":1,"neighbours":["wall","wallet","wag","wait","wake","walk"]},
-{"word":"wagon","category":"Vehicles","tier":2,"neighbours":["wall","wallet","wait","wake","walk","wand"]},
-{"word":"wall","category":"Street & town","tier":1,"neighbours":["wag","wait","wake","walk","wand","want"]},
-{"word":"wallet","category":"Clothing","tier":1,"neighbours":["wall","wag","wait","wake","walk","want"]},
-{"word":"walnut","category":"Food & drink","tier":1,"neighbours":["wall","wallet","wag","wait","wake","walk"]},
-{"word":"walrus","category":"Animals","tier":1,"neighbours":["wall","wallet","wag","wait","wake","walk"]},
-{"word":"wand","category":"Toys & games","tier":1,"neighbours":["wall","wallet","wag","wait","wake","walk"]},
-{"word":"wasp","category":"Animals","tier":1,"neighbours":["wall","wallet","wag","wait","wake","walk"]},
-{"word":"watch","category":"Clothing","tier":1,"neighbours":["wall","wallet","wag","wait","wake","walk"]},
-{"word":"water","category":"Nature","tier":1,"neighbours":["wall","wallet","wag","wait","wake","walk"]},
-{"word":"wave","category":"Nature","tier":1,"neighbours":["wall","wallet","wag","wait","wake","walk"]},
-{"word":"weasel","category":"Animals","tier":2,"neighbours":["web","weed","week","well","west","wet"]},
-{"word":"weed","category":"Garden & plants","tier":1,"neighbours":["web","week","well","west","wet","weather"]},
-{"word":"whale","category":"Animals","tier":1,"neighbours":["wheat","wheel","whip","whisk","whistle","white"]},
-{"word":"wheat","category":"Garden & plants","tier":1,"neighbours":["whale","wheel","whip","whisk","whistle","white"]},
-{"word":"wheel","category":"Vehicles","tier":1,"neighbours":["whale","wheat","whip","whisk","whistle","white"]},
-{"word":"whisk","category":"Kitchen","tier":1,"neighbours":["whale","wheat","wheel","whip","whistle","white"]},
-{"word":"whistle","category":"Toys & games","tier":1,"neighbours":["whale","wheat","wheel","whip","whisk","white"]},
-{"word":"wind","category":"Weather & sky","tier":1,"neighbours":["wig","wing","wink","wipe","wire","window"]},
-{"word":"window","category":"Bedroom & furniture","tier":1,"neighbours":["wig","wind","wing","wink","wipe","wire"]},
-{"word":"wing","category":"Animals","tier":1,"neighbours":["wig","wind","wink","wipe","wire","window"]},
-{"word":"wire","category":"Tools & DIY","tier":2,"neighbours":["wig","wind","wing","wink","wipe","window"]},
-{"word":"wizard","category":"Toys & games","tier":1,"neighbours":["wig","wind","wing","wink","wipe","wire"]},
-{"word":"wolf","category":"Animals","tier":1,"neighbours":["wood","wool","word","work","world","worm"]},
-{"word":"wombat","category":"Animals","tier":2,"neighbours":["wolf","wood","wool","word","work","worm"]},
-{"word":"wood","category":"Nature","tier":1,"neighbours":["wolf","wool","word","work","worm","wombat"]},
-{"word":"wool","category":"Clothing","tier":1,"neighbours":["wolf","wood","word","work","worm","wombat"]},
-{"word":"worm","category":"Animals","tier":1,"neighbours":["wolf","wood","wool","word","work","wombat"]},
-{"word":"wreath","category":"Garden & plants","tier":2,"neighbours":["wrist","wrap","wren","wreck","wrong","write"]},
-{"word":"wren","category":"Animals","tier":2,"neighbours":["wrist","wrap","wreath","wreck","wrong","write"]},
-{"word":"wrench","category":"Tools & DIY","tier":2,"neighbours":["wrist","wrap","wreath","wren","wreck","write"]},
-{"word":"wrist","category":"Body","tier":1,"neighbours":["wrap","wreath","wreck","wren","wrong","write"]},
-{"word":"yacht","category":"Sports & outdoors","tier":2,"neighbours":["yak","yard","yarn","yawn","yam"]},
-{"word":"yarn","category":"Toys & games","tier":2,"neighbours":["yacht","yak","yard","yawn","yam"]},
-{"word":"yolk","category":"Food & drink","tier":2,"neighbours":["yoga","young","yoyo","yogurt"]}
+  {
+    "word": "acorn",
+    "category": "Nature",
+    "clue": "tree seed",
+    "tier": 1,
+    "neighbours": ["ace", "ache", "acre", "actor", "across"]
+  },
+  {
+    "word": "aisle",
+    "category": "Shops & buildings",
+    "clue": "supermarket",
+    "tier": 2,
+    "neighbours": ["air", "aim", "airline", "aid"]
+  },
+  {
+    "word": "alarm",
+    "category": "Bedroom",
+    "clue": "wake-up",
+    "tier": 1,
+    "neighbours": ["album", "alley", "almond", "alone"]
+  },
+  {
+    "word": "alley",
+    "category": "Street & town",
+    "clue": "narrow",
+    "tier": 1,
+    "neighbours": ["alarm", "album", "almond", "alone"]
+  },
+  {
+    "word": "almond",
+    "category": "Food & drink",
+    "clue": "nut",
+    "tier": 2,
+    "neighbours": ["alarm", "album", "alley", "alone"]
+  },
+  {
+    "word": "alpaca",
+    "category": "Farm animals",
+    "clue": "woolly",
+    "tier": 2,
+    "neighbours": ["alarm", "album", "alley", "almond"]
+  },
+  {
+    "word": "anchor",
+    "category": "Boats & sea",
+    "clue": "nautical",
+    "tier": 2,
+    "neighbours": ["ant", "ankle", "antler", "angel"]
+  },
+  {
+    "word": "ankle",
+    "category": "Body",
+    "clue": "joint",
+    "tier": 1,
+    "neighbours": ["ant", "antler", "anchor", "angel"]
+  },
+  {
+    "word": "antler",
+    "category": "Wild animals",
+    "clue": "branching",
+    "tier": 2,
+    "neighbours": ["ant", "ankle", "anchor", "angel"]
+  },
+  {
+    "word": "apple",
+    "category": "Fruit & veg",
+    "clue": "orchard fruit",
+    "tier": 1,
+    "neighbours": ["apron", "apricot", "apply", "appear"]
+  },
+  {
+    "word": "apricot",
+    "category": "Fruit & veg",
+    "clue": "stone fruit",
+    "tier": 2,
+    "neighbours": ["apple", "apron", "apply", "appear"]
+  },
+  {
+    "word": "apron",
+    "category": "Clothing",
+    "clue": "kitchen wear",
+    "tier": 1,
+    "neighbours": ["apple", "apricot", "apply", "appear"]
+  },
+  {
+    "word": "arch",
+    "category": "Street & town",
+    "clue": "curved",
+    "tier": 2,
+    "neighbours": ["arrow", "army", "art", "archer"]
+  },
+  {
+    "word": "arrow",
+    "category": "Sport",
+    "clue": "archery",
+    "tier": 1,
+    "neighbours": ["arm", "army", "art", "arch"]
+  },
+  {
+    "word": "atlas",
+    "category": "School & office",
+    "clue": "geography",
+    "tier": 2,
+    "neighbours": ["attic", "attack", "attach", "attend"]
+  },
+  {
+    "word": "attic",
+    "category": "Around the house",
+    "clue": "top floor",
+    "tier": 1,
+    "neighbours": ["attack", "attach", "atlas", "attend"]
+  },
+  {
+    "word": "avenue",
+    "category": "Street & town",
+    "clue": "tree-lined",
+    "tier": 2,
+    "neighbours": ["avocado", "average", "avoid", "avalanche"]
+  },
+  {
+    "word": "avocado",
+    "category": "Fruit & veg",
+    "clue": "creamy",
+    "tier": 2,
+    "neighbours": ["avenue", "average", "avoid", "avalanche"]
+  },
+  {
+    "word": "awning",
+    "category": "Street & town",
+    "clue": "shade",
+    "tier": 2,
+    "neighbours": ["away", "award", "awake", "awkward"]
+  },
+  {
+    "word": "bacon",
+    "category": "Food & drink",
+    "clue": "breakfast",
+    "tier": 1,
+    "neighbours": ["bag", "ball", "band", "bank", "barn"]
+  },
+  {
+    "word": "badge",
+    "category": "Clothing",
+    "clue": "pin-on",
+    "tier": 2,
+    "neighbours": ["bag", "bat", "bath", "bacon", "band"]
+  },
+  {
+    "word": "badger",
+    "category": "Wild animals",
+    "clue": "nocturnal",
+    "tier": 1,
+    "neighbours": ["bag", "bat", "bath", "bacon", "band"]
+  },
+  {
+    "word": "bagel",
+    "category": "Food & drink",
+    "clue": "baked",
+    "tier": 2,
+    "neighbours": ["bag", "bat", "bath", "bacon", "band"]
+  },
+  {
+    "word": "bakery",
+    "category": "Shops & buildings",
+    "clue": "shop",
+    "tier": 2,
+    "neighbours": ["bag", "bat", "bacon", "bank", "band"]
+  },
+  {
+    "word": "ball",
+    "category": "Toys",
+    "clue": "round",
+    "tier": 1,
+    "neighbours": ["bag", "band", "bank", "bake", "basket"]
+  },
+  {
+    "word": "balloon",
+    "category": "Toys",
+    "clue": "party",
+    "tier": 1,
+    "neighbours": ["ball", "banana", "bank", "band", "basket"]
+  },
+  {
+    "word": "banana",
+    "category": "Fruit & veg",
+    "clue": "tropical",
+    "tier": 1,
+    "neighbours": ["bag", "ball", "band", "bank", "basket"]
+  },
+  {
+    "word": "bank",
+    "category": "Shops & buildings",
+    "clue": "money",
+    "tier": 1,
+    "neighbours": ["bag", "ball", "band", "bark", "bake", "basket"]
+  },
+  {
+    "word": "bark",
+    "category": "Nature",
+    "clue": "tree part",
+    "tier": 1,
+    "neighbours": ["bank", "barn", "bar", "basket", "bat"]
+  },
+  {
+    "word": "barn",
+    "category": "Shops & buildings",
+    "clue": "farm building",
+    "tier": 1,
+    "neighbours": ["bark", "bank", "bar", "basket", "bat"]
+  },
+  {
+    "word": "basin",
+    "category": "Bathroom",
+    "clue": "fixture",
+    "tier": 2,
+    "neighbours": ["basket", "bath", "bag", "bat", "ball"]
+  },
+  {
+    "word": "basket",
+    "category": "Around the house",
+    "clue": "woven",
+    "tier": 1,
+    "neighbours": ["bag", "ball", "bank", "barn", "bat"]
+  },
+  {
+    "word": "bath",
+    "category": "Bathroom",
+    "clue": "fixture",
+    "tier": 1,
+    "neighbours": ["bag", "ball", "basket", "bat", "bay"]
+  },
+  {
+    "word": "bathtub",
+    "category": "Bathroom",
+    "clue": "fixture",
+    "tier": 1,
+    "neighbours": ["bath", "bag", "bat", "basket", "ball"]
+  },
+  {
+    "word": "beach",
+    "category": "Boats & sea",
+    "clue": "coast",
+    "tier": 1,
+    "neighbours": ["bed", "bee", "bear", "beak", "bean"]
+  },
+  {
+    "word": "beak",
+    "category": "Birds",
+    "clue": "bird part",
+    "tier": 1,
+    "neighbours": ["bear", "bean", "beach", "bee", "bed"]
+  },
+  {
+    "word": "bean",
+    "category": "Fruit & veg",
+    "clue": "pulse",
+    "tier": 1,
+    "neighbours": ["bee", "beak", "bear", "beach", "bed"]
+  },
+  {
+    "word": "beanbag",
+    "category": "Bedroom",
+    "clue": "seating",
+    "tier": 1,
+    "neighbours": ["bean", "bear", "bed", "bee", "beach"]
+  },
+  {
+    "word": "bear",
+    "category": "Wild animals",
+    "clue": "hibernates",
+    "tier": 1,
+    "neighbours": ["bee", "beak", "bean", "beach", "bed"]
+  },
+  {
+    "word": "beard",
+    "category": "Body",
+    "clue": "facial hair",
+    "tier": 1,
+    "neighbours": ["bed", "bee", "bear", "bean", "beach"]
+  },
+  {
+    "word": "beaver",
+    "category": "Wild animals",
+    "clue": "dam-building",
+    "tier": 1,
+    "neighbours": ["bed", "bee", "bear", "bean", "beach"]
+  },
+  {
+    "word": "bed",
+    "category": "Bedroom",
+    "clue": "furniture",
+    "tier": 1,
+    "neighbours": ["bee", "beak", "bear", "beach", "bean"]
+  },
+  {
+    "word": "bedroom",
+    "category": "Around the house",
+    "clue": "room",
+    "tier": 1,
+    "neighbours": ["bed", "bee", "bear", "bean", "beach"]
+  },
+  {
+    "word": "bee",
+    "category": "Creepy-crawlies",
+    "clue": "buzzing",
+    "tier": 1,
+    "neighbours": ["bed", "beak", "bear", "beach", "bean"]
+  },
+  {
+    "word": "beetle",
+    "category": "Creepy-crawlies",
+    "clue": "insect",
+    "tier": 1,
+    "neighbours": ["bee", "bed", "beach", "bean", "beak"]
+  },
+  {
+    "word": "bell",
+    "category": "Music",
+    "clue": "percussion",
+    "tier": 1,
+    "neighbours": ["bench", "belt", "berry", "bed", "bee"]
+  },
+  {
+    "word": "belt",
+    "category": "Clothing",
+    "clue": "accessory",
+    "tier": 1,
+    "neighbours": ["bell", "bench", "berry", "bed", "bee"]
+  },
+  {
+    "word": "bench",
+    "category": "Street & town",
+    "clue": "seating",
+    "tier": 1,
+    "neighbours": ["bell", "belt", "berry", "bed", "bee"]
+  },
+  {
+    "word": "berry",
+    "category": "Fruit & veg",
+    "clue": "small fruit",
+    "tier": 1,
+    "neighbours": ["bell", "belt", "bench", "bee", "bed"]
+  },
+  {
+    "word": "bicycle",
+    "category": "Vehicles",
+    "clue": "two wheels",
+    "tier": 1,
+    "neighbours": ["bike", "bird", "bin", "bite", "big"]
+  },
+  {
+    "word": "bike",
+    "category": "Vehicles",
+    "clue": "two wheels",
+    "tier": 1,
+    "neighbours": ["bin", "bird", "bib", "big", "bite"]
+  },
+  {
+    "word": "bird",
+    "category": "Birds",
+    "clue": "feathered",
+    "tier": 1,
+    "neighbours": ["bike", "bin", "bite", "big", "bib"]
+  },
+  {
+    "word": "blanket",
+    "category": "Bedroom",
+    "clue": "bedding",
+    "tier": 1,
+    "neighbours": ["black", "blade", "blink", "blow", "block"]
+  },
+  {
+    "word": "blender",
+    "category": "Kitchen",
+    "clue": "appliance",
+    "tier": 2,
+    "neighbours": ["black", "blade", "blanket", "block", "blouse"]
+  },
+  {
+    "word": "block",
+    "category": "Toys",
+    "clue": "building toy",
+    "tier": 1,
+    "neighbours": ["black", "blade", "blink", "blow", "blanket"]
+  },
+  {
+    "word": "blossom",
+    "category": "Garden & plants",
+    "clue": "spring",
+    "tier": 1,
+    "neighbours": ["black", "blade", "blanket", "block", "blouse"]
+  },
+  {
+    "word": "blouse",
+    "category": "Clothing",
+    "clue": "top",
+    "tier": 2,
+    "neighbours": ["block", "blanket", "blow", "bloom", "blink"]
+  },
+  {
+    "word": "boat",
+    "category": "Boats & sea",
+    "clue": "vessel",
+    "tier": 1,
+    "neighbours": ["bone", "book", "boot", "bowl", "box"]
+  },
+  {
+    "word": "bolt",
+    "category": "Tools & crafts",
+    "clue": "fastener",
+    "tier": 1,
+    "neighbours": ["boat", "bone", "book", "boot", "bowl"]
+  },
+  {
+    "word": "bone",
+    "category": "Body",
+    "clue": "skeleton",
+    "tier": 1,
+    "neighbours": ["boat", "book", "boot", "bowl", "bold"]
+  },
+  {
+    "word": "bonfire",
+    "category": "Outdoor fun",
+    "clue": "burning",
+    "tier": 1,
+    "neighbours": ["bone", "boat", "book", "boot", "bowl"]
+  },
+  {
+    "word": "book",
+    "category": "School & office",
+    "clue": "reading",
+    "tier": 1,
+    "neighbours": ["boat", "bone", "boot", "bowl", "box"]
+  },
+  {
+    "word": "boot",
+    "category": "Clothing",
+    "clue": "footwear",
+    "tier": 1,
+    "neighbours": ["boat", "bone", "book", "bowl", "box"]
+  },
+  {
+    "word": "bottle",
+    "category": "Kitchen",
+    "clue": "container",
+    "tier": 1,
+    "neighbours": ["boat", "book", "boot", "bowl", "bolt"]
+  },
+  {
+    "word": "bowl",
+    "category": "Kitchen",
+    "clue": "crockery",
+    "tier": 1,
+    "neighbours": ["bow", "boat", "bone", "book", "boot"]
+  },
+  {
+    "word": "brain",
+    "category": "Body",
+    "clue": "organ",
+    "tier": 1,
+    "neighbours": ["bread", "branch", "brick", "bridge", "brush"]
+  },
+  {
+    "word": "bramble",
+    "category": "Garden & plants",
+    "clue": "thorny",
+    "tier": 2,
+    "neighbours": ["bread", "brain", "branch", "brick", "bridge"]
+  },
+  {
+    "word": "branch",
+    "category": "Nature",
+    "clue": "tree part",
+    "tier": 1,
+    "neighbours": ["bread", "brain", "brick", "bridge", "brush"]
+  },
+  {
+    "word": "bread",
+    "category": "Food & drink",
+    "clue": "baked",
+    "tier": 1,
+    "neighbours": ["brain", "branch", "brick", "bridge", "brush"]
+  },
+  {
+    "word": "breeze",
+    "category": "Weather & sky",
+    "clue": "gentle",
+    "tier": 2,
+    "neighbours": ["bread", "brain", "brick", "bridge", "brush"]
+  },
+  {
+    "word": "brick",
+    "category": "Tools & crafts",
+    "clue": "building material",
+    "tier": 1,
+    "neighbours": ["bread", "brain", "branch", "bridge", "brush"]
+  },
+  {
+    "word": "bridge",
+    "category": "Street & town",
+    "clue": "crossing",
+    "tier": 1,
+    "neighbours": ["bread", "brain", "branch", "brick", "brush"]
+  },
+  {
+    "word": "broom",
+    "category": "Around the house",
+    "clue": "cleaning",
+    "tier": 1,
+    "neighbours": ["brush", "bread", "brick", "bridge", "brain"]
+  },
+  {
+    "word": "brownie",
+    "category": "Food & drink",
+    "clue": "chocolate",
+    "tier": 2,
+    "neighbours": ["bread", "brain", "brick", "brush", "broom"]
+  },
+  {
+    "word": "brush",
+    "category": "Bathroom",
+    "clue": "grooming",
+    "tier": 1,
+    "neighbours": ["bread", "brain", "brick", "bridge", "branch"]
+  },
+  {
+    "word": "bubble",
+    "category": "Toys",
+    "clue": "soapy",
+    "tier": 1,
+    "neighbours": ["bucket", "buckle", "bud", "bun", "bus", "button"]
+  },
+  {
+    "word": "bucket",
+    "category": "Garden & plants",
+    "clue": "container",
+    "tier": 1,
+    "neighbours": ["bubble", "buckle", "bud", "bun", "bus", "button"]
+  },
+  {
+    "word": "buckle",
+    "category": "Clothing",
+    "clue": "fastener",
+    "tier": 2,
+    "neighbours": ["bubble", "bucket", "bud", "bun", "button"]
+  },
+  {
+    "word": "bulb",
+    "category": "Garden & plants",
+    "clue": "planting",
+    "tier": 1,
+    "neighbours": ["bud", "bun", "bus", "bull", "button", "bubble"]
+  },
+  {
+    "word": "bull",
+    "category": "Farm animals",
+    "clue": "horned",
+    "tier": 1,
+    "neighbours": ["bud", "bun", "bus", "bubble", "bucket"]
+  },
+  {
+    "word": "bulldog",
+    "category": "Pets",
+    "clue": "breed",
+    "tier": 2,
+    "neighbours": ["bud", "bun", "bus", "bull", "bubble"]
+  },
+  {
+    "word": "bunk",
+    "category": "Bedroom",
+    "clue": "furniture",
+    "tier": 2,
+    "neighbours": ["bun", "bus", "bud", "bull", "button"]
+  },
+  {
+    "word": "bunny",
+    "category": "Pets",
+    "clue": "long ears",
+    "tier": 1,
+    "neighbours": ["bun", "bus", "bud", "bull", "button"]
+  },
+  {
+    "word": "burger",
+    "category": "Food & drink",
+    "clue": "fast food",
+    "tier": 1,
+    "neighbours": ["bud", "bun", "bus", "bull", "button", "butter"]
+  },
+  {
+    "word": "bus",
+    "category": "Vehicles",
+    "clue": "public transport",
+    "tier": 1,
+    "neighbours": ["bun", "butter", "bubble", "button", "bush"]
+  },
+  {
+    "word": "bush",
+    "category": "Garden & plants",
+    "clue": "shrub",
+    "tier": 1,
+    "neighbours": ["bud", "bun", "bus", "bull", "button", "butter"]
+  },
+  {
+    "word": "butter",
+    "category": "Food & drink",
+    "clue": "dairy",
+    "tier": 1,
+    "neighbours": ["button", "bubble", "bucket", "bud", "bun", "bus"]
+  },
+  {
+    "word": "button",
+    "category": "Clothing",
+    "clue": "fastener",
+    "tier": 1,
+    "neighbours": ["bubble", "bucket", "buckle", "bud", "bun", "bus"]
+  },
+  {
+    "word": "cabbage",
+    "category": "Fruit & veg",
+    "clue": "leafy veg",
+    "tier": 1,
+    "neighbours": ["cab", "cabin", "cat", "cap", "car"]
+  },
+  {
+    "word": "cabin",
+    "category": "Outdoor fun",
+    "clue": "wooden",
+    "tier": 2,
+    "neighbours": ["cat", "cap", "car", "cake", "cab"]
+  },
+  {
+    "word": "cactus",
+    "category": "Garden & plants",
+    "clue": "desert",
+    "tier": 1,
+    "neighbours": ["cab", "cabin", "cat", "cap", "car"]
+  },
+  {
+    "word": "cake",
+    "category": "Food & drink",
+    "clue": "birthday",
+    "tier": 1,
+    "neighbours": ["cat", "cap", "car", "card", "candle"]
+  },
+  {
+    "word": "calf",
+    "category": "Farm animals",
+    "clue": "young",
+    "tier": 2,
+    "neighbours": ["cat", "cap", "car", "cake", "call"]
+  },
+  {
+    "word": "camel",
+    "category": "Wild animals",
+    "clue": "desert",
+    "tier": 1,
+    "neighbours": ["cat", "cap", "car", "cake", "candle"]
+  },
+  {
+    "word": "camera",
+    "category": "Around the house",
+    "clue": "gadget",
+    "tier": 1,
+    "neighbours": ["cat", "cap", "car", "cake", "camp"]
+  },
+  {
+    "word": "camp",
+    "category": "Outdoor fun",
+    "clue": "overnight",
+    "tier": 1,
+    "neighbours": ["camel", "cat", "cap", "car", "cake"]
+  },
+  {
+    "word": "canal",
+    "category": "Street & town",
+    "clue": "waterway",
+    "tier": 2,
+    "neighbours": ["cat", "cap", "car", "cake", "camp"]
+  },
+  {
+    "word": "canary",
+    "category": "Birds",
+    "clue": "songbird",
+    "tier": 2,
+    "neighbours": ["cat", "cap", "car", "cake", "canal"]
+  },
+  {
+    "word": "candle",
+    "category": "Around the house",
+    "clue": "wax",
+    "tier": 1,
+    "neighbours": ["candy", "canal", "cane", "camp", "cat"]
+  },
+  {
+    "word": "canoe",
+    "category": "Boats & sea",
+    "clue": "vessel",
+    "tier": 1,
+    "neighbours": ["cat", "cap", "car", "cake", "camp"]
+  },
+  {
+    "word": "cape",
+    "category": "Clothing",
+    "clue": "costume",
+    "tier": 2,
+    "neighbours": ["cat", "cap", "car", "cake", "camp"]
+  },
+  {
+    "word": "card",
+    "category": "Games & puzzles",
+    "clue": "deck",
+    "tier": 1,
+    "neighbours": ["car", "cat", "cap", "cake", "camp"]
+  },
+  {
+    "word": "carpet",
+    "category": "Around the house",
+    "clue": "flooring",
+    "tier": 1,
+    "neighbours": ["car", "card", "carrot", "carton", "cart"]
+  },
+  {
+    "word": "carrot",
+    "category": "Fruit & veg",
+    "clue": "root veg",
+    "tier": 1,
+    "neighbours": ["car", "card", "carpet", "carton", "cart"]
+  },
+  {
+    "word": "carton",
+    "category": "Kitchen",
+    "clue": "container",
+    "tier": 2,
+    "neighbours": ["car", "card", "carpet", "carrot", "cart"]
+  },
+  {
+    "word": "castle",
+    "category": "Shops & buildings",
+    "clue": "medieval",
+    "tier": 1,
+    "neighbours": ["cast", "cash", "case", "cattle", "catch"]
+  },
+  {
+    "word": "cat",
+    "category": "Pets",
+    "clue": "whiskers",
+    "tier": 1,
+    "neighbours": ["cap", "car", "card", "cake", "can"]
+  },
+  {
+    "word": "cave",
+    "category": "Nature",
+    "clue": "underground",
+    "tier": 1,
+    "neighbours": ["cat", "cap", "car", "cake", "camp"]
+  },
+  {
+    "word": "ceiling",
+    "category": "Around the house",
+    "clue": "overhead",
+    "tier": 1,
+    "neighbours": ["cell", "cellar", "cement", "cedar", "celery", "cereal"]
+  },
+  {
+    "word": "celery",
+    "category": "Fruit & veg",
+    "clue": "crunchy",
+    "tier": 2,
+    "neighbours": ["cell", "cent", "cereal", "cellar", "cedar"]
+  },
+  {
+    "word": "cement",
+    "category": "Tools & crafts",
+    "clue": "building material",
+    "tier": 2,
+    "neighbours": ["cell", "cellar", "cedar", "celery", "cereal"]
+  },
+  {
+    "word": "cereal",
+    "category": "Food & drink",
+    "clue": "breakfast",
+    "tier": 1,
+    "neighbours": ["cell", "cellar", "cement", "cedar", "celery"]
+  },
+  {
+    "word": "chain",
+    "category": "Tools & crafts",
+    "clue": "links",
+    "tier": 2,
+    "neighbours": ["chair", "chalk", "check", "cheek", "cheese", "chest"]
+  },
+  {
+    "word": "chair",
+    "category": "Around the house",
+    "clue": "furniture",
+    "tier": 1,
+    "neighbours": ["chain", "chalk", "check", "cheek", "cheese", "chest"]
+  },
+  {
+    "word": "chalk",
+    "category": "School & office",
+    "clue": "writing",
+    "tier": 1,
+    "neighbours": ["chair", "chain", "check", "cheek", "cheese", "chest"]
+  },
+  {
+    "word": "cheek",
+    "category": "Body",
+    "clue": "face",
+    "tier": 1,
+    "neighbours": ["chair", "chain", "chalk", "check", "cheese", "chest"]
+  },
+  {
+    "word": "cheese",
+    "category": "Food & drink",
+    "clue": "dairy",
+    "tier": 1,
+    "neighbours": ["chair", "chain", "chalk", "cheek", "check", "chest"]
+  },
+  {
+    "word": "cheetah",
+    "category": "Wild animals",
+    "clue": "big cat",
+    "tier": 2,
+    "neighbours": ["chair", "chain", "chalk", "check", "cheek", "cheese"]
+  },
+  {
+    "word": "cherry",
+    "category": "Fruit & veg",
+    "clue": "stone fruit",
+    "tier": 1,
+    "neighbours": ["chair", "chain", "chalk", "cheek", "cheese", "chest"]
+  },
+  {
+    "word": "chess",
+    "category": "Games & puzzles",
+    "clue": "board game",
+    "tier": 1,
+    "neighbours": ["chest", "chair", "chain", "chalk", "cheek", "cheese"]
+  },
+  {
+    "word": "chest",
+    "category": "Body",
+    "clue": "torso",
+    "tier": 1,
+    "neighbours": ["chair", "chain", "chalk", "cheek", "cheese", "check"]
+  },
+  {
+    "word": "chick",
+    "category": "Farm animals",
+    "clue": "young",
+    "tier": 1,
+    "neighbours": ["chin", "chip", "child", "chair", "chain"]
+  },
+  {
+    "word": "chicken",
+    "category": "Farm animals",
+    "clue": "poultry",
+    "tier": 1,
+    "neighbours": ["chick", "chin", "chip", "chair", "chain", "chest"]
+  },
+  {
+    "word": "chimney",
+    "category": "Shops & buildings",
+    "clue": "smoky",
+    "tier": 1,
+    "neighbours": ["chin", "chip", "chick", "chain", "chair"]
+  },
+  {
+    "word": "chin",
+    "category": "Body",
+    "clue": "face",
+    "tier": 1,
+    "neighbours": ["chip", "chick", "chimney", "chair", "chain"]
+  },
+  {
+    "word": "chisel",
+    "category": "Tools & crafts",
+    "clue": "hand tool",
+    "tier": 2,
+    "neighbours": ["chin", "chick", "chimney", "chair", "chain", "chip"]
+  },
+  {
+    "word": "church",
+    "category": "Shops & buildings",
+    "clue": "religious",
+    "tier": 1,
+    "neighbours": ["chin", "chick", "chair", "chain", "chalk", "chest"]
+  },
+  {
+    "word": "clamp",
+    "category": "Tools & crafts",
+    "clue": "hand tool",
+    "tier": 2,
+    "neighbours": ["clap", "class", "clay", "clean", "clip", "clock"]
+  },
+  {
+    "word": "cliff",
+    "category": "Nature",
+    "clue": "coast",
+    "tier": 1,
+    "neighbours": ["clip", "clock", "cloud", "clap", "clay", "clown"]
+  },
+  {
+    "word": "clip",
+    "category": "School & office",
+    "clue": "stationery",
+    "tier": 2,
+    "neighbours": ["clock", "cloud", "clap", "class", "clay", "clown"]
+  },
+  {
+    "word": "cloak",
+    "category": "Clothing",
+    "clue": "costume",
+    "tier": 2,
+    "neighbours": ["clock", "cloud", "clap", "class", "clown", "clip"]
+  },
+  {
+    "word": "clock",
+    "category": "Around the house",
+    "clue": "time",
+    "tier": 1,
+    "neighbours": ["clap", "class", "clay", "clean", "clip", "cloud"]
+  },
+  {
+    "word": "cloud",
+    "category": "Weather & sky",
+    "clue": "fluffy",
+    "tier": 1,
+    "neighbours": ["clock", "clap", "class", "clay", "clean", "clip"]
+  },
+  {
+    "word": "clover",
+    "category": "Garden & plants",
+    "clue": "lucky",
+    "tier": 2,
+    "neighbours": ["clock", "cloud", "clap", "class", "clay", "clown"]
+  },
+  {
+    "word": "clown",
+    "category": "Make-believe",
+    "clue": "circus",
+    "tier": 1,
+    "neighbours": ["clock", "cloud", "clap", "class", "clay", "clip"]
+  },
+  {
+    "word": "coat",
+    "category": "Clothing",
+    "clue": "outerwear",
+    "tier": 1,
+    "neighbours": ["coin", "cone", "cook", "cool", "corn", "cow"]
+  },
+  {
+    "word": "coconut",
+    "category": "Fruit & veg",
+    "clue": "tropical",
+    "tier": 1,
+    "neighbours": ["coat", "coin", "cone", "cook", "cool", "corn"]
+  },
+  {
+    "word": "coffee",
+    "category": "Food & drink",
+    "clue": "hot drink",
+    "tier": 1,
+    "neighbours": ["coat", "coin", "cone", "cook", "cool", "corn"]
+  },
+  {
+    "word": "coin",
+    "category": "Around the house",
+    "clue": "money",
+    "tier": 1,
+    "neighbours": ["coat", "cone", "cook", "cool", "corn", "cow"]
+  },
+  {
+    "word": "collar",
+    "category": "Clothing",
+    "clue": "neckline",
+    "tier": 1,
+    "neighbours": ["coat", "coin", "cone", "cook", "coffee", "corn"]
+  },
+  {
+    "word": "comb",
+    "category": "Bathroom",
+    "clue": "grooming",
+    "tier": 1,
+    "neighbours": ["coat", "coin", "cone", "cook", "coffee", "corn"]
+  },
+  {
+    "word": "compass",
+    "category": "Outdoor fun",
+    "clue": "navigation",
+    "tier": 2,
+    "neighbours": ["coat", "coin", "cone", "comb", "coffee", "corn"]
+  },
+  {
+    "word": "cone",
+    "category": "Food & drink",
+    "clue": "ice cream",
+    "tier": 1,
+    "neighbours": ["coat", "coin", "cook", "cool", "corn", "cow"]
+  },
+  {
+    "word": "coral",
+    "category": "Boats & sea",
+    "clue": "reef",
+    "tier": 2,
+    "neighbours": ["coat", "coin", "cone", "corn", "cook", "cow"]
+  },
+  {
+    "word": "cork",
+    "category": "Kitchen",
+    "clue": "stopper",
+    "tier": 2,
+    "neighbours": ["corn", "corner", "coat", "coin", "cone", "coral"]
+  },
+  {
+    "word": "corn",
+    "category": "Fruit & veg",
+    "clue": "crop",
+    "tier": 1,
+    "neighbours": ["coat", "coin", "cone", "cook", "coral", "cow"]
+  },
+  {
+    "word": "corner",
+    "category": "Street & town",
+    "clue": "angle",
+    "tier": 1,
+    "neighbours": ["corn", "coat", "coin", "cone", "cook", "coral"]
+  },
+  {
+    "word": "cottage",
+    "category": "Shops & buildings",
+    "clue": "countryside",
+    "tier": 1,
+    "neighbours": ["coat", "coin", "cone", "cook", "corn", "cotton"]
+  },
+  {
+    "word": "cotton",
+    "category": "Clothing",
+    "clue": "fabric",
+    "tier": 2,
+    "neighbours": ["coat", "coin", "cone", "cook", "corn", "cow"]
+  },
+  {
+    "word": "cow",
+    "category": "Farm animals",
+    "clue": "dairy",
+    "tier": 1,
+    "neighbours": ["cot", "cook", "cool", "coat", "cone"]
+  },
+  {
+    "word": "crab",
+    "category": "Sea creatures",
+    "clue": "shellfish",
+    "tier": 1,
+    "neighbours": ["crane", "crash", "crayon", "cream", "crow", "crown"]
+  },
+  {
+    "word": "cracker",
+    "category": "Food & drink",
+    "clue": "savoury",
+    "tier": 1,
+    "neighbours": ["crab", "crane", "crash", "crayon", "cream", "crow"]
+  },
+  {
+    "word": "crane",
+    "category": "Street & town",
+    "clue": "construction",
+    "tier": 1,
+    "neighbours": ["crab", "crash", "crayon", "cream", "crow", "crown"]
+  },
+  {
+    "word": "crayon",
+    "category": "School & office",
+    "clue": "art",
+    "tier": 1,
+    "neighbours": ["crab", "crane", "crash", "cream", "crow", "crown"]
+  },
+  {
+    "word": "cream",
+    "category": "Food & drink",
+    "clue": "dairy",
+    "tier": 1,
+    "neighbours": ["crab", "crane", "crash", "crayon", "crow", "crown"]
+  },
+  {
+    "word": "cricket",
+    "category": "Sport",
+    "clue": "summer sport",
+    "tier": 1,
+    "neighbours": ["crab", "crane", "crayon", "cream", "crow", "crown"]
+  },
+  {
+    "word": "crow",
+    "category": "Birds",
+    "clue": "black",
+    "tier": 1,
+    "neighbours": ["crab", "crane", "cream", "crayon", "crown", "crash"]
+  },
+  {
+    "word": "crown",
+    "category": "Make-believe",
+    "clue": "royalty",
+    "tier": 1,
+    "neighbours": ["crab", "crane", "cream", "crayon", "crow", "crash"]
+  },
+  {
+    "word": "cube",
+    "category": "Games & puzzles",
+    "clue": "shape",
+    "tier": 1,
+    "neighbours": ["cub", "cup", "cut", "cute", "curtain", "curl"]
+  },
+  {
+    "word": "cupcake",
+    "category": "Food & drink",
+    "clue": "iced",
+    "tier": 1,
+    "neighbours": ["cub", "cup", "cut", "cube", "curtain", "curl"]
+  },
+  {
+    "word": "curtain",
+    "category": "Bedroom",
+    "clue": "window",
+    "tier": 1,
+    "neighbours": ["cub", "cup", "cut", "cube", "curl", "curb"]
+  },
+  {
+    "word": "cushion",
+    "category": "Around the house",
+    "clue": "soft furnishing",
+    "tier": 1,
+    "neighbours": ["cub", "cup", "cut", "cube", "curtain"]
+  },
+  {
+    "word": "custard",
+    "category": "Food & drink",
+    "clue": "dessert",
+    "tier": 2,
+    "neighbours": ["cub", "cup", "cut", "cube", "curtain", "cushion"]
+  },
+  {
+    "word": "daisy",
+    "category": "Garden & plants",
+    "clue": "wildflower",
+    "tier": 1,
+    "neighbours": ["dad", "dam", "dance", "danger", "dark"]
+  },
+  {
+    "word": "dart",
+    "category": "Games & puzzles",
+    "clue": "throwing",
+    "tier": 1,
+    "neighbours": ["daisy", "dark", "dash", "date", "dance"]
+  },
+  {
+    "word": "date",
+    "category": "Fruit & veg",
+    "clue": "dried fruit",
+    "tier": 2,
+    "neighbours": ["daisy", "dart", "dance", "dark", "dash"]
+  },
+  {
+    "word": "dawn",
+    "category": "Weather & sky",
+    "clue": "time of day",
+    "tier": 2,
+    "neighbours": ["dad", "dam", "dance", "dark", "dash", "date"]
+  },
+  {
+    "word": "deck",
+    "category": "Garden & plants",
+    "clue": "wooden",
+    "tier": 2,
+    "neighbours": ["desk", "deep", "deer", "den", "dent"]
+  },
+  {
+    "word": "deer",
+    "category": "Wild animals",
+    "clue": "woodland",
+    "tier": 1,
+    "neighbours": ["desk", "deck", "deep", "den", "dent"]
+  },
+  {
+    "word": "desk",
+    "category": "School & office",
+    "clue": "furniture",
+    "tier": 1,
+    "neighbours": ["deck", "deep", "deer", "den", "dent"]
+  },
+  {
+    "word": "diamond",
+    "category": "Clothing",
+    "clue": "gem",
+    "tier": 1,
+    "neighbours": ["dial", "dice", "dig", "dinner", "dish", "dive"]
+  },
+  {
+    "word": "dice",
+    "category": "Games & puzzles",
+    "clue": "dotted",
+    "tier": 1,
+    "neighbours": ["dial", "diamond", "dig", "dinner", "dish", "dive"]
+  },
+  {
+    "word": "dish",
+    "category": "Kitchen",
+    "clue": "crockery",
+    "tier": 1,
+    "neighbours": ["dice", "dial", "dig", "diamond", "dinner", "dive"]
+  },
+  {
+    "word": "ditch",
+    "category": "Street & town",
+    "clue": "roadside",
+    "tier": 2,
+    "neighbours": ["dice", "dial", "dig", "dish", "dive", "dinner"]
+  },
+  {
+    "word": "diver",
+    "category": "Boats & sea",
+    "clue": "underwater",
+    "tier": 2,
+    "neighbours": ["dice", "dial", "dig", "dish", "dive", "dinner"]
+  },
+  {
+    "word": "dock",
+    "category": "Boats & sea",
+    "clue": "harbour",
+    "tier": 2,
+    "neighbours": ["dog", "doll", "dot", "door", "down"]
+  },
+  {
+    "word": "dog",
+    "category": "Pets",
+    "clue": "loyal",
+    "tier": 1,
+    "neighbours": ["dock", "doll", "dot", "dove", "down"]
+  },
+  {
+    "word": "doll",
+    "category": "Toys",
+    "clue": "pretend play",
+    "tier": 1,
+    "neighbours": ["dog", "dock", "dot", "door", "down", "dove"]
+  },
+  {
+    "word": "dolphin",
+    "category": "Sea creatures",
+    "clue": "sea mammal",
+    "tier": 1,
+    "neighbours": ["dog", "doll", "dock", "door", "dove", "dot"]
+  },
+  {
+    "word": "domino",
+    "category": "Games & puzzles",
+    "clue": "dotted",
+    "tier": 2,
+    "neighbours": ["dog", "doll", "dock", "door", "dove", "dot"]
+  },
+  {
+    "word": "donkey",
+    "category": "Farm animals",
+    "clue": "long ears",
+    "tier": 1,
+    "neighbours": ["dog", "doll", "dock", "door", "dove", "dot"]
+  },
+  {
+    "word": "door",
+    "category": "Around the house",
+    "clue": "entrance",
+    "tier": 1,
+    "neighbours": ["dog", "doll", "dot", "dock", "down", "dove"]
+  },
+  {
+    "word": "doormat",
+    "category": "Around the house",
+    "clue": "entrance",
+    "tier": 2,
+    "neighbours": ["dog", "doll", "dock", "door", "dove", "dot"]
+  },
+  {
+    "word": "dove",
+    "category": "Birds",
+    "clue": "peace",
+    "tier": 2,
+    "neighbours": ["dog", "doll", "door", "dot", "down", "dock"]
+  },
+  {
+    "word": "dragon",
+    "category": "Make-believe",
+    "clue": "mythical",
+    "tier": 1,
+    "neighbours": ["drain", "draw", "drawer", "dream", "dress", "drum"]
+  },
+  {
+    "word": "drain",
+    "category": "Street & town",
+    "clue": "water outlet",
+    "tier": 2,
+    "neighbours": ["dress", "draw", "drawer", "dream", "drill", "drum"]
+  },
+  {
+    "word": "drawer",
+    "category": "Around the house",
+    "clue": "storage",
+    "tier": 1,
+    "neighbours": ["dress", "drain", "draw", "dream", "drill", "drum"]
+  },
+  {
+    "word": "dress",
+    "category": "Clothing",
+    "clue": "outfit",
+    "tier": 1,
+    "neighbours": ["drain", "draw", "drawer", "dream", "drill", "drum"]
+  },
+  {
+    "word": "drill",
+    "category": "Tools & crafts",
+    "clue": "power tool",
+    "tier": 1,
+    "neighbours": ["dress", "drain", "draw", "drawer", "drum", "drip"]
+  },
+  {
+    "word": "drum",
+    "category": "Music",
+    "clue": "percussion",
+    "tier": 1,
+    "neighbours": ["dress", "drain", "draw", "drawer", "drill", "drop"]
+  },
+  {
+    "word": "duck",
+    "category": "Birds",
+    "clue": "waterbird",
+    "tier": 1,
+    "neighbours": ["dust", "dune", "dug", "dumb", "dump"]
+  },
+  {
+    "word": "dune",
+    "category": "Nature",
+    "clue": "sandy",
+    "tier": 1,
+    "neighbours": ["duck", "dust", "dull", "dump", "duvet"]
+  },
+  {
+    "word": "duvet",
+    "category": "Bedroom",
+    "clue": "bedding",
+    "tier": 1,
+    "neighbours": ["duck", "dust", "dune", "dull", "dump"]
+  },
+  {
+    "word": "eagle",
+    "category": "Birds",
+    "clue": "bird of prey",
+    "tier": 1,
+    "neighbours": ["ear", "earth", "early", "easel", "east"]
+  },
+  {
+    "word": "ear",
+    "category": "Body",
+    "clue": "sense",
+    "tier": 1,
+    "neighbours": ["eagle", "earth", "earring", "easel", "east", "eat"]
+  },
+  {
+    "word": "earring",
+    "category": "Clothing",
+    "clue": "jewellery",
+    "tier": 1,
+    "neighbours": ["ear", "eagle", "earth", "easel", "east", "eat"]
+  },
+  {
+    "word": "earth",
+    "category": "Nature",
+    "clue": "ground",
+    "tier": 1,
+    "neighbours": ["ear", "eagle", "earring", "easel", "east", "eat"]
+  },
+  {
+    "word": "easel",
+    "category": "School & office",
+    "clue": "art",
+    "tier": 2,
+    "neighbours": ["ear", "eagle", "earth", "earring", "east", "eat"]
+  },
+  {
+    "word": "elbow",
+    "category": "Body",
+    "clue": "joint",
+    "tier": 1,
+    "neighbours": ["elf", "elk", "elm", "else", "elder"]
+  },
+  {
+    "word": "engine",
+    "category": "Vehicles",
+    "clue": "car part",
+    "tier": 1,
+    "neighbours": ["end", "enemy", "enjoy", "enter", "energy"]
+  },
+  {
+    "word": "exit",
+    "category": "Street & town",
+    "clue": "sign",
+    "tier": 2,
+    "neighbours": ["exam", "example", "excuse", "excite", "expert"]
+  },
+  {
+    "word": "eye",
+    "category": "Body",
+    "clue": "sense",
+    "tier": 1,
+    "neighbours": ["eyelid", "eyelash", "eyebrow", "eyes"]
+  },
+  {
+    "word": "eyebrow",
+    "category": "Body",
+    "clue": "facial hair",
+    "tier": 1,
+    "neighbours": ["eye", "eyelash", "eyelid", "eyes"]
+  },
+  {
+    "word": "eyelid",
+    "category": "Body",
+    "clue": "face",
+    "tier": 2,
+    "neighbours": ["eye", "eyelash", "eyebrow", "eyes"]
+  },
+  {
+    "word": "face",
+    "category": "Body",
+    "clue": "head",
+    "tier": 1,
+    "neighbours": ["fan", "farm", "far", "fall", "fast", "fat"]
+  },
+  {
+    "word": "fairy",
+    "category": "Make-believe",
+    "clue": "magic",
+    "tier": 1,
+    "neighbours": ["face", "fall", "fan", "farm", "fast"]
+  },
+  {
+    "word": "falcon",
+    "category": "Birds",
+    "clue": "bird of prey",
+    "tier": 2,
+    "neighbours": ["face", "fall", "fan", "farm", "fast", "fairy"]
+  },
+  {
+    "word": "farm",
+    "category": "Nature",
+    "clue": "countryside",
+    "tier": 1,
+    "neighbours": ["fan", "far", "fast", "fat", "fall", "face"]
+  },
+  {
+    "word": "feather",
+    "category": "Birds",
+    "clue": "light",
+    "tier": 1,
+    "neighbours": ["fee", "feed", "feel", "feet", "fence", "fern"]
+  },
+  {
+    "word": "fence",
+    "category": "Street & town",
+    "clue": "boundary",
+    "tier": 1,
+    "neighbours": ["feather", "fee", "feed", "feel", "feet", "fern"]
+  },
+  {
+    "word": "fern",
+    "category": "Garden & plants",
+    "clue": "woodland plant",
+    "tier": 1,
+    "neighbours": ["feather", "fence", "feed", "feel", "feet", "few"]
+  },
+  {
+    "word": "ferry",
+    "category": "Boats & sea",
+    "clue": "vessel",
+    "tier": 1,
+    "neighbours": ["fence", "fern", "feather", "feed", "feel", "feet"]
+  },
+  {
+    "word": "field",
+    "category": "Nature",
+    "clue": "countryside",
+    "tier": 1,
+    "neighbours": ["fig", "fill", "film", "fin", "find", "fire"]
+  },
+  {
+    "word": "finger",
+    "category": "Body",
+    "clue": "digit",
+    "tier": 1,
+    "neighbours": ["fin", "field", "fig", "fill", "film", "fire"]
+  },
+  {
+    "word": "fire",
+    "category": "Nature",
+    "clue": "hot",
+    "tier": 1,
+    "neighbours": ["fig", "field", "fill", "film", "fin", "finger"]
+  },
+  {
+    "word": "fish",
+    "category": "Sea creatures",
+    "clue": "gills",
+    "tier": 1,
+    "neighbours": ["fig", "field", "fill", "film", "fin", "fire"]
+  },
+  {
+    "word": "flag",
+    "category": "Street & town",
+    "clue": "fluttering",
+    "tier": 1,
+    "neighbours": ["flat", "flame", "flap", "flash", "flea", "flip"]
+  },
+  {
+    "word": "flame",
+    "category": "Nature",
+    "clue": "hot",
+    "tier": 1,
+    "neighbours": ["flag", "flat", "flap", "flash", "flea", "flip"]
+  },
+  {
+    "word": "flask",
+    "category": "Kitchen",
+    "clue": "container",
+    "tier": 2,
+    "neighbours": ["flag", "flat", "flame", "flap", "flash", "flea"]
+  },
+  {
+    "word": "floor",
+    "category": "Around the house",
+    "clue": "underfoot",
+    "tier": 1,
+    "neighbours": ["flag", "flat", "flame", "flap", "flash", "flour"]
+  },
+  {
+    "word": "flour",
+    "category": "Food & drink",
+    "clue": "baking",
+    "tier": 1,
+    "neighbours": ["floor", "flag", "flat", "flame", "flash", "flower"]
+  },
+  {
+    "word": "flower",
+    "category": "Garden & plants",
+    "clue": "bloom",
+    "tier": 1,
+    "neighbours": ["floor", "flag", "flat", "flame", "flash", "flour"]
+  },
+  {
+    "word": "flute",
+    "category": "Music",
+    "clue": "woodwind",
+    "tier": 2,
+    "neighbours": ["flag", "flat", "flame", "flash", "flea", "flour"]
+  },
+  {
+    "word": "foil",
+    "category": "Kitchen",
+    "clue": "wrapping",
+    "tier": 2,
+    "neighbours": ["fog", "foam", "foot", "fork", "fox", "form"]
+  },
+  {
+    "word": "foot",
+    "category": "Body",
+    "clue": "lower limb",
+    "tier": 1,
+    "neighbours": ["fox", "foam", "fork", "form", "fort", "fog"]
+  },
+  {
+    "word": "forest",
+    "category": "Nature",
+    "clue": "woodland",
+    "tier": 1,
+    "neighbours": ["fog", "foam", "foot", "fork", "form", "fort"]
+  },
+  {
+    "word": "fork",
+    "category": "Kitchen",
+    "clue": "cutlery",
+    "tier": 1,
+    "neighbours": ["fox", "foam", "foot", "form", "fort", "fog"]
+  },
+  {
+    "word": "fort",
+    "category": "Shops & buildings",
+    "clue": "historic",
+    "tier": 1,
+    "neighbours": ["fog", "foam", "foot", "fork", "fox", "form"]
+  },
+  {
+    "word": "fossil",
+    "category": "Nature",
+    "clue": "ancient",
+    "tier": 2,
+    "neighbours": ["fog", "foam", "foot", "fork", "fox", "form"]
+  },
+  {
+    "word": "fox",
+    "category": "Wild animals",
+    "clue": "sly",
+    "tier": 1,
+    "neighbours": ["fog", "foam", "foot", "fork", "fort", "form"]
+  },
+  {
+    "word": "frame",
+    "category": "Around the house",
+    "clue": "border",
+    "tier": 1,
+    "neighbours": ["frog", "front", "fruit", "free", "fresh", "friend"]
+  },
+  {
+    "word": "freezer",
+    "category": "Kitchen",
+    "clue": "appliance",
+    "tier": 1,
+    "neighbours": ["frame", "frog", "front", "fruit", "free", "fresh"]
+  },
+  {
+    "word": "fridge",
+    "category": "Kitchen",
+    "clue": "appliance",
+    "tier": 1,
+    "neighbours": ["frame", "frog", "front", "fruit", "free", "fresh"]
+  },
+  {
+    "word": "frog",
+    "category": "Wild animals",
+    "clue": "amphibian",
+    "tier": 1,
+    "neighbours": ["frame", "front", "fruit", "free", "fresh", "fridge"]
+  },
+  {
+    "word": "fruit",
+    "category": "Fruit & veg",
+    "clue": "sweet",
+    "tier": 1,
+    "neighbours": ["frame", "frog", "front", "fridge", "free", "fresh"]
+  },
+  {
+    "word": "funnel",
+    "category": "Kitchen",
+    "clue": "utensil",
+    "tier": 2,
+    "neighbours": ["fun", "fur", "fuse", "full", "fuel"]
+  },
+  {
+    "word": "game",
+    "category": "Games & puzzles",
+    "clue": "play",
+    "tier": 1,
+    "neighbours": ["gate", "gap", "garden", "gas", "garlic", "gallop"]
+  },
+  {
+    "word": "garage",
+    "category": "Shops & buildings",
+    "clue": "parking",
+    "tier": 1,
+    "neighbours": ["game", "gate", "gap", "garden", "gas", "garlic"]
+  },
+  {
+    "word": "garden",
+    "category": "Garden & plants",
+    "clue": "outdoors",
+    "tier": 1,
+    "neighbours": ["game", "gate", "gap", "gas", "garlic", "garage"]
+  },
+  {
+    "word": "garlic",
+    "category": "Fruit & veg",
+    "clue": "smelly",
+    "tier": 1,
+    "neighbours": ["game", "gate", "gap", "garden", "garage", "gas"]
+  },
+  {
+    "word": "gate",
+    "category": "Street & town",
+    "clue": "entrance",
+    "tier": 1,
+    "neighbours": ["game", "gap", "garden", "gas", "gallery"]
+  },
+  {
+    "word": "gift",
+    "category": "Around the house",
+    "clue": "wrapped",
+    "tier": 1,
+    "neighbours": ["giraffe", "ginger", "girl", "give", "gill"]
+  },
+  {
+    "word": "ginger",
+    "category": "Food & drink",
+    "clue": "spice",
+    "tier": 2,
+    "neighbours": ["giraffe", "gift", "girl", "give", "gill"]
+  },
+  {
+    "word": "giraffe",
+    "category": "Wild animals",
+    "clue": "tall",
+    "tier": 1,
+    "neighbours": ["gift", "ginger", "girl", "give", "gill"]
+  },
+  {
+    "word": "glass",
+    "category": "Kitchen",
+    "clue": "drinkware",
+    "tier": 1,
+    "neighbours": ["glad", "glove", "glue", "globe", "glow", "glitter"]
+  },
+  {
+    "word": "globe",
+    "category": "School & office",
+    "clue": "geography",
+    "tier": 2,
+    "neighbours": ["glass", "glad", "glove", "glue", "glow", "glitter"]
+  },
+  {
+    "word": "glove",
+    "category": "Clothing",
+    "clue": "winter wear",
+    "tier": 1,
+    "neighbours": ["glass", "glad", "glue", "globe", "glow", "glitter"]
+  },
+  {
+    "word": "glue",
+    "category": "School & office",
+    "clue": "sticky",
+    "tier": 1,
+    "neighbours": ["glass", "glad", "glove", "globe", "glow", "glitter"]
+  },
+  {
+    "word": "goal",
+    "category": "Sport",
+    "clue": "football",
+    "tier": 1,
+    "neighbours": ["goat", "gold", "golf", "good", "goose", "gown"]
+  },
+  {
+    "word": "goat",
+    "category": "Farm animals",
+    "clue": "horned",
+    "tier": 1,
+    "neighbours": ["goal", "gold", "golf", "good", "goose", "gown"]
+  },
+  {
+    "word": "golf",
+    "category": "Sport",
+    "clue": "course",
+    "tier": 1,
+    "neighbours": ["goat", "goal", "gold", "good", "goose", "gown"]
+  },
+  {
+    "word": "goose",
+    "category": "Birds",
+    "clue": "waterbird",
+    "tier": 1,
+    "neighbours": ["goat", "goal", "gold", "golf", "good", "gown"]
+  },
+  {
+    "word": "gorilla",
+    "category": "Wild animals",
+    "clue": "primate",
+    "tier": 1,
+    "neighbours": ["goat", "goal", "gold", "golf", "goose", "gown"]
+  },
+  {
+    "word": "gown",
+    "category": "Clothing",
+    "clue": "formal",
+    "tier": 2,
+    "neighbours": ["goat", "goal", "gold", "golf", "good", "goose"]
+  },
+  {
+    "word": "grape",
+    "category": "Fruit & veg",
+    "clue": "vine fruit",
+    "tier": 1,
+    "neighbours": ["grass", "gravel", "green", "grill", "grin", "ground"]
+  },
+  {
+    "word": "grass",
+    "category": "Garden & plants",
+    "clue": "green",
+    "tier": 1,
+    "neighbours": ["grape", "green", "grill", "grin", "ground", "grab"]
+  },
+  {
+    "word": "gravel",
+    "category": "Nature",
+    "clue": "stones",
+    "tier": 2,
+    "neighbours": ["grape", "grass", "green", "grill", "ground", "grab"]
+  },
+  {
+    "word": "grill",
+    "category": "Kitchen",
+    "clue": "cooking",
+    "tier": 2,
+    "neighbours": ["grape", "grass", "green", "grin", "ground", "grab"]
+  },
+  {
+    "word": "guitar",
+    "category": "Music",
+    "clue": "strings",
+    "tier": 1,
+    "neighbours": ["gum", "gun", "gust", "guess", "guest", "guard"]
+  },
+  {
+    "word": "gull",
+    "category": "Birds",
+    "clue": "seabird",
+    "tier": 2,
+    "neighbours": ["gum", "gun", "gust", "guess", "guest", "guitar"]
+  },
+  {
+    "word": "gutter",
+    "category": "Street & town",
+    "clue": "rainwater",
+    "tier": 2,
+    "neighbours": ["gum", "gun", "gust", "guess", "guest", "guitar"]
+  },
+  {
+    "word": "hair",
+    "category": "Body",
+    "clue": "head",
+    "tier": 1,
+    "neighbours": ["hat", "hand", "hang", "half", "hall", "ham"]
+  },
+  {
+    "word": "hammer",
+    "category": "Tools & crafts",
+    "clue": "hand tool",
+    "tier": 1,
+    "neighbours": ["hat", "hand", "hair", "half", "hall", "ham"]
+  },
+  {
+    "word": "hammock",
+    "category": "Outdoor fun",
+    "clue": "relaxing",
+    "tier": 2,
+    "neighbours": ["hat", "hand", "hair", "half", "hall", "hammer"]
+  },
+  {
+    "word": "hamster",
+    "category": "Pets",
+    "clue": "rodent",
+    "tier": 1,
+    "neighbours": ["hat", "hand", "hair", "half", "hall", "hammer"]
+  },
+  {
+    "word": "hand",
+    "category": "Body",
+    "clue": "gripping",
+    "tier": 1,
+    "neighbours": ["hat", "hang", "hair", "half", "hall", "ham"]
+  },
+  {
+    "word": "handbag",
+    "category": "Clothing",
+    "clue": "accessory",
+    "tier": 1,
+    "neighbours": ["hat", "hand", "hair", "half", "hall", "hammer"]
+  },
+  {
+    "word": "handle",
+    "category": "Around the house",
+    "clue": "grip",
+    "tier": 1,
+    "neighbours": ["hat", "hand", "hair", "half", "hall", "hammer"]
+  },
+  {
+    "word": "hanger",
+    "category": "Bedroom",
+    "clue": "wardrobe",
+    "tier": 1,
+    "neighbours": ["hat", "hand", "hair", "half", "hall", "hammer"]
+  },
+  {
+    "word": "harp",
+    "category": "Music",
+    "clue": "strings",
+    "tier": 2,
+    "neighbours": ["hat", "hand", "hair", "half", "hall", "hammer"]
+  },
+  {
+    "word": "hat",
+    "category": "Clothing",
+    "clue": "headwear",
+    "tier": 1,
+    "neighbours": ["hand", "hang", "hair", "half", "hall", "ham"]
+  },
+  {
+    "word": "hawk",
+    "category": "Birds",
+    "clue": "bird of prey",
+    "tier": 2,
+    "neighbours": ["hat", "hand", "hair", "hammer", "hay", "half"]
+  },
+  {
+    "word": "head",
+    "category": "Body",
+    "clue": "top",
+    "tier": 1,
+    "neighbours": ["heel", "heart", "heat", "hedge", "hen", "helmet"]
+  },
+  {
+    "word": "heart",
+    "category": "Body",
+    "clue": "organ",
+    "tier": 1,
+    "neighbours": ["head", "heel", "heat", "hedge", "hen", "helmet"]
+  },
+  {
+    "word": "heater",
+    "category": "Around the house",
+    "clue": "warmth",
+    "tier": 1,
+    "neighbours": ["head", "heel", "heart", "heat", "hedge", "hen"]
+  },
+  {
+    "word": "hedge",
+    "category": "Garden & plants",
+    "clue": "boundary",
+    "tier": 1,
+    "neighbours": ["head", "heel", "heart", "heat", "hen", "helmet"]
+  },
+  {
+    "word": "heel",
+    "category": "Body",
+    "clue": "foot",
+    "tier": 1,
+    "neighbours": ["head", "heart", "heat", "hedge", "hen", "helmet"]
+  },
+  {
+    "word": "helmet",
+    "category": "Sport",
+    "clue": "safety",
+    "tier": 1,
+    "neighbours": ["head", "heel", "heart", "hedge", "hen", "heat"]
+  },
+  {
+    "word": "heron",
+    "category": "Birds",
+    "clue": "waterbird",
+    "tier": 2,
+    "neighbours": ["head", "heel", "heart", "heat", "hedge", "hen"]
+  },
+  {
+    "word": "hill",
+    "category": "Nature",
+    "clue": "landform",
+    "tier": 1,
+    "neighbours": ["hip", "hit", "hive", "his", "hint", "hippo"]
+  },
+  {
+    "word": "hippo",
+    "category": "Wild animals",
+    "clue": "river",
+    "tier": 1,
+    "neighbours": ["hill", "hip", "hive", "hint", "hit"]
+  },
+  {
+    "word": "hive",
+    "category": "Creepy-crawlies",
+    "clue": "home",
+    "tier": 2,
+    "neighbours": ["hill", "hip", "hippo", "hint", "hit"]
+  },
+  {
+    "word": "hockey",
+    "category": "Sport",
+    "clue": "team sport",
+    "tier": 1,
+    "neighbours": ["hose", "horn", "horse", "hole", "hood", "hook"]
+  },
+  {
+    "word": "hole",
+    "category": "Nature",
+    "clue": "gap",
+    "tier": 1,
+    "neighbours": ["hose", "horn", "horse", "home", "hood", "hook"]
+  },
+  {
+    "word": "holly",
+    "category": "Garden & plants",
+    "clue": "Christmas",
+    "tier": 2,
+    "neighbours": ["hose", "horn", "horse", "hole", "hood", "hook"]
+  },
+  {
+    "word": "honey",
+    "category": "Food & drink",
+    "clue": "sweet",
+    "tier": 1,
+    "neighbours": ["hose", "horn", "horse", "home", "hood", "hook"]
+  },
+  {
+    "word": "hood",
+    "category": "Clothing",
+    "clue": "headwear",
+    "tier": 1,
+    "neighbours": ["hose", "horn", "horse", "hole", "hook", "hotel"]
+  },
+  {
+    "word": "hook",
+    "category": "Tools & crafts",
+    "clue": "hanging",
+    "tier": 1,
+    "neighbours": ["hose", "horn", "horse", "hole", "hood", "hotel"]
+  },
+  {
+    "word": "hoop",
+    "category": "Toys",
+    "clue": "spinning",
+    "tier": 1,
+    "neighbours": ["hose", "horn", "horse", "hole", "hood", "hook"]
+  },
+  {
+    "word": "horn",
+    "category": "Wild animals",
+    "clue": "pointed",
+    "tier": 2,
+    "neighbours": ["hose", "horse", "hole", "hood", "hook", "hotel"]
+  },
+  {
+    "word": "horse",
+    "category": "Farm animals",
+    "clue": "riding",
+    "tier": 1,
+    "neighbours": ["hose", "horn", "hole", "hood", "hook", "hotel"]
+  },
+  {
+    "word": "hose",
+    "category": "Garden & plants",
+    "clue": "watering",
+    "tier": 1,
+    "neighbours": ["horn", "horse", "hole", "home", "hood", "hook"]
+  },
+  {
+    "word": "hotel",
+    "category": "Shops & buildings",
+    "clue": "holiday",
+    "tier": 1,
+    "neighbours": ["hose", "horn", "horse", "hole", "hood", "hook"]
+  },
+  {
+    "word": "house",
+    "category": "Shops & buildings",
+    "clue": "home",
+    "tier": 1,
+    "neighbours": ["hose", "horn", "horse", "hole", "hood", "hotel"]
+  },
+  {
+    "word": "hurdle",
+    "category": "Sport",
+    "clue": "athletics",
+    "tier": 2,
+    "neighbours": ["hum", "hug", "hunt", "hurt", "hut", "hunter"]
+  },
+  {
+    "word": "icicle",
+    "category": "Weather & sky",
+    "clue": "winter",
+    "tier": 2,
+    "neighbours": ["ice", "icing", "icon", "icy"]
+  },
+  {
+    "word": "insect",
+    "category": "Creepy-crawlies",
+    "clue": "six legs",
+    "tier": 1,
+    "neighbours": ["ink", "inch", "inn", "inside"]
+  },
+  {
+    "word": "jacket",
+    "category": "Clothing",
+    "clue": "outerwear",
+    "tier": 1,
+    "neighbours": ["jam", "jar", "jaw", "jaguar", "jazz"]
+  },
+  {
+    "word": "jaguar",
+    "category": "Wild animals",
+    "clue": "big cat",
+    "tier": 2,
+    "neighbours": ["jam", "jar", "jaw", "jacket", "jazz"]
+  },
+  {
+    "word": "jar",
+    "category": "Kitchen",
+    "clue": "container",
+    "tier": 1,
+    "neighbours": ["jam", "jaw", "jacket", "jaguar", "jazz"]
+  },
+  {
+    "word": "jeans",
+    "category": "Clothing",
+    "clue": "trousers",
+    "tier": 1,
+    "neighbours": ["jet", "jelly", "jewel", "jeep"]
+  },
+  {
+    "word": "jewel",
+    "category": "Clothing",
+    "clue": "gem",
+    "tier": 2,
+    "neighbours": ["jet", "jelly", "jeans", "jeep"]
+  },
+  {
+    "word": "juice",
+    "category": "Food & drink",
+    "clue": "cold drink",
+    "tier": 1,
+    "neighbours": ["jug", "jump", "jungle", "judge"]
+  },
+  {
+    "word": "jungle",
+    "category": "Nature",
+    "clue": "tropical",
+    "tier": 1,
+    "neighbours": ["juice", "jug", "jump", "judge"]
+  },
+  {
+    "word": "kettle",
+    "category": "Kitchen",
+    "clue": "appliance",
+    "tier": 1,
+    "neighbours": ["key", "kennel", "keen", "keep"]
+  },
+  {
+    "word": "king",
+    "category": "Make-believe",
+    "clue": "royalty",
+    "tier": 1,
+    "neighbours": ["kit", "kick", "kid", "kite", "kiss", "kitchen"]
+  },
+  {
+    "word": "kitchen",
+    "category": "Around the house",
+    "clue": "room",
+    "tier": 1,
+    "neighbours": ["kit", "kick", "kid", "king", "kiss", "kite"]
+  },
+  {
+    "word": "kite",
+    "category": "Toys",
+    "clue": "windy day",
+    "tier": 1,
+    "neighbours": ["kit", "kick", "kid", "king", "kiss", "kitchen"]
+  },
+  {
+    "word": "kitten",
+    "category": "Pets",
+    "clue": "young",
+    "tier": 1,
+    "neighbours": ["kit", "kick", "kid", "king", "kiss", "kite"]
+  },
+  {
+    "word": "kiwi",
+    "category": "Fruit & veg",
+    "clue": "furry",
+    "tier": 2,
+    "neighbours": ["kit", "kick", "kid", "king", "kiss", "kite"]
+  },
+  {
+    "word": "knee",
+    "category": "Body",
+    "clue": "joint",
+    "tier": 1,
+    "neighbours": ["knit", "knife", "knight", "knock", "knot", "know"]
+  },
+  {
+    "word": "knife",
+    "category": "Kitchen",
+    "clue": "cutlery",
+    "tier": 1,
+    "neighbours": ["knee", "knit", "knight", "knock", "knot", "know"]
+  },
+  {
+    "word": "knight",
+    "category": "Make-believe",
+    "clue": "armour",
+    "tier": 2,
+    "neighbours": ["knee", "knit", "knife", "knock", "knot", "know"]
+  },
+  {
+    "word": "knuckle",
+    "category": "Body",
+    "clue": "joint",
+    "tier": 2,
+    "neighbours": ["knee", "knit", "knife", "knight", "knock", "knot"]
+  },
+  {
+    "word": "lace",
+    "category": "Clothing",
+    "clue": "threaded",
+    "tier": 2,
+    "neighbours": ["lamp", "lamb", "lake", "land", "lap", "ladder"]
+  },
+  {
+    "word": "ladder",
+    "category": "Tools & crafts",
+    "clue": "climbing",
+    "tier": 1,
+    "neighbours": ["lamp", "lamb", "lace", "lake", "land", "lap"]
+  },
+  {
+    "word": "ladle",
+    "category": "Kitchen",
+    "clue": "utensil",
+    "tier": 2,
+    "neighbours": ["lamp", "lamb", "lake", "land", "ladder", "lace"]
+  },
+  {
+    "word": "lake",
+    "category": "Nature",
+    "clue": "water",
+    "tier": 1,
+    "neighbours": ["lamp", "lamb", "lace", "land", "lap", "ladder"]
+  },
+  {
+    "word": "lamb",
+    "category": "Farm animals",
+    "clue": "young",
+    "tier": 1,
+    "neighbours": ["lamp", "lace", "lake", "land", "lap", "ladder"]
+  },
+  {
+    "word": "lamp",
+    "category": "Bedroom",
+    "clue": "bedside",
+    "tier": 1,
+    "neighbours": ["lace", "lake", "lamb", "land", "lap", "ladder"]
+  },
+  {
+    "word": "lantern",
+    "category": "Outdoor fun",
+    "clue": "camping",
+    "tier": 2,
+    "neighbours": ["lamp", "lamb", "lake", "land", "ladder", "lace"]
+  },
+  {
+    "word": "laptop",
+    "category": "School & office",
+    "clue": "technology",
+    "tier": 1,
+    "neighbours": ["lamp", "lamb", "lake", "land", "ladder", "lace"]
+  },
+  {
+    "word": "lawn",
+    "category": "Garden & plants",
+    "clue": "grass",
+    "tier": 1,
+    "neighbours": ["lamp", "lamb", "lake", "land", "ladder", "lace"]
+  },
+  {
+    "word": "leaf",
+    "category": "Garden & plants",
+    "clue": "tree part",
+    "tier": 1,
+    "neighbours": ["leg", "lean", "leap", "left", "lemon", "lettuce"]
+  },
+  {
+    "word": "leg",
+    "category": "Body",
+    "clue": "limb",
+    "tier": 1,
+    "neighbours": ["leaf", "lean", "leap", "left", "lemon", "lettuce"]
+  },
+  {
+    "word": "lemon",
+    "category": "Fruit & veg",
+    "clue": "citrus",
+    "tier": 1,
+    "neighbours": ["leaf", "leg", "lean", "leap", "left", "lettuce"]
+  },
+  {
+    "word": "leopard",
+    "category": "Wild animals",
+    "clue": "big cat",
+    "tier": 1,
+    "neighbours": ["leaf", "leg", "lean", "leap", "left", "lemon"]
+  },
+  {
+    "word": "letter",
+    "category": "School & office",
+    "clue": "post",
+    "tier": 1,
+    "neighbours": ["leaf", "leg", "lean", "left", "lemon", "lettuce"]
+  },
+  {
+    "word": "lettuce",
+    "category": "Fruit & veg",
+    "clue": "leafy veg",
+    "tier": 1,
+    "neighbours": ["leaf", "leg", "lean", "leap", "left", "lemon"]
+  },
+  {
+    "word": "light",
+    "category": "Around the house",
+    "clue": "electrical",
+    "tier": 1,
+    "neighbours": ["lid", "lift", "lily", "limb", "line", "lion"]
+  },
+  {
+    "word": "lily",
+    "category": "Garden & plants",
+    "clue": "scented",
+    "tier": 1,
+    "neighbours": ["lid", "lift", "light", "limb", "line", "lion"]
+  },
+  {
+    "word": "lime",
+    "category": "Fruit & veg",
+    "clue": "citrus",
+    "tier": 1,
+    "neighbours": ["lid", "lift", "light", "lily", "limb", "line"]
+  },
+  {
+    "word": "lion",
+    "category": "Wild animals",
+    "clue": "big cat",
+    "tier": 1,
+    "neighbours": ["lid", "lift", "light", "lily", "lime", "line"]
+  },
+  {
+    "word": "lizard",
+    "category": "Wild animals",
+    "clue": "reptile",
+    "tier": 1,
+    "neighbours": ["lid", "lift", "light", "lily", "lime", "lion"]
+  },
+  {
+    "word": "loaf",
+    "category": "Food & drink",
+    "clue": "baked",
+    "tier": 1,
+    "neighbours": ["lock", "log", "look", "loop", "long", "lost"]
+  },
+  {
+    "word": "lobster",
+    "category": "Sea creatures",
+    "clue": "shellfish",
+    "tier": 2,
+    "neighbours": ["lock", "log", "look", "loop", "long", "loaf"]
+  },
+  {
+    "word": "lock",
+    "category": "Around the house",
+    "clue": "security",
+    "tier": 1,
+    "neighbours": ["log", "look", "loop", "long", "lost", "loaf"]
+  },
+  {
+    "word": "locker",
+    "category": "School & office",
+    "clue": "storage",
+    "tier": 2,
+    "neighbours": ["lock", "log", "look", "loop", "long", "lost"]
+  },
+  {
+    "word": "log",
+    "category": "Nature",
+    "clue": "wooden",
+    "tier": 1,
+    "neighbours": ["lock", "look", "loop", "long", "lost", "loaf"]
+  },
+  {
+    "word": "magnet",
+    "category": "School & office",
+    "clue": "science",
+    "tier": 2,
+    "neighbours": ["map", "mat", "mask", "match", "mango", "maze"]
+  },
+  {
+    "word": "magpie",
+    "category": "Birds",
+    "clue": "black and white",
+    "tier": 2,
+    "neighbours": ["map", "mat", "mask", "match", "mango", "magnet"]
+  },
+  {
+    "word": "mallet",
+    "category": "Tools & crafts",
+    "clue": "hand tool",
+    "tier": 2,
+    "neighbours": ["map", "mat", "mask", "match", "mango", "magnet"]
+  },
+  {
+    "word": "mango",
+    "category": "Fruit & veg",
+    "clue": "tropical",
+    "tier": 1,
+    "neighbours": ["map", "mat", "mask", "match", "magnet", "maze"]
+  },
+  {
+    "word": "map",
+    "category": "School & office",
+    "clue": "geography",
+    "tier": 1,
+    "neighbours": ["mat", "mask", "match", "mango", "magnet", "maze"]
+  },
+  {
+    "word": "marble",
+    "category": "Games & puzzles",
+    "clue": "glass",
+    "tier": 1,
+    "neighbours": ["map", "mat", "mask", "match", "mango", "marsh"]
+  },
+  {
+    "word": "marker",
+    "category": "School & office",
+    "clue": "writing",
+    "tier": 2,
+    "neighbours": ["map", "mat", "mask", "marble", "market", "match"]
+  },
+  {
+    "word": "market",
+    "category": "Shops & buildings",
+    "clue": "stalls",
+    "tier": 1,
+    "neighbours": ["map", "mat", "mask", "marble", "marsh", "match"]
+  },
+  {
+    "word": "mask",
+    "category": "Make-believe",
+    "clue": "disguise",
+    "tier": 1,
+    "neighbours": ["map", "mat", "match", "mango", "magnet", "maze"]
+  },
+  {
+    "word": "meat",
+    "category": "Food & drink",
+    "clue": "protein",
+    "tier": 1,
+    "neighbours": ["meal", "melon", "menu", "medal", "metal", "mess"]
+  },
+  {
+    "word": "medal",
+    "category": "Sport",
+    "clue": "award",
+    "tier": 2,
+    "neighbours": ["meat", "melon", "menu", "metal", "mess", "meal"]
+  },
+  {
+    "word": "melon",
+    "category": "Fruit & veg",
+    "clue": "juicy",
+    "tier": 1,
+    "neighbours": ["meat", "medal", "menu", "metal", "mess", "meal"]
+  },
+  {
+    "word": "mermaid",
+    "category": "Make-believe",
+    "clue": "mythical",
+    "tier": 2,
+    "neighbours": ["meat", "melon", "medal", "menu", "metal", "mess"]
+  },
+  {
+    "word": "milk",
+    "category": "Food & drink",
+    "clue": "dairy",
+    "tier": 1,
+    "neighbours": ["mill", "mild", "mile", "mind", "mint", "mitten"]
+  },
+  {
+    "word": "mill",
+    "category": "Shops & buildings",
+    "clue": "grinding",
+    "tier": 2,
+    "neighbours": ["milk", "mile", "mint", "mitten", "mirror", "mixer"]
+  },
+  {
+    "word": "mint",
+    "category": "Food & drink",
+    "clue": "herb",
+    "tier": 1,
+    "neighbours": ["milk", "mill", "mile", "mitten", "mirror", "mixer"]
+  },
+  {
+    "word": "mirror",
+    "category": "Bathroom",
+    "clue": "reflective",
+    "tier": 1,
+    "neighbours": ["milk", "mill", "mint", "mitten", "mixer", "middle"]
+  },
+  {
+    "word": "mitten",
+    "category": "Clothing",
+    "clue": "winter wear",
+    "tier": 1,
+    "neighbours": ["milk", "mill", "mint", "mirror", "mixer", "middle"]
+  },
+  {
+    "word": "mixer",
+    "category": "Kitchen",
+    "clue": "appliance",
+    "tier": 2,
+    "neighbours": ["milk", "mill", "mint", "mirror", "mitten", "middle"]
+  },
+  {
+    "word": "mole",
+    "category": "Wild animals",
+    "clue": "burrowing",
+    "tier": 2,
+    "neighbours": ["moon", "moth", "mouse", "mouth", "mop", "monkey"]
+  },
+  {
+    "word": "monkey",
+    "category": "Wild animals",
+    "clue": "primate",
+    "tier": 1,
+    "neighbours": ["mole", "moon", "moth", "mouse", "mouth", "mop"]
+  },
+  {
+    "word": "moon",
+    "category": "Weather & sky",
+    "clue": "night sky",
+    "tier": 1,
+    "neighbours": ["mole", "moth", "mouse", "mouth", "mop", "monkey"]
+  },
+  {
+    "word": "mop",
+    "category": "Around the house",
+    "clue": "cleaning",
+    "tier": 1,
+    "neighbours": ["mole", "moon", "moth", "mouse", "mouth", "monkey"]
+  },
+  {
+    "word": "moth",
+    "category": "Creepy-crawlies",
+    "clue": "insect",
+    "tier": 1,
+    "neighbours": ["mole", "moon", "mouse", "mouth", "mop", "monkey"]
+  },
+  {
+    "word": "mouse",
+    "category": "Pets",
+    "clue": "rodent",
+    "tier": 1,
+    "neighbours": ["mole", "moon", "moth", "mouth", "mop", "monkey"]
+  },
+  {
+    "word": "mouth",
+    "category": "Body",
+    "clue": "face",
+    "tier": 1,
+    "neighbours": ["mole", "moon", "moth", "mouse", "mop", "monkey"]
+  },
+  {
+    "word": "mower",
+    "category": "Garden & plants",
+    "clue": "machine",
+    "tier": 1,
+    "neighbours": ["mole", "moon", "mouse", "mop", "monkey"]
+  },
+  {
+    "word": "muffin",
+    "category": "Food & drink",
+    "clue": "baked",
+    "tier": 1,
+    "neighbours": ["mud", "mug", "mule", "music", "muscle"]
+  },
+  {
+    "word": "muscle",
+    "category": "Body",
+    "clue": "strength",
+    "tier": 1,
+    "neighbours": ["mud", "mug", "mule", "muffin", "music"]
+  },
+  {
+    "word": "mustard",
+    "category": "Food & drink",
+    "clue": "condiment",
+    "tier": 1,
+    "neighbours": ["mud", "mug", "mule", "muffin", "music", "muscle"]
+  },
+  {
+    "word": "nail",
+    "category": "Tools & crafts",
+    "clue": "fastener",
+    "tier": 1,
+    "neighbours": ["name", "nap", "navy", "nature", "napkin"]
+  },
+  {
+    "word": "napkin",
+    "category": "Kitchen",
+    "clue": "table linen",
+    "tier": 1,
+    "neighbours": ["nail", "name", "nap", "navy", "nature"]
+  },
+  {
+    "word": "neck",
+    "category": "Body",
+    "clue": "upper body",
+    "tier": 1,
+    "neighbours": ["near", "nest", "net", "never", "needle", "new"]
+  },
+  {
+    "word": "needle",
+    "category": "Tools & crafts",
+    "clue": "sewing",
+    "tier": 1,
+    "neighbours": ["neck", "near", "nest", "net", "never", "new"]
+  },
+  {
+    "word": "nest",
+    "category": "Birds",
+    "clue": "home",
+    "tier": 1,
+    "neighbours": ["neck", "near", "net", "never", "needle", "new"]
+  },
+  {
+    "word": "nettle",
+    "category": "Garden & plants",
+    "clue": "stinging",
+    "tier": 2,
+    "neighbours": ["neck", "near", "nest", "net", "never", "needle"]
+  },
+  {
+    "word": "newt",
+    "category": "Wild animals",
+    "clue": "amphibian",
+    "tier": 2,
+    "neighbours": ["neck", "near", "nest", "net", "never", "needle"]
+  },
+  {
+    "word": "noodle",
+    "category": "Food & drink",
+    "clue": "pasta-like",
+    "tier": 1,
+    "neighbours": ["nose", "nod", "north", "note", "noon", "none"]
+  },
+  {
+    "word": "nose",
+    "category": "Body",
+    "clue": "face",
+    "tier": 1,
+    "neighbours": ["nod", "noodle", "north", "note", "noon", "none"]
+  },
+  {
+    "word": "ocean",
+    "category": "Boats & sea",
+    "clue": "water",
+    "tier": 1,
+    "neighbours": ["octopus", "occur", "occasion"]
+  },
+  {
+    "word": "octopus",
+    "category": "Sea creatures",
+    "clue": "tentacles",
+    "tier": 1,
+    "neighbours": ["ocean", "occur", "occasion"]
+  },
+  {
+    "word": "onion",
+    "category": "Fruit & veg",
+    "clue": "layers",
+    "tier": 1,
+    "neighbours": ["only", "once", "one", "onto"]
+  },
+  {
+    "word": "orange",
+    "category": "Fruit & veg",
+    "clue": "citrus",
+    "tier": 1,
+    "neighbours": ["orbit", "order", "organ", "orchard"]
+  },
+  {
+    "word": "orchard",
+    "category": "Nature",
+    "clue": "trees",
+    "tier": 2,
+    "neighbours": ["orbit", "order", "organ", "orange", "ore"]
+  },
+  {
+    "word": "paddle",
+    "category": "Boats & sea",
+    "clue": "rowing",
+    "tier": 1,
+    "neighbours": ["pan", "pack", "page", "pail", "paint", "palm"]
+  },
+  {
+    "word": "page",
+    "category": "School & office",
+    "clue": "book part",
+    "tier": 1,
+    "neighbours": ["pan", "pack", "pail", "paint", "pair", "palm"]
+  },
+  {
+    "word": "pail",
+    "category": "Outdoor fun",
+    "clue": "beach",
+    "tier": 2,
+    "neighbours": ["pan", "pack", "page", "paint", "pair", "palm"]
+  },
+  {
+    "word": "paint",
+    "category": "School & office",
+    "clue": "art",
+    "tier": 1,
+    "neighbours": ["pan", "pack", "page", "pail", "pair", "palm"]
+  },
+  {
+    "word": "palm",
+    "category": "Garden & plants",
+    "clue": "tropical",
+    "tier": 1,
+    "neighbours": ["pan", "pack", "page", "pail", "paint", "pair"]
+  },
+  {
+    "word": "pancake",
+    "category": "Food & drink",
+    "clue": "flat",
+    "tier": 1,
+    "neighbours": ["pan", "pack", "page", "pail", "paint", "palm"]
+  },
+  {
+    "word": "panda",
+    "category": "Wild animals",
+    "clue": "bamboo",
+    "tier": 1,
+    "neighbours": ["pan", "pack", "page", "pail", "paint", "palm"]
+  },
+  {
+    "word": "paper",
+    "category": "School & office",
+    "clue": "stationery",
+    "tier": 1,
+    "neighbours": ["pan", "pack", "page", "pail", "paint", "palm"]
+  },
+  {
+    "word": "parcel",
+    "category": "Around the house",
+    "clue": "post",
+    "tier": 2,
+    "neighbours": ["pan", "pack", "page", "park", "paint", "palm"]
+  },
+  {
+    "word": "park",
+    "category": "Street & town",
+    "clue": "green space",
+    "tier": 1,
+    "neighbours": ["pan", "pack", "page", "pail", "paint", "palm"]
+  },
+  {
+    "word": "parrot",
+    "category": "Birds",
+    "clue": "tropical",
+    "tier": 1,
+    "neighbours": ["pan", "pack", "park", "page", "paint", "palm"]
+  },
+  {
+    "word": "pasta",
+    "category": "Food & drink",
+    "clue": "Italian",
+    "tier": 1,
+    "neighbours": ["pan", "pack", "page", "park", "paint", "palm"]
+  },
+  {
+    "word": "path",
+    "category": "Street & town",
+    "clue": "walkway",
+    "tier": 1,
+    "neighbours": ["pan", "pack", "page", "park", "paint", "palm"]
+  },
+  {
+    "word": "peach",
+    "category": "Fruit & veg",
+    "clue": "stone fruit",
+    "tier": 1,
+    "neighbours": ["pea", "pear", "peg", "pen", "pencil", "pepper"]
+  },
+  {
+    "word": "peanut",
+    "category": "Food & drink",
+    "clue": "salty",
+    "tier": 1,
+    "neighbours": ["peach", "pear", "peg", "pen", "pencil", "pepper"]
+  },
+  {
+    "word": "pear",
+    "category": "Fruit & veg",
+    "clue": "orchard fruit",
+    "tier": 1,
+    "neighbours": ["peach", "peg", "pen", "pencil", "pepper", "pebble"]
+  },
+  {
+    "word": "pebble",
+    "category": "Nature",
+    "clue": "smooth",
+    "tier": 1,
+    "neighbours": ["peach", "pear", "peg", "pen", "pencil", "pepper"]
+  },
+  {
+    "word": "pedal",
+    "category": "Vehicles",
+    "clue": "bike part",
+    "tier": 2,
+    "neighbours": ["peach", "pear", "peg", "pen", "pencil", "pepper"]
+  },
+  {
+    "word": "pelican",
+    "category": "Birds",
+    "clue": "waterbird",
+    "tier": 2,
+    "neighbours": ["peach", "pear", "peg", "pen", "pencil", "pepper"]
+  },
+  {
+    "word": "pen",
+    "category": "School & office",
+    "clue": "writing",
+    "tier": 1,
+    "neighbours": ["peach", "pear", "peg", "pencil", "pepper", "pebble"]
+  },
+  {
+    "word": "pencil",
+    "category": "School & office",
+    "clue": "writing",
+    "tier": 1,
+    "neighbours": ["peach", "pear", "peg", "pen", "pepper", "pebble"]
+  },
+  {
+    "word": "penguin",
+    "category": "Birds",
+    "clue": "flightless",
+    "tier": 1,
+    "neighbours": ["peach", "pear", "peg", "pen", "pencil", "pepper"]
+  },
+  {
+    "word": "pepper",
+    "category": "Fruit & veg",
+    "clue": "salad veg",
+    "tier": 1,
+    "neighbours": ["peach", "pear", "peg", "pen", "pencil", "pebble"]
+  },
+  {
+    "word": "petal",
+    "category": "Garden & plants",
+    "clue": "flower part",
+    "tier": 2,
+    "neighbours": ["peach", "pear", "peg", "pen", "pencil", "pepper"]
+  },
+  {
+    "word": "piano",
+    "category": "Music",
+    "clue": "keyboard",
+    "tier": 1,
+    "neighbours": ["pie", "pig", "pill", "pin", "pine", "pink"]
+  },
+  {
+    "word": "picnic",
+    "category": "Food & drink",
+    "clue": "outdoor meal",
+    "tier": 1,
+    "neighbours": ["pie", "piano", "pig", "pill", "pin", "pine"]
+  },
+  {
+    "word": "picture",
+    "category": "Around the house",
+    "clue": "decoration",
+    "tier": 1,
+    "neighbours": ["pie", "piano", "pig", "pill", "pin", "pine"]
+  },
+  {
+    "word": "pie",
+    "category": "Food & drink",
+    "clue": "pastry",
+    "tier": 1,
+    "neighbours": ["piano", "pig", "pill", "pin", "pine", "pink"]
+  },
+  {
+    "word": "pig",
+    "category": "Farm animals",
+    "clue": "pink",
+    "tier": 1,
+    "neighbours": ["pie", "piano", "pill", "pin", "pine", "pink"]
+  },
+  {
+    "word": "pigeon",
+    "category": "Birds",
+    "clue": "town bird",
+    "tier": 1,
+    "neighbours": ["pie", "piano", "pig", "pill", "pin", "pine"]
+  },
+  {
+    "word": "pillow",
+    "category": "Bedroom",
+    "clue": "bedding",
+    "tier": 1,
+    "neighbours": ["pie", "piano", "pig", "pill", "pin", "pine"]
+  },
+  {
+    "word": "pine",
+    "category": "Garden & plants",
+    "clue": "evergreen",
+    "tier": 1,
+    "neighbours": ["pie", "piano", "pig", "pill", "pin", "pink"]
+  },
+  {
+    "word": "pirate",
+    "category": "Make-believe",
+    "clue": "treasure",
+    "tier": 1,
+    "neighbours": ["pie", "piano", "pig", "pill", "pin", "pine"]
+  },
+  {
+    "word": "pizza",
+    "category": "Food & drink",
+    "clue": "Italian",
+    "tier": 1,
+    "neighbours": ["pie", "piano", "pig", "pill", "pin", "pine"]
+  },
+  {
+    "word": "plane",
+    "category": "Vehicles",
+    "clue": "aircraft",
+    "tier": 1,
+    "neighbours": ["plant", "plate", "play", "plum", "plug", "plank"]
+  },
+  {
+    "word": "plank",
+    "category": "Tools & crafts",
+    "clue": "timber",
+    "tier": 2,
+    "neighbours": ["plane", "plant", "plate", "play", "plum", "plug"]
+  },
+  {
+    "word": "plant",
+    "category": "Garden & plants",
+    "clue": "potted",
+    "tier": 1,
+    "neighbours": ["plane", "plate", "play", "plum", "plug", "plank"]
+  },
+  {
+    "word": "plate",
+    "category": "Kitchen",
+    "clue": "crockery",
+    "tier": 1,
+    "neighbours": ["plane", "plant", "play", "plum", "plug", "plank"]
+  },
+  {
+    "word": "pliers",
+    "category": "Tools & crafts",
+    "clue": "hand tool",
+    "tier": 2,
+    "neighbours": ["plane", "plant", "plate", "play", "plum", "plank"]
+  },
+  {
+    "word": "plug",
+    "category": "Around the house",
+    "clue": "electrical",
+    "tier": 1,
+    "neighbours": ["plane", "plant", "plate", "play", "plum", "plank"]
+  },
+  {
+    "word": "plum",
+    "category": "Fruit & veg",
+    "clue": "stone fruit",
+    "tier": 1,
+    "neighbours": ["plane", "plant", "plate", "play", "plug", "plank"]
+  },
+  {
+    "word": "pocket",
+    "category": "Clothing",
+    "clue": "pouch",
+    "tier": 1,
+    "neighbours": ["pole", "pond", "pony", "pool", "pop", "pot"]
+  },
+  {
+    "word": "pole",
+    "category": "Street & town",
+    "clue": "upright",
+    "tier": 2,
+    "neighbours": ["pocket", "pond", "pony", "pool", "pop", "pot"]
+  },
+  {
+    "word": "pond",
+    "category": "Nature",
+    "clue": "water",
+    "tier": 1,
+    "neighbours": ["pocket", "pole", "pony", "pool", "pop", "pot"]
+  },
+  {
+    "word": "pony",
+    "category": "Farm animals",
+    "clue": "riding",
+    "tier": 1,
+    "neighbours": ["pocket", "pole", "pond", "pool", "pop", "pot"]
+  },
+  {
+    "word": "pool",
+    "category": "Sport",
+    "clue": "swimming",
+    "tier": 1,
+    "neighbours": ["pocket", "pole", "pond", "pony", "pop", "pot"]
+  },
+  {
+    "word": "popcorn",
+    "category": "Food & drink",
+    "clue": "cinema",
+    "tier": 1,
+    "neighbours": ["pocket", "pole", "pond", "pony", "pool", "pot"]
+  },
+  {
+    "word": "poppy",
+    "category": "Garden & plants",
+    "clue": "red",
+    "tier": 1,
+    "neighbours": ["pocket", "pole", "pond", "pony", "pool", "pot"]
+  },
+  {
+    "word": "porch",
+    "category": "Shops & buildings",
+    "clue": "entrance",
+    "tier": 1,
+    "neighbours": ["pocket", "pole", "pond", "pony", "pool", "pot"]
+  },
+  {
+    "word": "poster",
+    "category": "Bedroom",
+    "clue": "decoration",
+    "tier": 1,
+    "neighbours": ["pocket", "pole", "pond", "pony", "pool", "pot"]
+  },
+  {
+    "word": "pot",
+    "category": "Kitchen",
+    "clue": "cookware",
+    "tier": 1,
+    "neighbours": ["pocket", "pole", "pond", "pony", "pool", "pop"]
+  },
+  {
+    "word": "potato",
+    "category": "Fruit & veg",
+    "clue": "root veg",
+    "tier": 1,
+    "neighbours": ["pocket", "pole", "pond", "pony", "pool", "pot"]
+  },
+  {
+    "word": "present",
+    "category": "Around the house",
+    "clue": "wrapped",
+    "tier": 1,
+    "neighbours": ["prawn", "price", "prince", "print", "prize"]
+  },
+  {
+    "word": "puddle",
+    "category": "Nature",
+    "clue": "rainy day",
+    "tier": 1,
+    "neighbours": ["pup", "pudding", "puff", "pull", "pump", "pumpkin"]
+  },
+  {
+    "word": "pump",
+    "category": "Tools & crafts",
+    "clue": "inflating",
+    "tier": 2,
+    "neighbours": ["pup", "puppy", "puddle", "pull", "pumpkin", "purse"]
+  },
+  {
+    "word": "pumpkin",
+    "category": "Fruit & veg",
+    "clue": "Halloween",
+    "tier": 1,
+    "neighbours": ["pup", "puppy", "puddle", "pull", "pump", "purse"]
+  },
+  {
+    "word": "puppet",
+    "category": "Toys",
+    "clue": "show",
+    "tier": 1,
+    "neighbours": ["pup", "puppy", "puddle", "pull", "pump", "purse"]
+  },
+  {
+    "word": "puppy",
+    "category": "Pets",
+    "clue": "young",
+    "tier": 1,
+    "neighbours": ["pup", "puddle", "pull", "pump", "pumpkin", "purse"]
+  },
+  {
+    "word": "purse",
+    "category": "Clothing",
+    "clue": "money",
+    "tier": 1,
+    "neighbours": ["pup", "puppy", "puddle", "pull", "pump", "pumpkin"]
+  },
+  {
+    "word": "puzzle",
+    "category": "Games & puzzles",
+    "clue": "pieces",
+    "tier": 1,
+    "neighbours": ["pup", "puppy", "puddle", "pull", "pump", "pumpkin"]
+  },
+  {
+    "word": "quail",
+    "category": "Birds",
+    "clue": "small bird",
+    "tier": 2,
+    "neighbours": ["quack", "queen", "quick", "quiet"]
+  },
+  {
+    "word": "quilt",
+    "category": "Bedroom",
+    "clue": "bedding",
+    "tier": 1,
+    "neighbours": ["quack", "queen", "quick", "quiet"]
+  },
+  {
+    "word": "rabbit",
+    "category": "Pets",
+    "clue": "long ears",
+    "tier": 1,
+    "neighbours": ["race", "rack", "radio", "raft", "rail", "rake"]
+  },
+  {
+    "word": "raccoon",
+    "category": "Wild animals",
+    "clue": "masked",
+    "tier": 2,
+    "neighbours": ["race", "rack", "radio", "raft", "rail", "rake"]
+  },
+  {
+    "word": "race",
+    "category": "Sport",
+    "clue": "competition",
+    "tier": 2,
+    "neighbours": ["rabbit", "rack", "radio", "raft", "rail", "rake"]
+  },
+  {
+    "word": "racket",
+    "category": "Sport",
+    "clue": "strung",
+    "tier": 1,
+    "neighbours": ["race", "rack", "radio", "raft", "rail", "rake"]
+  },
+  {
+    "word": "radio",
+    "category": "Around the house",
+    "clue": "listening",
+    "tier": 1,
+    "neighbours": ["race", "rack", "rabbit", "raft", "rail", "rake"]
+  },
+  {
+    "word": "radish",
+    "category": "Fruit & veg",
+    "clue": "root veg",
+    "tier": 2,
+    "neighbours": ["race", "rack", "radio", "raft", "rail", "rake"]
+  },
+  {
+    "word": "raft",
+    "category": "Boats & sea",
+    "clue": "floating",
+    "tier": 1,
+    "neighbours": ["race", "rack", "radio", "rabbit", "rail", "rake"]
+  },
+  {
+    "word": "rain",
+    "category": "Weather & sky",
+    "clue": "wet weather",
+    "tier": 1,
+    "neighbours": ["race", "rack", "radio", "raft", "rail", "rake"]
+  },
+  {
+    "word": "rainbow",
+    "category": "Weather & sky",
+    "clue": "colourful",
+    "tier": 1,
+    "neighbours": ["race", "rack", "radio", "raft", "rail", "rake"]
+  },
+  {
+    "word": "raisin",
+    "category": "Food & drink",
+    "clue": "dried fruit",
+    "tier": 2,
+    "neighbours": ["race", "rack", "radio", "raft", "rail", "rake"]
+  },
+  {
+    "word": "rake",
+    "category": "Garden & plants",
+    "clue": "tool",
+    "tier": 1,
+    "neighbours": ["race", "rack", "radio", "raft", "rail", "rabbit"]
+  },
+  {
+    "word": "rat",
+    "category": "Wild animals",
+    "clue": "rodent",
+    "tier": 1,
+    "neighbours": ["race", "rack", "radio", "raft", "rail", "rake"]
+  },
+  {
+    "word": "rattle",
+    "category": "Toys",
+    "clue": "baby toy",
+    "tier": 1,
+    "neighbours": ["race", "rack", "radio", "raft", "rail", "rake"]
+  },
+  {
+    "word": "razor",
+    "category": "Bathroom",
+    "clue": "shaving",
+    "tier": 2,
+    "neighbours": ["race", "rack", "radio", "raft", "rail", "rake"]
+  },
+  {
+    "word": "remote",
+    "category": "Around the house",
+    "clue": "gadget",
+    "tier": 1,
+    "neighbours": ["rest", "rent", "reach", "ready", "red", "repair"]
+  },
+  {
+    "word": "ribbon",
+    "category": "Around the house",
+    "clue": "decoration",
+    "tier": 1,
+    "neighbours": ["rib", "rice", "rich", "ride", "ring", "rink"]
+  },
+  {
+    "word": "rice",
+    "category": "Food & drink",
+    "clue": "grain",
+    "tier": 1,
+    "neighbours": ["ribbon", "rib", "ride", "ring", "rink", "river"]
+  },
+  {
+    "word": "ring",
+    "category": "Clothing",
+    "clue": "jewellery",
+    "tier": 1,
+    "neighbours": ["ribbon", "rib", "rice", "ride", "rink", "river"]
+  },
+  {
+    "word": "river",
+    "category": "Nature",
+    "clue": "flowing",
+    "tier": 1,
+    "neighbours": ["ribbon", "rib", "rice", "ride", "ring", "rink"]
+  },
+  {
+    "word": "road",
+    "category": "Street & town",
+    "clue": "traffic",
+    "tier": 1,
+    "neighbours": ["roar", "roast", "robe", "robin", "robot", "rock"]
+  },
+  {
+    "word": "robe",
+    "category": "Clothing",
+    "clue": "nightwear",
+    "tier": 2,
+    "neighbours": ["road", "roar", "roast", "robin", "robot", "rock"]
+  },
+  {
+    "word": "robin",
+    "category": "Birds",
+    "clue": "songbird",
+    "tier": 1,
+    "neighbours": ["road", "roar", "roast", "robe", "robot", "rock"]
+  },
+  {
+    "word": "robot",
+    "category": "Toys",
+    "clue": "mechanical",
+    "tier": 1,
+    "neighbours": ["road", "roar", "roast", "robe", "robin", "rock"]
+  },
+  {
+    "word": "rock",
+    "category": "Nature",
+    "clue": "hard",
+    "tier": 1,
+    "neighbours": ["road", "roar", "roast", "robe", "robin", "robot"]
+  },
+  {
+    "word": "rocket",
+    "category": "Vehicles",
+    "clue": "space",
+    "tier": 1,
+    "neighbours": ["road", "roar", "roast", "robe", "robin", "robot"]
+  },
+  {
+    "word": "roof",
+    "category": "Shops & buildings",
+    "clue": "top",
+    "tier": 1,
+    "neighbours": ["road", "roar", "roast", "room", "rope", "rose"]
+  },
+  {
+    "word": "room",
+    "category": "Around the house",
+    "clue": "indoors",
+    "tier": 1,
+    "neighbours": ["road", "roof", "roast", "rope", "rose", "rock"]
+  },
+  {
+    "word": "rope",
+    "category": "Tools & crafts",
+    "clue": "knots",
+    "tier": 1,
+    "neighbours": ["road", "roof", "room", "rose", "rock", "robe"]
+  },
+  {
+    "word": "rose",
+    "category": "Garden & plants",
+    "clue": "thorny",
+    "tier": 1,
+    "neighbours": ["road", "roof", "room", "rope", "rock", "robe"]
+  },
+  {
+    "word": "rug",
+    "category": "Around the house",
+    "clue": "flooring",
+    "tier": 1,
+    "neighbours": ["rub", "ruby", "rule", "ruler", "rush", "runway"]
+  },
+  {
+    "word": "ruler",
+    "category": "School & office",
+    "clue": "measuring",
+    "tier": 1,
+    "neighbours": ["rug", "rub", "ruby", "rule", "rush", "runway"]
+  },
+  {
+    "word": "saddle",
+    "category": "Sport",
+    "clue": "horse riding",
+    "tier": 1,
+    "neighbours": ["sad", "safe", "sail", "salad", "sale", "salt"]
+  },
+  {
+    "word": "safe",
+    "category": "Around the house",
+    "clue": "security",
+    "tier": 2,
+    "neighbours": ["saddle", "sail", "salad", "sale", "salt", "sand"]
+  },
+  {
+    "word": "sail",
+    "category": "Boats & sea",
+    "clue": "wind-powered",
+    "tier": 1,
+    "neighbours": ["saddle", "safe", "salad", "sale", "salt", "sand"]
+  },
+  {
+    "word": "salad",
+    "category": "Food & drink",
+    "clue": "healthy",
+    "tier": 1,
+    "neighbours": ["saddle", "safe", "sail", "sale", "salt", "sand"]
+  },
+  {
+    "word": "salt",
+    "category": "Food & drink",
+    "clue": "seasoning",
+    "tier": 1,
+    "neighbours": ["saddle", "safe", "sail", "salad", "sale", "sand"]
+  },
+  {
+    "word": "sand",
+    "category": "Nature",
+    "clue": "grains",
+    "tier": 1,
+    "neighbours": ["saddle", "safe", "sail", "salad", "salt", "sandal"]
+  },
+  {
+    "word": "sandal",
+    "category": "Clothing",
+    "clue": "footwear",
+    "tier": 1,
+    "neighbours": ["sand", "sandy", "salad", "saddle", "salt", "sail"]
+  },
+  {
+    "word": "sandpit",
+    "category": "Outdoor fun",
+    "clue": "playground",
+    "tier": 1,
+    "neighbours": ["sand", "sandal", "sandy", "salad", "saddle", "salt"]
+  },
+  {
+    "word": "satchel",
+    "category": "School & office",
+    "clue": "bag",
+    "tier": 2,
+    "neighbours": ["sat", "saw", "sauce", "saucer", "sad", "saddle"]
+  },
+  {
+    "word": "sauce",
+    "category": "Food & drink",
+    "clue": "condiment",
+    "tier": 1,
+    "neighbours": ["saucer", "sausage", "saw", "sat", "sad", "saddle"]
+  },
+  {
+    "word": "saucer",
+    "category": "Kitchen",
+    "clue": "crockery",
+    "tier": 2,
+    "neighbours": ["sauce", "sausage", "saw", "sat", "sad", "saddle"]
+  },
+  {
+    "word": "sausage",
+    "category": "Food & drink",
+    "clue": "barbecue",
+    "tier": 1,
+    "neighbours": ["sat", "saw", "sauce", "saucer", "sad", "saddle"]
+  },
+  {
+    "word": "scarf",
+    "category": "Clothing",
+    "clue": "winter wear",
+    "tier": 1,
+    "neighbours": ["scale", "scar", "scare", "scene", "school", "scooter"]
+  },
+  {
+    "word": "school",
+    "category": "Shops & buildings",
+    "clue": "learning",
+    "tier": 1,
+    "neighbours": ["scarf", "scale", "scare", "scooter", "scout", "screen"]
+  },
+  {
+    "word": "scone",
+    "category": "Food & drink",
+    "clue": "teatime",
+    "tier": 2,
+    "neighbours": ["scarf", "scale", "scare", "school", "scooter", "scout"]
+  },
+  {
+    "word": "scooter",
+    "category": "Vehicles",
+    "clue": "kick",
+    "tier": 1,
+    "neighbours": ["scarf", "scale", "scare", "school", "scout", "screen"]
+  },
+  {
+    "word": "screen",
+    "category": "Around the house",
+    "clue": "display",
+    "tier": 1,
+    "neighbours": ["scarf", "scale", "scare", "school", "scooter", "screw"]
+  },
+  {
+    "word": "screw",
+    "category": "Tools & crafts",
+    "clue": "fastener",
+    "tier": 1,
+    "neighbours": ["scarf", "scale", "scare", "school", "scooter", "screen"]
+  },
+  {
+    "word": "sea",
+    "category": "Boats & sea",
+    "clue": "salty",
+    "tier": 1,
+    "neighbours": ["seal", "seat", "seed", "seesaw", "sell", "seven"]
+  },
+  {
+    "word": "seagull",
+    "category": "Birds",
+    "clue": "seabird",
+    "tier": 1,
+    "neighbours": ["sea", "seal", "seat", "seed", "seesaw", "sell"]
+  },
+  {
+    "word": "seal",
+    "category": "Sea creatures",
+    "clue": "sea mammal",
+    "tier": 1,
+    "neighbours": ["sea", "seat", "seed", "seesaw", "sell", "seven"]
+  },
+  {
+    "word": "seat",
+    "category": "Around the house",
+    "clue": "sitting",
+    "tier": 2,
+    "neighbours": ["sea", "seal", "seed", "seesaw", "sell", "seven"]
+  },
+  {
+    "word": "seaweed",
+    "category": "Boats & sea",
+    "clue": "slimy",
+    "tier": 1,
+    "neighbours": ["sea", "seal", "seat", "seed", "seesaw", "sell"]
+  },
+  {
+    "word": "seed",
+    "category": "Garden & plants",
+    "clue": "planting",
+    "tier": 1,
+    "neighbours": ["sea", "seal", "seat", "seesaw", "sell", "seven"]
+  },
+  {
+    "word": "seesaw",
+    "category": "Outdoor fun",
+    "clue": "playground",
+    "tier": 1,
+    "neighbours": ["sea", "seal", "seat", "seed", "sell", "seven"]
+  },
+  {
+    "word": "shampoo",
+    "category": "Bathroom",
+    "clue": "hair care",
+    "tier": 1,
+    "neighbours": ["shark", "shade", "shed", "sheep", "shell", "shelf"]
+  },
+  {
+    "word": "shark",
+    "category": "Sea creatures",
+    "clue": "predator",
+    "tier": 1,
+    "neighbours": ["shade", "shadow", "shake", "shape", "shed", "sheep"]
+  },
+  {
+    "word": "shed",
+    "category": "Garden & plants",
+    "clue": "storage",
+    "tier": 1,
+    "neighbours": ["shark", "shadow", "shake", "shape", "sheep", "shell"]
+  },
+  {
+    "word": "sheep",
+    "category": "Farm animals",
+    "clue": "woolly",
+    "tier": 1,
+    "neighbours": ["shark", "shed", "shadow", "shake", "shape", "shell"]
+  },
+  {
+    "word": "shelf",
+    "category": "Around the house",
+    "clue": "storage",
+    "tier": 1,
+    "neighbours": ["shark", "shed", "shadow", "shake", "shape", "sheep"]
+  },
+  {
+    "word": "shell",
+    "category": "Boats & sea",
+    "clue": "seashore",
+    "tier": 1,
+    "neighbours": ["shark", "shed", "shadow", "shake", "shape", "sheep"]
+  },
+  {
+    "word": "shin",
+    "category": "Body",
+    "clue": "leg",
+    "tier": 1,
+    "neighbours": ["shirt", "ship", "shine", "shoe", "shop", "short"]
+  },
+  {
+    "word": "ship",
+    "category": "Boats & sea",
+    "clue": "vessel",
+    "tier": 1,
+    "neighbours": ["shirt", "shin", "shine", "shoe", "shop", "short"]
+  },
+  {
+    "word": "shirt",
+    "category": "Clothing",
+    "clue": "top",
+    "tier": 1,
+    "neighbours": ["ship", "shin", "shine", "shoe", "shop", "short"]
+  },
+  {
+    "word": "shoe",
+    "category": "Clothing",
+    "clue": "footwear",
+    "tier": 1,
+    "neighbours": ["shirt", "ship", "shin", "shine", "shop", "short"]
+  },
+  {
+    "word": "shop",
+    "category": "Shops & buildings",
+    "clue": "buying",
+    "tier": 1,
+    "neighbours": ["shirt", "ship", "shin", "shine", "shoe", "short"]
+  },
+  {
+    "word": "shovel",
+    "category": "Garden & plants",
+    "clue": "digging",
+    "tier": 1,
+    "neighbours": ["shirt", "ship", "shin", "shoe", "shop", "shout"]
+  },
+  {
+    "word": "shower",
+    "category": "Bathroom",
+    "clue": "washing",
+    "tier": 1,
+    "neighbours": ["shirt", "ship", "shin", "shoe", "shop", "short"]
+  },
+  {
+    "word": "shutter",
+    "category": "Around the house",
+    "clue": "window",
+    "tier": 2,
+    "neighbours": ["shirt", "ship", "shin", "shoe", "shop", "shovel"]
+  },
+  {
+    "word": "sign",
+    "category": "Street & town",
+    "clue": "roadside",
+    "tier": 1,
+    "neighbours": ["sink", "sit", "sing", "sip", "silk", "silver"]
+  },
+  {
+    "word": "sink",
+    "category": "Kitchen",
+    "clue": "washing up",
+    "tier": 1,
+    "neighbours": ["sit", "sing", "sip", "silk", "sign", "silver"]
+  },
+  {
+    "word": "skate",
+    "category": "Sport",
+    "clue": "gliding",
+    "tier": 1,
+    "neighbours": ["skin", "skip", "skirt", "skull", "skunk", "sky"]
+  },
+  {
+    "word": "skin",
+    "category": "Body",
+    "clue": "covering",
+    "tier": 1,
+    "neighbours": ["skate", "skip", "skirt", "skull", "skunk", "sky"]
+  },
+  {
+    "word": "skirt",
+    "category": "Clothing",
+    "clue": "garment",
+    "tier": 1,
+    "neighbours": ["skate", "skin", "skip", "skull", "skunk", "sky"]
+  },
+  {
+    "word": "skull",
+    "category": "Body",
+    "clue": "skeleton",
+    "tier": 2,
+    "neighbours": ["skate", "skin", "skip", "skirt", "skunk", "sky"]
+  },
+  {
+    "word": "skunk",
+    "category": "Wild animals",
+    "clue": "smelly",
+    "tier": 2,
+    "neighbours": ["skate", "skin", "skip", "skirt", "skull", "sky"]
+  },
+  {
+    "word": "sky",
+    "category": "Weather & sky",
+    "clue": "above",
+    "tier": 1,
+    "neighbours": ["skate", "skin", "skip", "skirt", "skull", "skunk"]
+  },
+  {
+    "word": "sled",
+    "category": "Outdoor fun",
+    "clue": "winter",
+    "tier": 1,
+    "neighbours": ["slide", "sleeve", "slice", "slip", "slow", "slug"]
+  },
+  {
+    "word": "sleeve",
+    "category": "Clothing",
+    "clue": "garment part",
+    "tier": 2,
+    "neighbours": ["slide", "sled", "slice", "slip", "slow", "slug"]
+  },
+  {
+    "word": "slide",
+    "category": "Outdoor fun",
+    "clue": "playground",
+    "tier": 1,
+    "neighbours": ["sleep", "sleeve", "slice", "slip", "slow", "sled"]
+  },
+  {
+    "word": "slipper",
+    "category": "Clothing",
+    "clue": "footwear",
+    "tier": 1,
+    "neighbours": ["slide", "sled", "slice", "slip", "slow", "slug"]
+  },
+  {
+    "word": "slope",
+    "category": "Nature",
+    "clue": "incline",
+    "tier": 2,
+    "neighbours": ["slide", "sleep", "slice", "slip", "slow", "sled"]
+  },
+  {
+    "word": "slug",
+    "category": "Creepy-crawlies",
+    "clue": "slimy",
+    "tier": 2,
+    "neighbours": ["slide", "sled", "slice", "slip", "slow", "slipper"]
+  },
+  {
+    "word": "smoke",
+    "category": "Nature",
+    "clue": "hazy",
+    "tier": 2,
+    "neighbours": ["smile", "smell", "smart", "small", "smash"]
+  },
+  {
+    "word": "snail",
+    "category": "Creepy-crawlies",
+    "clue": "shelled",
+    "tier": 1,
+    "neighbours": ["snack", "snake", "snap", "sneeze", "sniff", "snow"]
+  },
+  {
+    "word": "snake",
+    "category": "Wild animals",
+    "clue": "reptile",
+    "tier": 1,
+    "neighbours": ["snack", "snail", "snap", "sneeze", "sniff", "snow"]
+  },
+  {
+    "word": "snorkel",
+    "category": "Boats & sea",
+    "clue": "underwater",
+    "tier": 2,
+    "neighbours": ["snack", "snail", "snake", "snap", "sneeze", "snow"]
+  },
+  {
+    "word": "snow",
+    "category": "Weather & sky",
+    "clue": "cold weather",
+    "tier": 1,
+    "neighbours": ["snack", "snail", "snake", "snap", "sneeze", "sniff"]
+  },
+  {
+    "word": "snowman",
+    "category": "Weather & sky",
+    "clue": "winter",
+    "tier": 1,
+    "neighbours": ["snack", "snail", "snake", "snap", "sneeze", "snow"]
+  },
+  {
+    "word": "soap",
+    "category": "Bathroom",
+    "clue": "washing",
+    "tier": 1,
+    "neighbours": ["sock", "sofa", "soft", "soil", "song", "soup"]
+  },
+  {
+    "word": "sock",
+    "category": "Clothing",
+    "clue": "knitted",
+    "tier": 1,
+    "neighbours": ["soap", "sofa", "soft", "soil", "song", "soup"]
+  },
+  {
+    "word": "sofa",
+    "category": "Around the house",
+    "clue": "furniture",
+    "tier": 1,
+    "neighbours": ["soap", "sock", "soft", "soil", "song", "soup"]
+  },
+  {
+    "word": "soup",
+    "category": "Food & drink",
+    "clue": "hot meal",
+    "tier": 1,
+    "neighbours": ["soap", "sock", "sofa", "soft", "soil", "song"]
+  },
+  {
+    "word": "spade",
+    "category": "Garden & plants",
+    "clue": "digging",
+    "tier": 1,
+    "neighbours": ["space", "spark", "spell", "spider", "spin", "spoon"]
+  },
+  {
+    "word": "spanner",
+    "category": "Tools & crafts",
+    "clue": "hand tool",
+    "tier": 2,
+    "neighbours": ["spade", "space", "spark", "spell", "spider", "spoon"]
+  },
+  {
+    "word": "sparrow",
+    "category": "Birds",
+    "clue": "songbird",
+    "tier": 2,
+    "neighbours": ["spade", "space", "spark", "spell", "spider", "spoon"]
+  },
+  {
+    "word": "spider",
+    "category": "Creepy-crawlies",
+    "clue": "eight legs",
+    "tier": 1,
+    "neighbours": ["spade", "space", "spark", "spell", "spin", "spoon"]
+  },
+  {
+    "word": "spoke",
+    "category": "Vehicles",
+    "clue": "bike part",
+    "tier": 2,
+    "neighbours": ["spade", "spark", "spell", "spider", "spoon", "sponge"]
+  },
+  {
+    "word": "sponge",
+    "category": "Bathroom",
+    "clue": "washing",
+    "tier": 1,
+    "neighbours": ["spade", "space", "spark", "spell", "spider", "spoon"]
+  },
+  {
+    "word": "spoon",
+    "category": "Kitchen",
+    "clue": "cutlery",
+    "tier": 1,
+    "neighbours": ["spade", "space", "spark", "spell", "spider", "sponge"]
+  },
+  {
+    "word": "sprout",
+    "category": "Fruit & veg",
+    "clue": "green veg",
+    "tier": 2,
+    "neighbours": ["spade", "space", "spark", "spell", "spider", "spoon"]
+  },
+  {
+    "word": "stadium",
+    "category": "Shops & buildings",
+    "clue": "sport venue",
+    "tier": 2,
+    "neighbours": ["stamp", "star", "step", "stick", "stone", "stool"]
+  },
+  {
+    "word": "stamp",
+    "category": "School & office",
+    "clue": "post",
+    "tier": 1,
+    "neighbours": ["star", "steam", "step", "stick", "stone", "stool"]
+  },
+  {
+    "word": "star",
+    "category": "Weather & sky",
+    "clue": "night sky",
+    "tier": 1,
+    "neighbours": ["stamp", "steam", "step", "stick", "stone", "stool"]
+  },
+  {
+    "word": "station",
+    "category": "Street & town",
+    "clue": "transport",
+    "tier": 1,
+    "neighbours": ["stamp", "star", "step", "stick", "stone", "stool"]
+  },
+  {
+    "word": "statue",
+    "category": "Street & town",
+    "clue": "monument",
+    "tier": 1,
+    "neighbours": ["stamp", "star", "step", "stick", "stone", "stool"]
+  },
+  {
+    "word": "steak",
+    "category": "Food & drink",
+    "clue": "meat",
+    "tier": 1,
+    "neighbours": ["stamp", "star", "step", "stick", "stone", "stool"]
+  },
+  {
+    "word": "stem",
+    "category": "Garden & plants",
+    "clue": "plant part",
+    "tier": 2,
+    "neighbours": ["stamp", "star", "step", "stick", "stone", "stool"]
+  },
+  {
+    "word": "step",
+    "category": "Street & town",
+    "clue": "stairs",
+    "tier": 1,
+    "neighbours": ["stamp", "star", "steam", "stick", "stone", "stool"]
+  },
+  {
+    "word": "stick",
+    "category": "Nature",
+    "clue": "wooden",
+    "tier": 1,
+    "neighbours": ["stamp", "star", "steam", "step", "stone", "stool"]
+  },
+  {
+    "word": "stone",
+    "category": "Nature",
+    "clue": "hard",
+    "tier": 1,
+    "neighbours": ["stamp", "star", "steam", "step", "stick", "stool"]
+  },
+  {
+    "word": "stool",
+    "category": "Around the house",
+    "clue": "seating",
+    "tier": 1,
+    "neighbours": ["stamp", "star", "steam", "step", "stick", "stone"]
+  },
+  {
+    "word": "storm",
+    "category": "Weather & sky",
+    "clue": "wild weather",
+    "tier": 1,
+    "neighbours": ["stamp", "star", "steam", "step", "stick", "stone"]
+  },
+  {
+    "word": "stove",
+    "category": "Kitchen",
+    "clue": "cooking",
+    "tier": 1,
+    "neighbours": ["stamp", "star", "step", "stick", "stone", "stool"]
+  },
+  {
+    "word": "straw",
+    "category": "Kitchen",
+    "clue": "drinking",
+    "tier": 1,
+    "neighbours": ["stamp", "star", "step", "stick", "stone", "strap"]
+  },
+  {
+    "word": "street",
+    "category": "Street & town",
+    "clue": "road",
+    "tier": 1,
+    "neighbours": ["stamp", "star", "step", "stick", "stone", "straw"]
+  },
+  {
+    "word": "string",
+    "category": "Tools & crafts",
+    "clue": "tying",
+    "tier": 1,
+    "neighbours": ["stamp", "star", "step", "stick", "stone", "straw"]
+  },
+  {
+    "word": "sugar",
+    "category": "Food & drink",
+    "clue": "sweet",
+    "tier": 1,
+    "neighbours": ["sun", "sunny", "sum", "sub", "suit", "summer"]
+  },
+  {
+    "word": "suit",
+    "category": "Clothing",
+    "clue": "formal",
+    "tier": 1,
+    "neighbours": ["sun", "sunny", "sugar", "sum", "sub", "summer"]
+  },
+  {
+    "word": "sun",
+    "category": "Weather & sky",
+    "clue": "daytime",
+    "tier": 1,
+    "neighbours": ["sugar", "sunny", "sum", "sub", "suit", "summer"]
+  },
+  {
+    "word": "sunset",
+    "category": "Weather & sky",
+    "clue": "evening",
+    "tier": 1,
+    "neighbours": ["sun", "sunny", "sugar", "sum", "suit", "summer"]
+  },
+  {
+    "word": "swallow",
+    "category": "Birds",
+    "clue": "migrating",
+    "tier": 2,
+    "neighbours": ["swan", "swim", "swing", "sweet", "sword", "swap"]
+  },
+  {
+    "word": "swan",
+    "category": "Birds",
+    "clue": "waterbird",
+    "tier": 1,
+    "neighbours": ["swim", "swing", "sweet", "sword", "swap", "sweep"]
+  },
+  {
+    "word": "swing",
+    "category": "Outdoor fun",
+    "clue": "playground",
+    "tier": 1,
+    "neighbours": ["swan", "swim", "sweet", "sword", "swap", "sweep"]
+  },
+  {
+    "word": "sword",
+    "category": "Make-believe",
+    "clue": "blade",
+    "tier": 1,
+    "neighbours": ["swan", "swim", "swing", "sweet", "swap", "sweep"]
+  },
+  {
+    "word": "table",
+    "category": "Around the house",
+    "clue": "furniture",
+    "tier": 1,
+    "neighbours": ["tab", "tag", "tail", "take", "talk", "tall"]
+  },
+  {
+    "word": "tablet",
+    "category": "School & office",
+    "clue": "technology",
+    "tier": 1,
+    "neighbours": ["table", "tab", "tag", "tail", "take", "talk"]
+  },
+  {
+    "word": "tadpole",
+    "category": "Wild animals",
+    "clue": "young",
+    "tier": 1,
+    "neighbours": ["table", "tab", "tag", "tail", "take", "tank"]
+  },
+  {
+    "word": "tail",
+    "category": "Pets",
+    "clue": "wagging",
+    "tier": 1,
+    "neighbours": ["table", "tablet", "tag", "take", "talk", "tall"]
+  },
+  {
+    "word": "tape",
+    "category": "School & office",
+    "clue": "sticky",
+    "tier": 1,
+    "neighbours": ["table", "tab", "tag", "tail", "take", "tank"]
+  },
+  {
+    "word": "tart",
+    "category": "Food & drink",
+    "clue": "pastry",
+    "tier": 2,
+    "neighbours": ["table", "tab", "tag", "tail", "take", "tank"]
+  },
+  {
+    "word": "taxi",
+    "category": "Vehicles",
+    "clue": "transport",
+    "tier": 1,
+    "neighbours": ["table", "tab", "tag", "tail", "take", "tank"]
+  },
+  {
+    "word": "tea",
+    "category": "Food & drink",
+    "clue": "hot drink",
+    "tier": 1,
+    "neighbours": ["teapot", "teach", "team", "tear", "tent", "teddy"]
+  },
+  {
+    "word": "teacup",
+    "category": "Kitchen",
+    "clue": "crockery",
+    "tier": 1,
+    "neighbours": ["tea", "teapot", "teach", "team", "tear", "teddy"]
+  },
+  {
+    "word": "teapot",
+    "category": "Kitchen",
+    "clue": "crockery",
+    "tier": 1,
+    "neighbours": ["tea", "teach", "team", "tear", "teddy", "tent"]
+  },
+  {
+    "word": "teddy",
+    "category": "Toys",
+    "clue": "soft toy",
+    "tier": 1,
+    "neighbours": ["tea", "teapot", "teach", "team", "tear", "tent"]
+  },
+  {
+    "word": "tennis",
+    "category": "Sport",
+    "clue": "racket sport",
+    "tier": 1,
+    "neighbours": ["tea", "team", "tent", "teddy", "ten", "tell"]
+  },
+  {
+    "word": "tent",
+    "category": "Outdoor fun",
+    "clue": "camping",
+    "tier": 1,
+    "neighbours": ["tea", "teapot", "teach", "team", "tear", "teddy"]
+  },
+  {
+    "word": "thimble",
+    "category": "Tools & crafts",
+    "clue": "sewing",
+    "tier": 2,
+    "neighbours": ["thumb", "thorn", "thing", "think", "third", "thread"]
+  },
+  {
+    "word": "thistle",
+    "category": "Garden & plants",
+    "clue": "prickly",
+    "tier": 2,
+    "neighbours": ["thumb", "thorn", "thing", "think", "third", "thread"]
+  },
+  {
+    "word": "thorn",
+    "category": "Garden & plants",
+    "clue": "prickly",
+    "tier": 2,
+    "neighbours": ["thumb", "thing", "think", "third", "thread", "three"]
+  },
+  {
+    "word": "thread",
+    "category": "Tools & crafts",
+    "clue": "sewing",
+    "tier": 1,
+    "neighbours": ["thumb", "thorn", "thing", "think", "third", "three"]
+  },
+  {
+    "word": "throat",
+    "category": "Body",
+    "clue": "neck",
+    "tier": 2,
+    "neighbours": ["thumb", "thorn", "thing", "think", "third", "thread"]
+  },
+  {
+    "word": "throne",
+    "category": "Make-believe",
+    "clue": "royalty",
+    "tier": 2,
+    "neighbours": ["thumb", "thorn", "thing", "think", "third", "thread"]
+  },
+  {
+    "word": "thumb",
+    "category": "Body",
+    "clue": "digit",
+    "tier": 1,
+    "neighbours": ["think", "thing", "third", "thorn", "thread", "three"]
+  },
+  {
+    "word": "thunder",
+    "category": "Weather & sky",
+    "clue": "stormy",
+    "tier": 1,
+    "neighbours": ["thumb", "thorn", "thing", "think", "third", "thread"]
+  },
+  {
+    "word": "ticket",
+    "category": "Street & town",
+    "clue": "travel",
+    "tier": 1,
+    "neighbours": ["tie", "tide", "tiger", "tile", "till", "time"]
+  },
+  {
+    "word": "tide",
+    "category": "Boats & sea",
+    "clue": "coastal",
+    "tier": 2,
+    "neighbours": ["tie", "tiger", "tile", "till", "time", "tin"]
+  },
+  {
+    "word": "tiger",
+    "category": "Wild animals",
+    "clue": "big cat",
+    "tier": 1,
+    "neighbours": ["tie", "tide", "tile", "till", "time", "tin"]
+  },
+  {
+    "word": "tile",
+    "category": "Bathroom",
+    "clue": "ceramic",
+    "tier": 1,
+    "neighbours": ["tie", "tide", "tiger", "till", "time", "tin"]
+  },
+  {
+    "word": "toad",
+    "category": "Wild animals",
+    "clue": "amphibian",
+    "tier": 1,
+    "neighbours": ["toast", "toe", "tomato", "tool", "tooth", "top"]
+  },
+  {
+    "word": "toast",
+    "category": "Food & drink",
+    "clue": "breakfast",
+    "tier": 1,
+    "neighbours": ["toad", "toe", "tomato", "tool", "tooth", "top"]
+  },
+  {
+    "word": "toaster",
+    "category": "Kitchen",
+    "clue": "appliance",
+    "tier": 1,
+    "neighbours": ["toad", "toast", "toe", "tomato", "tool", "tooth"]
+  },
+  {
+    "word": "toe",
+    "category": "Body",
+    "clue": "digit",
+    "tier": 1,
+    "neighbours": ["toad", "toast", "tomato", "tool", "tooth", "top"]
+  },
+  {
+    "word": "tomato",
+    "category": "Fruit & veg",
+    "clue": "salad veg",
+    "tier": 1,
+    "neighbours": ["toad", "toast", "toe", "tool", "tooth", "top"]
+  },
+  {
+    "word": "tongue",
+    "category": "Body",
+    "clue": "taste",
+    "tier": 1,
+    "neighbours": ["toad", "toast", "toe", "tomato", "tool", "tooth"]
+  },
+  {
+    "word": "tool",
+    "category": "Tools & crafts",
+    "clue": "workshop",
+    "tier": 1,
+    "neighbours": ["toad", "toast", "toe", "tomato", "tooth", "top"]
+  },
+  {
+    "word": "tooth",
+    "category": "Body",
+    "clue": "mouth",
+    "tier": 1,
+    "neighbours": ["toad", "toast", "toe", "tomato", "tool", "top"]
+  },
+  {
+    "word": "tornado",
+    "category": "Weather & sky",
+    "clue": "wild weather",
+    "tier": 1,
+    "neighbours": ["toad", "toast", "toe", "tomato", "tool", "tooth"]
+  },
+  {
+    "word": "towel",
+    "category": "Bathroom",
+    "clue": "drying",
+    "tier": 1,
+    "neighbours": ["toad", "toast", "toe", "tomato", "tool", "tooth"]
+  },
+  {
+    "word": "tower",
+    "category": "Shops & buildings",
+    "clue": "tall",
+    "tier": 1,
+    "neighbours": ["toad", "toast", "toe", "tomato", "tool", "tooth"]
+  },
+  {
+    "word": "town",
+    "category": "Street & town",
+    "clue": "place",
+    "tier": 1,
+    "neighbours": ["toad", "toast", "toe", "tomato", "tool", "tooth"]
+  },
+  {
+    "word": "toy",
+    "category": "Toys",
+    "clue": "play",
+    "tier": 1,
+    "neighbours": ["toad", "toast", "toe", "tomato", "tool", "tooth"]
+  },
+  {
+    "word": "track",
+    "category": "Street & town",
+    "clue": "railway",
+    "tier": 1,
+    "neighbours": ["tractor", "train", "trap", "tray", "tree", "trunk"]
+  },
+  {
+    "word": "tractor",
+    "category": "Vehicles",
+    "clue": "farm",
+    "tier": 1,
+    "neighbours": ["track", "train", "trap", "tray", "tree", "trunk"]
+  },
+  {
+    "word": "train",
+    "category": "Vehicles",
+    "clue": "railway",
+    "tier": 1,
+    "neighbours": ["tractor", "track", "trap", "tray", "tree", "trunk"]
+  },
+  {
+    "word": "tray",
+    "category": "Kitchen",
+    "clue": "carrying",
+    "tier": 1,
+    "neighbours": ["tractor", "track", "train", "trap", "tree", "trunk"]
+  },
+  {
+    "word": "tree",
+    "category": "Garden & plants",
+    "clue": "woody",
+    "tier": 1,
+    "neighbours": ["tractor", "track", "train", "trap", "tray", "trunk"]
+  },
+  {
+    "word": "trout",
+    "category": "Sea creatures",
+    "clue": "freshwater",
+    "tier": 2,
+    "neighbours": ["tractor", "track", "train", "trap", "tray", "tree"]
+  },
+  {
+    "word": "trumpet",
+    "category": "Music",
+    "clue": "brass",
+    "tier": 1,
+    "neighbours": ["tractor", "track", "train", "trap", "tray", "tree"]
+  },
+  {
+    "word": "trunk",
+    "category": "Nature",
+    "clue": "tree part",
+    "tier": 2,
+    "neighbours": ["tractor", "track", "train", "trap", "tray", "tree"]
+  },
+  {
+    "word": "tub",
+    "category": "Bathroom",
+    "clue": "washing",
+    "tier": 1,
+    "neighbours": ["tulip", "tube", "tug", "tuna", "tunnel", "turtle"]
+  },
+  {
+    "word": "tulip",
+    "category": "Garden & plants",
+    "clue": "spring",
+    "tier": 1,
+    "neighbours": ["tub", "tube", "tug", "tummy", "tuna", "tunnel"]
+  },
+  {
+    "word": "tuna",
+    "category": "Sea creatures",
+    "clue": "tinned",
+    "tier": 2,
+    "neighbours": ["tulip", "tub", "tube", "tug", "tunnel", "turtle"]
+  },
+  {
+    "word": "tunnel",
+    "category": "Street & town",
+    "clue": "underground",
+    "tier": 1,
+    "neighbours": ["tulip", "tub", "tube", "tug", "tuna", "turtle"]
+  },
+  {
+    "word": "turkey",
+    "category": "Farm animals",
+    "clue": "poultry",
+    "tier": 1,
+    "neighbours": ["tulip", "tub", "tube", "tug", "tuna", "tunnel"]
+  },
+  {
+    "word": "turtle",
+    "category": "Wild animals",
+    "clue": "reptile",
+    "tier": 1,
+    "neighbours": ["tulip", "tub", "tube", "tug", "tuna", "tunnel"]
+  },
+  {
+    "word": "twig",
+    "category": "Nature",
+    "clue": "wooden",
+    "tier": 1,
+    "neighbours": ["twin", "twist", "twelve", "twenty", "twice", "tweet"]
+  },
+  {
+    "word": "unicorn",
+    "category": "Make-believe",
+    "clue": "mythical",
+    "tier": 1,
+    "neighbours": ["uncle", "under", "unit", "union", "until"]
+  },
+  {
+    "word": "valley",
+    "category": "Nature",
+    "clue": "landform",
+    "tier": 1,
+    "neighbours": ["van", "vase", "value", "vanilla", "vacuum"]
+  },
+  {
+    "word": "van",
+    "category": "Vehicles",
+    "clue": "delivery",
+    "tier": 1,
+    "neighbours": ["vase", "valley", "value", "vanilla", "vacuum"]
+  },
+  {
+    "word": "vase",
+    "category": "Around the house",
+    "clue": "decoration",
+    "tier": 1,
+    "neighbours": ["van", "valley", "value", "vanilla", "vacuum"]
+  },
+  {
+    "word": "village",
+    "category": "Street & town",
+    "clue": "place",
+    "tier": 1,
+    "neighbours": ["violin", "view", "vine", "violet", "video"]
+  },
+  {
+    "word": "vine",
+    "category": "Garden & plants",
+    "clue": "climber",
+    "tier": 1,
+    "neighbours": ["violin", "village", "view", "violet", "video", "vinegar"]
+  },
+  {
+    "word": "vinegar",
+    "category": "Food & drink",
+    "clue": "condiment",
+    "tier": 2,
+    "neighbours": ["violin", "village", "view", "vine", "video"]
+  },
+  {
+    "word": "violet",
+    "category": "Garden & plants",
+    "clue": "purple",
+    "tier": 2,
+    "neighbours": ["violin", "village", "view", "vine", "video"]
+  },
+  {
+    "word": "violin",
+    "category": "Music",
+    "clue": "strings",
+    "tier": 1,
+    "neighbours": ["view", "village", "vine", "violet", "video"]
+  },
+  {
+    "word": "volcano",
+    "category": "Nature",
+    "clue": "mountain",
+    "tier": 1,
+    "neighbours": ["voice", "volume", "vote", "vowel"]
+  },
+  {
+    "word": "waffle",
+    "category": "Food & drink",
+    "clue": "breakfast",
+    "tier": 1,
+    "neighbours": ["wall", "wallet", "wag", "wait", "wake", "walk"]
+  },
+  {
+    "word": "wagon",
+    "category": "Vehicles",
+    "clue": "pulled",
+    "tier": 2,
+    "neighbours": ["wall", "wallet", "wait", "wake", "walk", "wand"]
+  },
+  {
+    "word": "wall",
+    "category": "Around the house",
+    "clue": "structure",
+    "tier": 1,
+    "neighbours": ["wag", "wait", "wake", "walk", "wand", "want"]
+  },
+  {
+    "word": "wallet",
+    "category": "Clothing",
+    "clue": "money",
+    "tier": 1,
+    "neighbours": ["wall", "wag", "wait", "wake", "walk", "want"]
+  },
+  {
+    "word": "walnut",
+    "category": "Food & drink",
+    "clue": "nut",
+    "tier": 1,
+    "neighbours": ["wall", "wallet", "wag", "wait", "wake", "walk"]
+  },
+  {
+    "word": "walrus",
+    "category": "Sea creatures",
+    "clue": "tusks",
+    "tier": 1,
+    "neighbours": ["wall", "wallet", "wag", "wait", "wake", "walk"]
+  },
+  {
+    "word": "wand",
+    "category": "Make-believe",
+    "clue": "magic",
+    "tier": 1,
+    "neighbours": ["wall", "wallet", "wag", "wait", "wake", "walk"]
+  },
+  {
+    "word": "wasp",
+    "category": "Creepy-crawlies",
+    "clue": "stinging",
+    "tier": 1,
+    "neighbours": ["wall", "wallet", "wag", "wait", "wake", "walk"]
+  },
+  {
+    "word": "watch",
+    "category": "Clothing",
+    "clue": "time",
+    "tier": 1,
+    "neighbours": ["wall", "wallet", "wag", "wait", "wake", "walk"]
+  },
+  {
+    "word": "water",
+    "category": "Nature",
+    "clue": "liquid",
+    "tier": 1,
+    "neighbours": ["wall", "wallet", "wag", "wait", "wake", "walk"]
+  },
+  {
+    "word": "wave",
+    "category": "Boats & sea",
+    "clue": "surf",
+    "tier": 1,
+    "neighbours": ["wall", "wallet", "wag", "wait", "wake", "walk"]
+  },
+  {
+    "word": "weasel",
+    "category": "Wild animals",
+    "clue": "hunter",
+    "tier": 2,
+    "neighbours": ["web", "weed", "week", "well", "west", "wet"]
+  },
+  {
+    "word": "weed",
+    "category": "Garden & plants",
+    "clue": "unwanted",
+    "tier": 1,
+    "neighbours": ["web", "week", "well", "west", "wet", "weather"]
+  },
+  {
+    "word": "whale",
+    "category": "Sea creatures",
+    "clue": "sea mammal",
+    "tier": 1,
+    "neighbours": ["wheat", "wheel", "whip", "whisk", "whistle", "white"]
+  },
+  {
+    "word": "wheat",
+    "category": "Garden & plants",
+    "clue": "crop",
+    "tier": 1,
+    "neighbours": ["whale", "wheel", "whip", "whisk", "whistle", "white"]
+  },
+  {
+    "word": "wheel",
+    "category": "Vehicles",
+    "clue": "round",
+    "tier": 1,
+    "neighbours": ["whale", "wheat", "whip", "whisk", "whistle", "white"]
+  },
+  {
+    "word": "whisk",
+    "category": "Kitchen",
+    "clue": "utensil",
+    "tier": 1,
+    "neighbours": ["whale", "wheat", "wheel", "whip", "whistle", "white"]
+  },
+  {
+    "word": "whistle",
+    "category": "Music",
+    "clue": "referee",
+    "tier": 1,
+    "neighbours": ["whale", "wheat", "wheel", "whip", "whisk", "white"]
+  },
+  {
+    "word": "wind",
+    "category": "Weather & sky",
+    "clue": "blowing",
+    "tier": 1,
+    "neighbours": ["wig", "wing", "wink", "wipe", "wire", "window"]
+  },
+  {
+    "word": "window",
+    "category": "Around the house",
+    "clue": "glass",
+    "tier": 1,
+    "neighbours": ["wig", "wind", "wing", "wink", "wipe", "wire"]
+  },
+  {
+    "word": "wing",
+    "category": "Birds",
+    "clue": "flying",
+    "tier": 1,
+    "neighbours": ["wig", "wind", "wink", "wipe", "wire", "window"]
+  },
+  {
+    "word": "wire",
+    "category": "Tools & crafts",
+    "clue": "metal",
+    "tier": 2,
+    "neighbours": ["wig", "wind", "wing", "wink", "wipe", "window"]
+  },
+  {
+    "word": "wizard",
+    "category": "Make-believe",
+    "clue": "magic",
+    "tier": 1,
+    "neighbours": ["wig", "wind", "wing", "wink", "wipe", "wire"]
+  },
+  {
+    "word": "wolf",
+    "category": "Wild animals",
+    "clue": "pack",
+    "tier": 1,
+    "neighbours": ["wood", "wool", "word", "work", "world", "worm"]
+  },
+  {
+    "word": "wombat",
+    "category": "Wild animals",
+    "clue": "marsupial",
+    "tier": 2,
+    "neighbours": ["wolf", "wood", "wool", "word", "work", "worm"]
+  },
+  {
+    "word": "wood",
+    "category": "Nature",
+    "clue": "timber",
+    "tier": 1,
+    "neighbours": ["wolf", "wool", "word", "work", "worm", "wombat"]
+  },
+  {
+    "word": "wool",
+    "category": "Clothing",
+    "clue": "fabric",
+    "tier": 1,
+    "neighbours": ["wolf", "wood", "word", "work", "worm", "wombat"]
+  },
+  {
+    "word": "worm",
+    "category": "Creepy-crawlies",
+    "clue": "wriggly",
+    "tier": 1,
+    "neighbours": ["wolf", "wood", "wool", "word", "work", "wombat"]
+  },
+  {
+    "word": "wreath",
+    "category": "Around the house",
+    "clue": "Christmas",
+    "tier": 2,
+    "neighbours": ["wrist", "wrap", "wren", "wreck", "wrong", "write"]
+  },
+  {
+    "word": "wren",
+    "category": "Birds",
+    "clue": "songbird",
+    "tier": 2,
+    "neighbours": ["wrist", "wrap", "wreath", "wreck", "wrong", "write"]
+  },
+  {
+    "word": "wrench",
+    "category": "Tools & crafts",
+    "clue": "hand tool",
+    "tier": 2,
+    "neighbours": ["wrist", "wrap", "wreath", "wren", "wreck", "write"]
+  },
+  {
+    "word": "wrist",
+    "category": "Body",
+    "clue": "joint",
+    "tier": 1,
+    "neighbours": ["wrap", "wreath", "wreck", "wren", "wrong", "write"]
+  },
+  {
+    "word": "yacht",
+    "category": "Boats & sea",
+    "clue": "vessel",
+    "tier": 2,
+    "neighbours": ["yak", "yard", "yarn", "yawn", "yam"]
+  },
+  {
+    "word": "yarn",
+    "category": "Tools & crafts",
+    "clue": "knitting",
+    "tier": 2,
+    "neighbours": ["yacht", "yak", "yard", "yawn", "yam"]
+  },
+  {
+    "word": "yolk",
+    "category": "Food & drink",
+    "clue": "egg",
+    "tier": 2,
+    "neighbours": ["yoga", "young", "yoyo", "yogurt"]
+  }
 ]
