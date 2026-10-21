@@ -50,10 +50,16 @@ export function apiDevServer(): Plugin {
   return {
     name: "ispydle-api-dev",
     configureServer(server) {
-      server.middlewares.use("/api", (req, res, next) => {
+      server.middlewares.use("/api", (req, res) => {
         // Connect strips the "/api" mount path; restore it for the handlers.
         req.url = `/api${req.url ?? ""}`;
-        handle(server, req, res).catch(next);
+        handle(server, req, res).catch((err: unknown) => {
+          // Answer like a crashed function would, rather than Vite's error overlay.
+          server.config.logger.error(String(err));
+          res.statusCode = 500;
+          res.setHeader("Content-Type", "application/json");
+          res.end(JSON.stringify({ error: "Internal error" }));
+        });
       });
     },
   };

@@ -12,6 +12,20 @@ export function json(body: unknown, status = 200): Response {
 
 export const error = (status: number, message: string) => json({ error: message }, status);
 
+type Handler = (req: Request) => Promise<Response>;
+
+/** Turns an unexpected failure (usually the database being unreachable) into a JSON 503. */
+export function withErrors(handler: Handler): Handler {
+  return async (req) => {
+    try {
+      return await handler(req);
+    } catch (err) {
+      console.error(err);
+      return error(503, "Service unavailable");
+    }
+  };
+}
+
 /** Returns a 429 response if the caller is over the rate limit, else null. */
 export function rateLimited(req: Request): Response | null {
   const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "unknown";

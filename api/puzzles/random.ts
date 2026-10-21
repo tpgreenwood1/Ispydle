@@ -1,10 +1,10 @@
 import type { PuzzleInfo } from "../../shared/types.js";
-import { enabledTiers, error, json, rateLimited } from "../_lib/http.js";
+import { enabledTiers, error, json, rateLimited, withErrors } from "../_lib/http.js";
 import { randomPuzzle } from "../_lib/queries.js";
 
 const MAX_EXCLUDE = 1000;
 
-export async function GET(req: Request): Promise<Response> {
+export const GET = withErrors(async (req) => {
   const limited = rateLimited(req);
   if (limited) return limited;
 
@@ -20,4 +20,4 @@ export async function GET(req: Request): Promise<Response> {
     puzzleNo: puzzle.puzzleNo,
     firstLetter: puzzle.word.charAt(0),
   } satisfies PuzzleInfo);
-}
+});

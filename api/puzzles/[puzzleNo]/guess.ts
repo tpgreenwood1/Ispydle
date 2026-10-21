@@ -2,7 +2,14 @@ import { MAX_GUESSES } from "../../../shared/config.js";
 import { evaluateGuesses } from "../../../shared/evaluate.js";
 import type { GuessResponse } from "../../../shared/types.js";
 import { isWellFormed, validateGuess } from "../../../shared/validateGuess.js";
-import { MAX_BODY_BYTES, error, json, puzzleNoFromUrl, rateLimited } from "../../_lib/http.js";
+import {
+  MAX_BODY_BYTES,
+  error,
+  json,
+  puzzleNoFromUrl,
+  rateLimited,
+  withErrors,
+} from "../../_lib/http.js";
 import { dictionaryHas, getPuzzle } from "../../_lib/queries.js";
 
 interface Body {
@@ -21,10 +28,14 @@ function parseBody(text: string): Body | null {
   const { guesses, revealCategory } = body as Record<string, unknown>;
   if (!Array.isArray(guesses) || !guesses.every((g) => typeof g === "string")) return null;
   if (revealCategory !== undefined && typeof revealCategory !== "boolean") return null;
-  return { guesses, revealCategory: revealCategory ?? false };
+  // Guesses are case-insensitive: "Spoon" and "spoon" are the same guess.
+  return {
+    guesses: guesses.map((g: string) => g.trim().toLowerCase()),
+    revealCategory: revealCategory ?? false,
+  };
 }
 
-export async function POST(req: Request): Promise<Response> {
+export const POST = withErrors(async (req) => {
   const limited = rateLimited(req);
   if (limited) return limited;
 
@@ -38,14 +49,16 @@ export async function POST(req: Request): Promise<Response> {
   const { guesses, revealCategory } = body;
   if (guesses.length > MAX_GUESSES) return error(400, `At most ${MAX_GUESSES} guesses`);
 
-  const puzzle = await getPuzzle(puzzleNo);
+  const [puzzle, known] = await Promise.all([
+    getPuzzle(puzzleNo),
+    dictionaryHas(guesses.filter(isWellFormed)),
+  ]);
   if (!puzzle) return error(404, "Puzzle not found");
 
   // A guess after the winning guess means the client is out of sync.
   const winAt = guesses.indexOf(puzzle.word);
   if (winAt !== -1 && winAt < guesses.length - 1) return error(400, "Game already won");
 
-  const known = await dictionaryHas(guesses.filter(isWellFormed));
   const firstLetter = puzzle.word.charAt(0);
   for (const [i, guess] of guesses.entries()) {
     const err = validateGuess(guess, firstLetter, guesses.slice(0, i), (w) => known.has(w));
@@ -56,4 +69,4 @@ export async function POST(req: Request): Promise<Response> {
 
   const state = evaluateGuesses(puzzle.word, puzzle.category, guesses, revealCategory);
   return json({ valid: true, state } satisfies GuessResponse);
-}
+});

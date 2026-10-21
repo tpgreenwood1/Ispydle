@@ -1,0 +1,58 @@
+/* Design tokens (spec §5). Light by default; dark via the system setting or [data-theme]. */
+:root {
+  --ground: #eef3fa;
+  --ink: #14213d;
+  --muted: #566179;
+  --divider: #d3dcea;
+  --confirmed: #17794d;
+  --on-confirmed: #ffffff;
+  --no-help: #dce2ec;
+  --unknown-dashed: #8e9ab0;
+  --placeholder-dashed: #cbd4e2;
+  --hint-dashed: #b7c2d4;
+  --accent: #f5b63a;
+  --on-accent: #14213d;
+  --input-bg: #ffffff;
+  --input-border: var(--ink);
+  --button-shadow: 0 3px 0 #14213d;
+  color-scheme: light;
+
+  --font-display: "Fredoka", system-ui, sans-serif;
+  --font-body: "Nunito", system-ui, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ground: #0f1b2d;
+    --ink: #e8eef8;
+    --muted: #a3b1c9;
+    --divider: #263650;
+    --confirmed: #34c77b;
+    --on-confirmed: #08170f;
+    --no-help: #26354d;
+    --unknown-dashed: #5e7191;
+    --placeholder-dashed: #33445f;
+    --hint-dashed: #3a4c69;
+    --on-accent: #0f1b2d;
+    --input-bg: #172640;
+    --button-shadow: 0 3px 0 #05090f;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --ground: #0f1b2d;
+  --ink: #e8eef8;
+  --muted: #a3b1c9;
+  --divider: #263650;
+  --confirmed: #34c77b;
+  --on-confirmed: #08170f;
+  --no-help: #26354d;
+  --unknown-dashed: #5e7191;
+  --placeholder-dashed: #33445f;
+  --hint-dashed: #3a4c69;
+  --on-accent: #0f1b2d;
+  --input-bg: #172640;
+  --button-shadow: 0 3px 0 #05090f;
+  color-scheme: dark;
+}

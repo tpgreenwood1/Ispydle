@@ -1,8 +1,8 @@
 import type { PuzzleInfo } from "../../shared/types.js";
-import { error, json, puzzleNoFromUrl, rateLimited } from "../_lib/http.js";
+import { error, json, puzzleNoFromUrl, rateLimited, withErrors } from "../_lib/http.js";
 import { getPuzzle } from "../_lib/queries.js";
 
-export async function GET(req: Request): Promise<Response> {
+export const GET = withErrors(async (req) => {
   const limited = rateLimited(req);
   if (limited) return limited;
 
@@ -13,4 +13,4 @@ export async function GET(req: Request): Promise<Response> {
     puzzleNo: puzzle.puzzleNo,
     firstLetter: puzzle.word.charAt(0),
   } satisfies PuzzleInfo);
-}
+});

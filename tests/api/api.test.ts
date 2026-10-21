@@ -126,8 +126,9 @@ describe("POST /api/puzzles/:puzzleNo/guess", () => {
     ["sxyz", "NOT_IN_DICTIONARY"],
     ["acorn", "WRONG_FIRST_LETTER"],
     ["spoon", "ALREADY_GUESSED"],
-    ["Sofa", "BAD_FORMAT"],
+    ["so-fa", "BAD_FORMAT"],
     ["s", "BAD_FORMAT"],
+    ["SPOON", "ALREADY_GUESSED"],
   ])("rejects a last guess of %s as %s with 200", async (last, code) => {
     const res = await guess({ guesses: ["spoon", last] });
     expect(res.status).toBe(200);
@@ -145,6 +146,23 @@ describe("POST /api/puzzles/:puzzleNo/guess", () => {
     ["malformed JSON", "{"],
   ])("returns 400 for %s", async (_, body) => {
     expect((await guess(body)).status).toBe(400);
+  });
+
+  it("accepts guesses in any case", async () => {
+    const res = await guess({ guesses: ["Spoon", " SALAD "] });
+    const { state } = await res.json();
+    expect(state.rows).toEqual([
+      { word: "spoon", matched: 1 },
+      { word: "salad", matched: 2 },
+    ]);
+  });
+
+  it("returns 503 JSON when the database is unreachable", async () => {
+    const { getPuzzle: mocked } = await import("../../api/_lib/queries");
+    vi.mocked(mocked).mockRejectedValueOnce(new TypeError("fetch failed"));
+    const res = await guess({ guesses: ["spoon"] });
+    expect(res.status).toBe(503);
+    expect(await res.json()).toEqual({ error: "Service unavailable" });
   });
 
   it("returns 413 for an oversized body", async () => {
