@@ -31,11 +31,10 @@ async function loadFixture(): Promise<Fixture> {
 }
 
 async function guess(page: Page, word: string) {
-  const input = page.getByLabel(/Your guess/);
-  await input.fill(word);
+  await page.keyboard.type(word);
   await Promise.all([
     page.waitForResponse((r) => r.url().includes("/guess")),
-    input.press("Enter"),
+    page.keyboard.press("Enter"),
   ]);
 }
 
@@ -72,6 +71,8 @@ test("plays a puzzle from first letter to shared result", async ({ page, baseURL
   await guess(page, (firstLetter === "z" ? "q" : "z") + "ebra");
   await expect(page.locator(".toast")).toHaveText(`Must start with ${firstLetter.toUpperCase()}`);
   await expect(page.getByText("6 guesses left", { exact: true })).toBeVisible();
+  // The rejected guess stays typed, so delete it.
+  for (let i = 0; i < 5; i++) await page.keyboard.press("Backspace");
 
   const caption = page.getByText(/^\d+ letters$/);
   for (const [i, word] of fx.guesses.entries()) {

@@ -31,9 +31,8 @@ async function mockPuzzle(page: Page) {
 }
 
 async function guess(page: Page, word: string) {
-  const input = page.getByLabel(/Your guess/);
-  await input.fill(word);
-  await input.press("Enter");
+  await page.keyboard.type(word);
+  await page.keyboard.press("Enter");
 }
 
 async function missSix(page: Page) {
@@ -56,7 +55,7 @@ async function missSix(page: Page) {
 test("hides the clue until the last chance, then wins with it", async ({ page, baseURL }) => {
   await mockPuzzle(page);
   await missSix(page);
-  const clueStrip = page.locator(".hint-strip", { hasText: `Clue: ${CLUE}` });
+  const clueStrip = page.locator(".clue", { hasText: `Clue: ${CLUE}` });
   await expect(clueStrip).toHaveCount(0);
 
   await page.getByRole("button", { name: "Show clue" }).click();

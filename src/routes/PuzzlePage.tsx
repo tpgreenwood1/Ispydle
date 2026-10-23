@@ -3,7 +3,13 @@ import { useParams } from "react-router-dom";
 import { LAST_CHANCE_GUESSES, MAX_GUESSES, MAX_WORD_LEN } from "../../shared/config";
 import { buildShareText, shareImageAlt, shareImagePath, shareResultFor } from "../../shared/share";
 import { GuessHistory, LengthCaption, PrefixRow } from "../components/Board";
-import { Counter, GuessInput, HintStrips, LastChanceOffer } from "../components/Controls";
+import {
+  CategoryHint,
+  Counter,
+  GuessInput,
+  Keyboard,
+  LastChanceOffer,
+} from "../components/Controls";
 import { ResultSheet } from "../components/Sheets";
 import { useToast } from "../components/toastContext";
 import { useGame, type Hint } from "../hooks/useGame";
@@ -119,12 +125,17 @@ function Game({ puzzleNo }: { puzzleNo: number }) {
           prevLength={prevLetters.length}
           wordLength={state.wordLength}
         />
-        <LengthCaption wordLength={state.wordLength} />
       </div>
       <p className="sr-only">
         Starts with {letters.toUpperCase().split("").join(" ")}
         {state.wordLength !== null && `, ${state.wordLength} letters`}.
       </p>
+      <div className="caption">
+        <LengthCaption wordLength={state.wordLength} />
+        <CategoryHint state={state} onReveal={() => handleReveal("category")} />
+      </div>
+      {/* Shown once the last chance is taken (or the game ends). */}
+      {state.clue && <p className="clue">Clue: {state.clue}</p>}
       <hr className="divider" />
       <GuessHistory
         rows={state.rows}
@@ -138,7 +149,6 @@ function Game({ puzzleNo }: { puzzleNo: number }) {
           puzzleNo={puzzleNo}
           lastChance={!ended && state.clueAvailable}
         />
-        <HintStrips state={state} onReveal={handleReveal} />
         {ended ? (
           <div className="actions">
             <button type="button" className="button" onClick={() => setResultOpen(true)}>
@@ -153,6 +163,8 @@ function Game({ puzzleNo }: { puzzleNo: number }) {
         ) : (
           <GuessInput firstLetter={puzzle.firstLetter} busy={busy} onSubmit={handleGuess} />
         )}
+        {/* GuessInput brings its own keyboard; otherwise keep one in place, disabled. */}
+        {(ended || lastChanceOffered) && <Keyboard />}
       </div>
 
       <div className="sr-only" aria-live="polite">

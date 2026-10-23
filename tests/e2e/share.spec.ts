@@ -60,9 +60,11 @@ async function winGame(page: Page, stub: ShareStub) {
 
   await page.goto("/p/4821");
   await page.getByRole("button", { name: "Let’s play" }).click();
-  const input = page.getByLabel(/Your guess/);
-  await input.fill("sandal");
-  await input.press("Enter");
+  // Typed on the on-screen keyboard.
+  const keyboard = page.getByRole("group", { name: "Keyboard" });
+  for (const key of [..."sandal", "Enter"]) {
+    await keyboard.getByRole("button", { name: key, exact: true }).tap();
+  }
   const result = page.getByRole("dialog", { name: "Spotted it! 1/6" });
   await expect(result).toBeVisible();
   return { result, counted };

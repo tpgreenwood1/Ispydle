@@ -60,15 +60,12 @@ export function PrefixRow({ letters, prevLength, wordLength }: PrefixRowProps) {
 }
 
 export function LengthCaption({ wordLength }: { wordLength: number | null }) {
+  if (wordLength === null) return null;
   return (
-    <div className="length-caption">
-      {wordLength !== null && (
-        <>
-          <MagnifierIcon size={16} />
-          {wordLength} letters
-        </>
-      )}
-    </div>
+    <span className="length-caption" aria-hidden="true">
+      <MagnifierIcon size={16} />
+      {wordLength} letters
+    </span>
   );
 }
 

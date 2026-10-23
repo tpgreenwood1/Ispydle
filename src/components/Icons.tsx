@@ -42,6 +42,13 @@ export const CloseIcon = ({ size = 24 }: IconProps) => (
   </svg>
 );
 
+export const BackspaceIcon = ({ size = 22 }: IconProps) => (
+  <svg {...svgProps(size)}>
+    <path d="M8.5 5H20a1.5 1.5 0 0 1 1.5 1.5v11A1.5 1.5 0 0 1 20 19H8.5L2.5 12z" />
+    <path d="m11.5 9.5 5 5M16.5 9.5l-5 5" />
+  </svg>
+);
+
 export const LockIcon = ({ size = 18 }: IconProps) => (
   <svg {...svgProps(size)}>
     <rect x="5" y="10.5" width="14" height="10" rx="2.5" />

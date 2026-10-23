@@ -22,20 +22,20 @@ test("losing the connection mid-game is recoverable", async ({ page, context }) 
   await expect(page.getByText(/You’re offline/)).toBeVisible();
 
   // Typed with a capital first letter and submitted with Enter.
-  await input.fill(guessWord);
-  await input.press("Enter");
+  await page.keyboard.type(guessWord);
+  await page.keyboard.press("Enter");
   await expect(page.locator(".toast")).toHaveText(/No connection/);
-  await expect(input).toHaveValue(guessWord); // kept, so it can be sent again
+  await expect(input).toHaveText(guessWord.toLowerCase()); // kept, so it can be sent again
   await expect(page.getByText("6 guesses left", { exact: true })).toBeVisible();
 
   await context.setOffline(false);
   await expect(page.getByText(/You’re offline/)).toHaveCount(0);
   await Promise.all([
     page.waitForResponse((r) => r.url().includes("/guess")),
-    input.press("Enter"),
+    page.keyboard.press("Enter"),
   ]);
   await expect(page.getByText("5 guesses left", { exact: true })).toBeVisible();
-  await expect(input).toHaveValue("");
+  await expect(input).toHaveText("");
 });
 
 test("a failed load retries when the connection returns", async ({ page, context }) => {
